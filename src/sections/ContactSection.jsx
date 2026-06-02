@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { useState } from 'react'
 import { FacebookIcon, TwitterIcon, InstagramIcon, YoutubeIcon } from '../components/ui/SocialIcons'
 import SectionHeader from '../components/ui/SectionHeader'
 
@@ -16,6 +17,38 @@ const socials = [
 ]
 
 const ContactSection = () => {
+  const [contactForm, setContactForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const API_BASE = import.meta.env.VITE_API_BASE
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitError('')
+    setSubmitSuccess(false)
+    try {
+      const res = await fetch(`${API_BASE}/enquiries`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(contactForm),
+      })
+      const json = await res.json()
+      if (json.success) {
+        setContactForm({ name: '', email: '', subject: '', message: '' })
+        setSubmitSuccess(true)
+        setTimeout(() => setSubmitSuccess(false), 5000)
+      } else {
+        setSubmitError(json.message || 'संदेश भेजने में समस्या हुई।')
+      }
+    } catch (err) {
+      setSubmitError('सर्वर से कनेक्ट नहीं हो पाया। कृपया पुनः प्रयास करें।')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <section id="contact" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
@@ -68,35 +101,58 @@ const ContactSection = () => {
           <div className="bg-gray-50 rounded-2xl p-6">
             <h3 className="text-base font-bold text-gray-900 font-['Poppins'] mb-4">संदेश भेजें</h3>
 
-            <div className="grid grid-cols-2 gap-3 mb-3">
+            <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-3">
               <input
                 type="text"
                 placeholder="आपका नाम"
+                value={contactForm.name}
+                onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
+                required
                 className="col-span-2 sm:col-span-1 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#1a5c38] transition-colors"
               />
               <input
                 type="email"
                 placeholder="ईमेल"
+                value={contactForm.email}
+                onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
+                required
                 className="col-span-2 sm:col-span-1 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#1a5c38] transition-colors"
               />
-            </div>
-            <input
-              type="text"
-              placeholder="विषय"
-              className="w-full border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] mb-3 focus:outline-none focus:border-[#1a5c38] transition-colors"
-            />
-            <textarea
-              rows={4}
-              placeholder="आपका संदेश लिखें..."
-              className="w-full border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] mb-4 focus:outline-none focus:border-[#1a5c38] transition-colors resize-none"
-            />
-            <button
-              id="contact-submit-btn"
-              className="btn-primary w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold font-['Hind']"
-            >
-              <Send size={15} />
-              संदेश भेजें
-            </button>
+              <input
+                type="text"
+                placeholder="विषय"
+                value={contactForm.subject}
+                onChange={(e) => setContactForm(prev => ({ ...prev, subject: e.target.value }))}
+                required
+                className="col-span-2 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#1a5c38] transition-colors"
+              />
+              <textarea
+                rows={4}
+                placeholder="आपका संदेश लिखें..."
+                value={contactForm.message}
+                onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
+                required
+                className="col-span-2 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#1a5c38] transition-colors resize-none"
+              />
+              {submitError && (
+                <div className="col-span-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-['Hind']">
+                  {submitError}
+                </div>
+              )}
+              {submitSuccess && (
+                <div className="col-span-2 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm font-['Hind']">
+                  ✓ धन्यवाद! आपका संदेश भेज दिया गया है। हम जल्द ही आपसे संपर्क करेंगे।
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="col-span-2 btn-primary w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold font-['Hind'] disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Send size={15} />
+                {isSubmitting ? 'भेज रहे हैं...' : 'संदेश भेजें'}
+              </button>
+            </form>
           </div>
 
         </div>
