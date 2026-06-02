@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send, Clock, ChevronRight, CheckCircle2 } from 'lucide-react'
 import { FacebookIcon, TwitterIcon, InstagramIcon, YoutubeIcon } from '../components/ui/SocialIcons'
-import DonationQueryFormSection from '../sections/DonationQueryFormSection'
 
 const API_BASE = import.meta.env.VITE_API_BASE
 
@@ -295,8 +294,6 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-
-      <DonationQueryFormSection source="contact_page" sectionId="contact-donation-form" />
 
       <style>{`
         @media (max-width: 1024px) { .contact-info-grid { grid-template-columns: repeat(2,1fr) !important; } }
