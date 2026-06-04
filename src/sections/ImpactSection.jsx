@@ -75,7 +75,7 @@ const ImpactSection = () => {
           color: #4b5563;
         }
         .tab-btn.active {
-          background: #1a5c38;
+          background: #821905;
           color: #ffffff;
         }
         .progress-circle-svg {
@@ -140,7 +140,7 @@ const ImpactSection = () => {
           pointerEvents: 'none',
           zIndex: 1,
           opacity: 0.15,
-          color: '#1a5c38',
+          color: '#821905',
         }}
       >
         <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -159,7 +159,7 @@ const ImpactSection = () => {
             
             {/* Top-Left Dotted Accent Grid */}
             <div style={{ position: 'absolute', top: '-18px', left: '-18px', zIndex: 0 }}>
-              <svg width="84" height="84" fill="#f5b400">
+              <svg width="84" height="84" fill="#FDED95">
                 <pattern id="dotPattern" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
                   <circle cx="3" cy="3" r="2.5" />
                 </pattern>
@@ -189,7 +189,7 @@ const ImpactSection = () => {
                   filter: 'grayscale(20%) brightness(85%) contrast(105%)',
                 }}
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'rgba(26,92,56,0.18)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'rgba(130, 25, 5,0.18)' }} />
 
               {/* Central Yellow Play Button */}
               <a 
@@ -204,18 +204,18 @@ const ImpactSection = () => {
                   width: '54px',
                   height: '54px',
                   borderRadius: '50%',
-                  background: '#f5b400',
+                  background: '#FDED95',
                   color: '#ffffff',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  boxShadow: '0 6px 18px rgba(245,180,0,0.45)',
+                  boxShadow: '0 6px 18px rgba(253, 237, 149,0.45)',
                   textDecoration: 'none',
                   transition: 'transform 0.25s, background-color 0.25s',
                   zIndex: 10,
                 }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.08)'; e.currentTarget.style.backgroundColor = '#ffd54f' }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1)'; e.currentTarget.style.backgroundColor = '#f5b400' }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1)'; e.currentTarget.style.backgroundColor = '#FDED95' }}
               >
                 <Play size={20} fill="#ffffff" stroke="none" style={{ marginLeft: '3px' }} />
               </a>
@@ -255,14 +255,14 @@ const ImpactSection = () => {
             
             {/* Green Script Badge */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-              <Heart size={14} style={{ color: '#1a5c38', fill: '#1a5c38' }} />
+              <Heart size={14} style={{ color: '#821905', fill: '#821905' }} />
               <span 
                 style={{
                   fontFamily: "'Playfair Display', 'Georgia', serif", 
                   fontStyle: 'italic',
                   fontWeight: 700,
                   fontSize: '18px', 
-                  color: '#1a5c38',
+                  color: '#821905',
                 }}
               >
                 ज़रूरतमंदों को दान देना शुरू करें
@@ -280,7 +280,7 @@ const ImpactSection = () => {
                 margin: '0 0 18px',
               }}
             >
-              दान से समाज में <span style={{ color: '#f5b400' }}>बड़ा बदलाव</span> लाएं
+              दान से समाज में <span style={{ color: '#FDED95' }}>बड़ा बदलाव</span> लाएं
             </h2>
 
             {/* Quote paragraph */}
@@ -339,14 +339,14 @@ const ImpactSection = () => {
                       width: '18px',
                       height: '18px',
                       borderRadius: '50%',
-                      background: 'rgba(245,180,0,0.15)',
+                      background: 'rgba(253, 237, 149,0.15)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       flexShrink: 0,
                     }}
                   >
-                    <Check size={11} style={{ color: '#f5b400', strokeWidth: 3 }} />
+                    <Check size={11} style={{ color: '#FDED95', strokeWidth: 3 }} />
                   </div>
                   {bullet}
                 </li>
@@ -411,14 +411,14 @@ const ImpactSection = () => {
                   width: '46px',
                   height: '46px',
                   borderRadius: '50%',
-                  background: 'rgba(245,180,0,0.12)',
+                  background: 'rgba(253, 237, 149,0.12)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '12px',
                 }}
               >
-                <Coins size={20} style={{ color: '#f5b400' }} />
+                <Coins size={20} style={{ color: '#FDED95' }} />
               </div>
 
               <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '14.5px', color: '#111827', margin: '0 0 4px' }}>
@@ -431,7 +431,7 @@ const ImpactSection = () => {
                   fontStyle: 'italic',
                   fontWeight: 700,
                   fontSize: '15px',
-                  color: '#f5b400',
+                  color: '#FDED95',
                 }}
               >
                 ₹40,956
@@ -456,14 +456,14 @@ const ImpactSection = () => {
                   width: '46px',
                   height: '46px',
                   borderRadius: '50%',
-                  background: 'rgba(26,92,56,0.1)',
+                  background: 'rgba(130, 25, 5,0.1)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '12px',
                 }}
               >
-                <Landmark size={18} style={{ color: '#1a5c38' }} />
+                <Landmark size={18} style={{ color: '#821905' }} />
               </div>
 
               <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '14.5px', color: '#111827', margin: '0 0 4px' }}>
@@ -476,7 +476,7 @@ const ImpactSection = () => {
                   fontStyle: 'italic',
                   fontWeight: 700,
                   fontSize: '15px',
-                  color: '#f5b400',
+                  color: '#FDED95',
                 }}
               >
                 ₹15,40,456
@@ -517,7 +517,7 @@ const ProgressCircle = ({ percent }) => {
           cy="28" 
           r={radius} 
           fill="transparent" 
-          stroke="#1a5c38" 
+          stroke="#821905" 
           strokeWidth="4.5" 
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}

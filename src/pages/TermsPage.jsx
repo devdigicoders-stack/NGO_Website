@@ -4,10 +4,10 @@ const TermsPage = () => {
   return (
     <div style={{ background: '#f8f9fa', minHeight: '100vh', overflow: 'hidden' }}>
       {/* Hero Banner */}
-      <div style={{ background: 'linear-gradient(135deg,#05160e 0%,#0c351e 100%)', height: '220px', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ background: 'linear-gradient(135deg,#2a0501 0%,#5a1002 100%)', height: '220px', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ position: 'absolute', inset: 0, opacity: 0.15, mixBlendMode: 'luminosity' }}>
           <img src="/images/hero.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right,#05160e 10%,transparent 50%,#05160e 90%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right,#2a0501 10%,transparent 50%,#2a0501 90%)' }} />
         </div>
         <div style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
           <h1 style={{ fontFamily: 'Poppins,sans-serif', fontWeight: 800, fontSize: 'clamp(26px,4vw,40px)', color: '#fff', margin: '0 0 10px' }}>
@@ -29,9 +29,9 @@ const TermsPage = () => {
         <div style={{ background: '#ffffff', borderRadius: '24px', padding: '40px 36px', boxShadow: '0 8px 30px rgba(0,0,0,0.04)', display: 'flex', flexDirection: 'column', gap: '30px' }}>
           
           {/* Badge */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(26,92,56,0.07)', border: '1px solid rgba(26,92,56,0.14)', borderRadius: '999px', padding: '4px 14px', alignSelf: 'flex-start' }}>
-            <FileText size={12} style={{ color: '#1a5c38' }} />
-            <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1a5c38', fontFamily: 'Hind,sans-serif' }}>अंतिम अपडेट: मई 2026</span>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(130, 25, 5,0.07)', border: '1px solid rgba(130, 25, 5,0.14)', borderRadius: '999px', padding: '4px 14px', alignSelf: 'flex-start' }}>
+            <FileText size={12} style={{ color: '#821905' }} />
+            <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#821905', fontFamily: 'Hind,sans-serif' }}>अंतिम अपडेट: मई 2026</span>
           </div>
 
           <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '15px', color: '#4b5563', lineHeight: 1.7, margin: 0 }}>
@@ -42,7 +42,7 @@ const TermsPage = () => {
 
           {/* Section 1 */}
           <div style={{ display: 'flex', gap: '16px' }}>
-            <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(245,180,0,0.08)', display: 'flex', alignItems: 'center', flexShrink: 0, color: '#f5b400', justifyContent: 'center' }}>
+            <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(253, 237, 149,0.08)', display: 'flex', alignItems: 'center', flexShrink: 0, color: '#FDED95', justifyContent: 'center' }}>
               <BookOpen size={18} />
             </div>
             <div>
@@ -57,7 +57,7 @@ const TermsPage = () => {
 
           {/* Section 2 */}
           <div style={{ display: 'flex', gap: '16px' }}>
-            <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(26,92,56,0.08)', display: 'flex', alignItems: 'center', flexShrink: 0, color: '#1a5c38', justifyContent: 'center' }}>
+            <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(130, 25, 5,0.08)', display: 'flex', alignItems: 'center', flexShrink: 0, color: '#821905', justifyContent: 'center' }}>
               <Scale size={18} />
             </div>
             <div>
@@ -72,7 +72,7 @@ const TermsPage = () => {
 
           {/* Section 3 */}
           <div style={{ display: 'flex', gap: '16px' }}>
-            <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(245,180,0,0.08)', display: 'flex', alignItems: 'center', flexShrink: 0, color: '#f5b400', justifyContent: 'center' }}>
+            <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(253, 237, 149,0.08)', display: 'flex', alignItems: 'center', flexShrink: 0, color: '#FDED95', justifyContent: 'center' }}>
               <ShieldAlert size={18} />
             </div>
             <div>
@@ -87,7 +87,7 @@ const TermsPage = () => {
 
           {/* Section 4 */}
           <div style={{ display: 'flex', gap: '16px' }}>
-            <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(26,92,56,0.08)', display: 'flex', alignItems: 'center', flexShrink: 0, color: '#1a5c38', justifyContent: 'center' }}>
+            <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(130, 25, 5,0.08)', display: 'flex', alignItems: 'center', flexShrink: 0, color: '#821905', justifyContent: 'center' }}>
               <AlertCircle size={18} />
             </div>
             <div>

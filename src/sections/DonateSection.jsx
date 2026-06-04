@@ -35,7 +35,7 @@ const DonateSection = () => {
   }
 
   return (
-    <section id="donate" className="py-16 bg-[#1a5c38] relative overflow-hidden">
+    <section id="donate" className="py-16 bg-[#821905] relative overflow-hidden">
       {/* Decorative Circles */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-60 h-60 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
@@ -45,12 +45,12 @@ const DonateSection = () => {
 
           {/* Left: Content */}
           <div>
-            <span className="text-[#f5b400] text-xs font-bold tracking-[0.2em] uppercase font-['Hind']">
+            <span className="text-[#FDED95] text-xs font-bold tracking-[0.2em] uppercase font-['Hind']">
               दान करें
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-white font-['Poppins'] mt-2 mb-4">
               आपका दान बदल सकता है<br />
-              <span className="text-[#f5b400]">किसी की पूरी ज़िंदगी</span>
+              <span className="text-[#FDED95]">किसी की पूरी ज़िंदगी</span>
             </h2>
             <p className="text-white/70 text-[15px] leading-relaxed font-['Hind'] mb-6">
               आपका हर रुपया सीधे जरूरतमंद लोगों तक पहुंचता है। हम पूरी पारदर्शिता के साथ काम करते हैं और आपको आपके दान का पूरा हिसाब देते हैं।
@@ -58,7 +58,7 @@ const DonateSection = () => {
             <ul className="space-y-2.5">
               {features.map((f) => (
                 <li key={f} className="flex items-center gap-2.5 text-white/80 text-sm font-['Hind']">
-                  <CheckCircle2 size={16} className="text-[#f5b400] shrink-0" />
+                  <CheckCircle2 size={16} className="text-[#FDED95] shrink-0" />
                   {f}
                 </li>
               ))}
@@ -79,8 +79,8 @@ const DonateSection = () => {
                   onClick={() => setSelected(amt)}
                   className={`py-2.5 rounded-lg border-2 text-sm font-bold font-['Hind'] transition-all duration-200 ${
                     selected === amt
-                      ? 'border-[#1a5c38] bg-[#1a5c38] text-white'
-                      : 'border-gray-200 text-[#1a5c38] hover:border-[#1a5c38]'
+                      ? 'border-[#821905] bg-[#821905] text-white'
+                      : 'border-gray-200 text-[#821905] hover:border-[#821905]'
                   }`}
                 >
                   {amt}
@@ -91,17 +91,17 @@ const DonateSection = () => {
             <input
               type="number"
               placeholder="अन्य राशि दर्ज करें (₹)"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-700 font-['Hind'] mb-3 focus:outline-none focus:border-[#1a5c38] transition-colors"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-700 font-['Hind'] mb-3 focus:outline-none focus:border-[#821905] transition-colors"
             />
             <input
               type="text"
               placeholder="आपका पूरा नाम"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-700 font-['Hind'] mb-3 focus:outline-none focus:border-[#1a5c38] transition-colors"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-700 font-['Hind'] mb-3 focus:outline-none focus:border-[#821905] transition-colors"
             />
             <input
               type="email"
               placeholder="ईमेल पता"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-700 font-['Hind'] mb-4 focus:outline-none focus:border-[#1a5c38] transition-colors"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-700 font-['Hind'] mb-4 focus:outline-none focus:border-[#821905] transition-colors"
             />
 
             <a

@@ -5,8 +5,8 @@ const programs = [
     Icon: Soup,
     title: 'पौष्टिक भोजन',
     desc: 'वंचित बच्चों और गरीब परिवारों के लिए दैनिक स्तर पर शुद्ध, स्वच्छ और पौष्टिक भोजन की व्यवस्था करते हैं।',
-    color: '#1a5c38',
-    light: 'rgba(26,92,56,0.08)',
+    color: '#821905',
+    light: 'rgba(130, 25, 5,0.08)',
   },
   {
     Icon: Stethoscope,
@@ -19,8 +19,8 @@ const programs = [
     Icon: GraduationCap,
     title: 'बाल शिक्षा',
     desc: 'स्कूल छोड़ने वाले वंचित बच्चों को पुनः मुख्यधारा से जोड़कर गुणवत्तापूर्ण शिक्षा और संसाधन देते हैं।',
-    color: '#f5b400',
-    light: 'rgba(245,180,0,0.08)',
+    color: '#FDED95',
+    light: 'rgba(253, 237, 149,0.08)',
   },
 ]
 
@@ -39,13 +39,13 @@ const AboutSection = () => {
         <div style={{ textAlign: 'center', marginBottom: '56px' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(26,92,56,0.07)', border: '1px solid rgba(26,92,56,0.14)',
+            background: 'rgba(130, 25, 5,0.07)', border: '1px solid rgba(130, 25, 5,0.14)',
             borderRadius: '999px', padding: '5px 16px', marginBottom: '16px',
           }}>
-            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1a5c38' }} />
+            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#821905' }} />
             <span style={{
               fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em',
-              textTransform: 'uppercase', color: '#1a5c38', fontFamily: 'Hind, sans-serif',
+              textTransform: 'uppercase', color: '#821905', fontFamily: 'Hind, sans-serif',
             }}>
               सहायता फाउंडेशन कार्यक्रम
             </span>
@@ -59,7 +59,7 @@ const AboutSection = () => {
             अनोखी समाज सेवा
           </h2>
 
-          <div style={{ width: '48px', height: '3px', background: '#f5b400', borderRadius: '2px', margin: '0 auto 16px' }} />
+          <div style={{ width: '48px', height: '3px', background: '#FDED95', borderRadius: '2px', margin: '0 auto 16px' }} />
 
           <p style={{
             fontSize: '15px', color: '#6b7280', fontFamily: 'Hind, sans-serif',
@@ -180,7 +180,7 @@ const AboutSection = () => {
           <div className="about-collage-perspective">
             
             {/* Faint Hand Outline (Far Left Backdrop) */}
-            <div style={{ position: 'absolute', left: '-56px', top: '15%', opacity: 0.05, pointerEvents: 'none', zIndex: 0, color: '#1a5c38' }}>
+            <div style={{ position: 'absolute', left: '-56px', top: '15%', opacity: 0.05, pointerEvents: 'none', zIndex: 0, color: '#821905' }}>
               <svg width="100" height="150" viewBox="0 0 100 200" fill="none">
                 <path d="M20 200 C30 160 35 150 25 120 C18 100 25 90 35 85 C42 82 52 85 58 92 C62 98 62 108 55 125 C48 140 55 160 62 200" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3" />
                 <path d="M32 90 C32 75 28 65 24 55 C22 50 26 44 31 46 C36 48 38 56 42 66" stroke="currentColor" strokeWidth="2.5" />
@@ -192,7 +192,7 @@ const AboutSection = () => {
 
             {/* Dotted Gold Grid Accent (Bottom Left) */}
             <div style={{ position: 'absolute', left: '-18px', bottom: '15px', zIndex: 0 }}>
-              <svg width="60" height="100" fill="#f5b400" opacity="0.8">
+              <svg width="60" height="100" fill="#FDED95" opacity="0.8">
                 <pattern id="collageDotsHome" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
                   <circle cx="2.5" cy="2.5" r="2" />
                 </pattern>
@@ -202,7 +202,7 @@ const AboutSection = () => {
 
             {/* Green Hand-drawn Wavy Curve SVG (Above Large Card) */}
             <div style={{ position: 'absolute', top: '10px', left: '160px', zIndex: 0, opacity: 0.85 }}>
-              <svg width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="#1a5c38" strokeWidth="2.5">
+              <svg width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="#821905" strokeWidth="2.5">
                 <path d="M0,12 Q15,0 30,12 T60,12 T90,12 T120,12" strokeLinecap="round" />
               </svg>
             </div>
@@ -215,12 +215,12 @@ const AboutSection = () => {
                 bottom: '36px',
                 width: '44px',
                 height: '240px',
-                background: '#005f3c',
+                background: '#821905',
                 borderRadius: '24px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 8px 24px rgba(0,95,60,0.25)',
+                boxShadow: '0 8px 24px rgba(130, 25, 5,0.25)',
                 zIndex: 10,
               }}
             >
@@ -267,7 +267,7 @@ const AboutSection = () => {
               />
               
               {/* Overlay Green Vignette */}
-              <div style={{ position: 'absolute', inset: 0, background: 'rgba(26,92,56,0.18)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'rgba(130, 25, 5,0.18)' }} />
 
               {/* Circular Outline Play Icon Centered */}
               <div 
@@ -353,8 +353,8 @@ const AboutSection = () => {
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
               {/* Elegant hand-heart SVG icon */}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" stroke="#1a5c38" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M7 14C8.5 14.5 9.5 15 12 15C14.5 15 15.5 14.5 17 14" stroke="#1a5c38" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" stroke="#821905" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M7 14C8.5 14.5 9.5 15 12 15C14.5 15 15.5 14.5 17 14" stroke="#821905" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
               <span 
                 style={{
@@ -362,7 +362,7 @@ const AboutSection = () => {
                   fontStyle: 'italic',
                   fontWeight: 700,
                   fontSize: '18px', 
-                  color: '#1a5c38',
+                  color: '#821905',
                   letterSpacing: '0.02em',
                 }}
               >
@@ -424,14 +424,14 @@ const AboutSection = () => {
                     width: '40px',
                     height: '40px',
                     borderRadius: '10px',
-                    background: 'rgba(245,180,0,0.1)',
+                    background: 'rgba(253, 237, 149,0.1)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0,
                   }}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5b400" strokeWidth="2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FDED95" strokeWidth="2">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     <circle cx="12" cy="11" r="3" />
                   </svg>
@@ -464,14 +464,14 @@ const AboutSection = () => {
                     width: '40px',
                     height: '40px',
                     borderRadius: '10px',
-                    background: 'rgba(26,92,56,0.08)',
+                    background: 'rgba(130, 25, 5,0.08)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0,
                   }}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5c38" strokeWidth="2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#821905" strokeWidth="2">
                     <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" />
                   </svg>
                 </div>
@@ -523,17 +523,17 @@ const AboutSection = () => {
                   gap: '8px',
                   padding: '13px 30px',
                   borderRadius: '999px',
-                  background: '#1a5c38',
+                  background: '#821905',
                   color: '#ffffff',
                   fontWeight: 700,
                   fontSize: '14px',
                   fontFamily: 'Hind, sans-serif',
                   textDecoration: 'none',
                   transition: 'all 0.25s ease',
-                  boxShadow: '0 4px 14px rgba(26,92,56,0.3)',
+                  boxShadow: '0 4px 14px rgba(130, 25, 5,0.3)',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(26,92,56,0.4)'; e.currentTarget.style.background = '#124027' }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(26,92,56,0.3)'; e.currentTarget.style.background = '#1a5c38' }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(130, 25, 5,0.4)'; e.currentTarget.style.background = '#5a1002' }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(130, 25, 5,0.3)'; e.currentTarget.style.background = '#821905' }}
               >
                 हमारे बारे में और जानें <ArrowUpRight size={15} />
               </a>
@@ -554,7 +554,7 @@ const AboutSection = () => {
                     flexShrink: 0,
                   }}
                 >
-                  <Phone size={16} style={{ color: '#1a5c38' }} />
+                  <Phone size={16} style={{ color: '#821905' }} />
                 </div>
                 <div>
                   <p style={{ fontSize: '9px', color: '#9ca3af', fontFamily: 'Hind, sans-serif', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 2px' }}>

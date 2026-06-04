@@ -1,19 +1,7 @@
 import { useState } from 'react'
 import { ChevronRight, CheckCircle2, Upload, User, Phone, Mail, MapPin, Calendar, FileText, Shield, Download } from 'lucide-react'
-import { saveRegistration } from '../utils/registrationUtils'
+import { saveRegistration, orgs, extraFields } from '../utils/registrationUtils'
 import IDCardGenerator from '../components/IDCardGenerator'
-
-const orgs = [
-  { id: 'patrakar',   short: 'पत्रकार संघ',      full: 'राष्ट्रीय पत्रकार समर्पित संघ',           color: '#1a5c38', icon: '📰' },
-  { id: 'crime',      short: 'क्राइम ब्यूरो',     full: 'राष्ट्रीय क्राइम इन्वेस्टिगेशन ब्यूरो',  color: '#dc2626', icon: '🔍' },
-  { id: 'chikitsa',   short: 'चिकित्सा संघ',      full: 'आखिल भारतीय चिकित्सा संघ',               color: '#0ea5e9', icon: '🏥' },
-  { id: 'hindu',      short: 'हिन्दू महासभा',     full: 'राष्ट्रीय हिन्दू महासभा साधू',           color: '#f97316', icon: '🕉️' },
-  { id: 'journalist', short: 'जर्नलिस्ट काउंसिल', full: 'इंडियन काउंसिल ऑफ जर्नलिस्ट साधू',      color: '#7c3aed', icon: '✍️' },
-  { id: 'manav',      short: 'मानवधिकार आयोग',    full: 'राष्ट्रीय मानवधिकार आयोग साधू',          color: '#059669', icon: '⚖️' },
-  { id: 'bhrashtachar', short: 'भ्रष्टाचार केन्द्र', full: 'भ्रष्टाचार उन्मूलन अपराध अनुसंधान केन्द्र साधू', color: '#b45309', icon: '🛡️' },
-  { id: 'recall',     short: 'राइट टू रिकॉल',    full: 'राइट टू रिकॉल मंच',                      color: '#0284c7', icon: '🗳️' },
-  { id: 'muslim',     short: 'मुस्लिम मंच',       full: 'भारतीय मुस्लिम मंच',                     color: '#16a34a', icon: '☪️' },
-]
 
 // Common fields for all forms
 const commonFields = [
@@ -29,19 +17,6 @@ const commonFields = [
   { id: 'qualification', label: 'शैक्षिक योग्यता', type: 'select', options: ['हाई स्कूल', 'इंटरमीडिएट', 'स्नातक', 'परास्नातक', 'अन्य'], icon: FileText, required: true },
   { id: 'occupation',  label: 'व्यवसाय',            type: 'text',   placeholder: 'अपना व्यवसाय लिखें',       icon: FileText, required: true  },
 ]
-
-// Extra fields per org
-const extraFields = {
-  patrakar:     [{ id: 'press_id', label: 'प्रेस आईडी (यदि हो)', type: 'text', placeholder: 'प्रेस आईडी नंबर', icon: FileText, required: false }, { id: 'publication', label: 'समाचार पत्र / चैनल का नाम', type: 'text', placeholder: 'संस्था का नाम', icon: FileText, required: false }],
-  crime:        [{ id: 'exp', label: 'अनुभव (वर्षों में)', type: 'text', placeholder: 'जैसे: 5 वर्ष', icon: FileText, required: false }, { id: 'prev_org', label: 'पूर्व संस्था (यदि हो)', type: 'text', placeholder: 'पूर्व संस्था का नाम', icon: FileText, required: false }],
-  chikitsa:     [{ id: 'degree', label: 'चिकित्सा डिग्री', type: 'text', placeholder: 'MBBS / BAMS / BHMS आदि', icon: FileText, required: true }, { id: 'reg_no', label: 'मेडिकल रजिस्ट्रेशन नंबर', type: 'text', placeholder: 'रजिस्ट्रेशन नंबर', icon: FileText, required: false }],
-  hindu:        [{ id: 'shakha', label: 'शाखा / क्षेत्र', type: 'text', placeholder: 'अपनी शाखा का नाम', icon: MapPin, required: false }],
-  journalist:   [{ id: 'press_id', label: 'प्रेस आईडी', type: 'text', placeholder: 'प्रेस आईडी नंबर', icon: FileText, required: false }, { id: 'lang', label: 'भाषा', type: 'select', options: ['हिंदी', 'अंग्रेजी', 'उर्दू', 'अन्य'], icon: FileText, required: true }],
-  manav:        [{ id: 'complaint_area', label: 'कार्य क्षेत्र', type: 'text', placeholder: 'जिला / राज्य', icon: MapPin, required: true }],
-  bhrashtachar: [{ id: 'dept', label: 'संबंधित विभाग', type: 'text', placeholder: 'जैसे: पुलिस, राजस्व आदि', icon: FileText, required: false }],
-  recall:       [{ id: 'ward', label: 'वार्ड / विधानसभा क्षेत्र', type: 'text', placeholder: 'अपना क्षेत्र लिखें', icon: MapPin, required: true }],
-  muslim:       [{ id: 'masjid', label: 'मस्जिद / मदरसा (यदि संबद्ध हो)', type: 'text', placeholder: 'नाम लिखें', icon: FileText, required: false }],
-}
 
 const RegistrationPage = () => {
   const [activeTab, setActiveTab] = useState('patrakar')
@@ -98,12 +73,12 @@ const RegistrationPage = () => {
     }
   }
 
-  const handleDownloadIDCard = () => {
-    const idCardData = idCards[activeTab]
-    if (idCardData) {
+  const handleDownloadPart = (part) => {
+    const cardPart = idCards[activeTab]?.[part]
+    if (cardPart) {
       const link = document.createElement('a')
-      link.download = `ID_Card_${regNumbers[activeTab].replace(/\//g, '_')}.png`
-      link.href = idCardData
+      link.download = `ID_Card_${part === 'front' ? 'Front' : 'Back'}_${regNumbers[activeTab].replace(/\//g, '_')}.png`
+      link.href = cardPart
       link.click()
     }
   }
@@ -123,17 +98,17 @@ const RegistrationPage = () => {
     <div style={{ background: '#f8f9fa', minHeight: '100vh' }}>
 
       {/* ── Hero Banner ── */}
-      <div style={{ background: 'linear-gradient(135deg,#05160e 0%,#0c351e 100%)', padding: '48px 24px 56px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
+      <div style={{ background: 'linear-gradient(135deg,#2a0501 0%,#5a1002 100%)', padding: '48px 24px 56px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
         <div style={{ position: 'absolute', inset: 0, opacity: 0.15, mixBlendMode: 'luminosity' }}>
           <img src="/images/hero.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right,#05160e 10%,transparent 50%,#05160e 90%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right,#2a0501 10%,transparent 50%,#2a0501 90%)' }} />
         </div>
 
         <div style={{ position: 'relative', zIndex: 10 }}>
           {/* Trust badge */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(245,180,0,0.15)', border: '1px solid rgba(245,180,0,0.3)', borderRadius: '999px', padding: '6px 18px', marginBottom: '16px' }}>
-            <Shield size={13} style={{ color: '#f5b400' }} />
-            <span style={{ fontFamily: 'Hind,sans-serif', fontSize: '12px', fontWeight: 700, color: '#f5b400', letterSpacing: '0.08em' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(253, 237, 149,0.15)', border: '1px solid rgba(253, 237, 149,0.3)', borderRadius: '999px', padding: '6px 18px', marginBottom: '16px' }}>
+            <Shield size={13} style={{ color: '#FDED95' }} />
+            <span style={{ fontFamily: 'Hind,sans-serif', fontSize: '12px', fontWeight: 700, color: '#FDED95', letterSpacing: '0.08em' }}>
               साधू लक्ष्मी जनकल्याण ट्रस्ट • रजि. नं. IV/175/26 • दर्पण नं. UP/2026/1079895
             </span>
           </div>
@@ -210,7 +185,7 @@ const RegistrationPage = () => {
 
             {submitted[activeTab] ? (
               /* Success state */
-              <div style={{ textAlign: 'center', padding: '48px 24px' }}>
+              <div style={{ textAlign: 'center', padding: '24px 12px' }}>
                 <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: `${org.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
                   <CheckCircle2 size={36} style={{ color: org.color }} />
                 </div>
@@ -222,7 +197,7 @@ const RegistrationPage = () => {
                 </p>
                 
                 {/* Registration Number */}
-                <div style={{ background: `${org.color}10`, border: `2px solid ${org.color}`, borderRadius: '12px', padding: '16px 24px', margin: '0 auto 20px', maxWidth: '400px' }}>
+                <div style={{ background: `${org.color}10`, border: `2px solid ${org.color}`, borderRadius: '12px', padding: '16px 24px', margin: '0 auto 24px', maxWidth: '400px' }}>
                   <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '12px', color: '#6b7280', margin: '0 0 6px', fontWeight: 600 }}>आपका रजिस्ट्रेशन नंबर</p>
                   <p style={{ fontFamily: 'Poppins,sans-serif', fontSize: '24px', fontWeight: 800, color: org.color, margin: 0, letterSpacing: '0.02em' }}>
                     {regNumbers[activeTab]}
@@ -230,21 +205,33 @@ const RegistrationPage = () => {
                   <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '11px', color: '#9ca3af', margin: '6px 0 0' }}>इस नंबर को सुरक्षित रखें</p>
                 </div>
 
-                {/* ID Card Preview */}
+                {/* ID Card Previews */}
                 {idCards[activeTab] && (
-                  <div style={{ margin: '0 auto 24px', maxWidth: '500px' }}>
-                    <img src={idCards[activeTab]} alt="ID Card" style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.15)' }} />
+                  <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', margin: '0 auto 28px', maxWidth: '800px' }}>
+                    <div style={{ flex: 1, minWidth: '280px', maxWidth: '360px', textAlign: 'center' }}>
+                      <p style={{ fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', marginBottom: '8px', color: '#4b5563' }}>सामने का भाग (Front)</p>
+                      <img src={idCards[activeTab].front} alt="Front ID Card" style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.12)', border: '1px solid #e5e7eb' }} />
+                      <button onClick={() => handleDownloadPart('front')}
+                        style={{ width: '100%', marginTop: '12px', padding: '10px', borderRadius: '8px', border: 'none', background: org.color, color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                        <Download size={15} />
+                        सामने का भाग डाउनलोड करें
+                      </button>
+                    </div>
+                    <div style={{ flex: 1, minWidth: '280px', maxWidth: '360px', textAlign: 'center' }}>
+                      <p style={{ fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', marginBottom: '8px', color: '#4b5563' }}>पीछे का भाग (Back)</p>
+                      <img src={idCards[activeTab].back} alt="Back ID Card" style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.12)', border: '1px solid #e5e7eb' }} />
+                      <button onClick={() => handleDownloadPart('back')}
+                        style={{ width: '100%', marginTop: '12px', padding: '9px', borderRadius: '8px', border: `1.5px solid ${org.color}`, background: 'transparent', color: org.color, fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                        <Download size={15} />
+                        पीछे का भाग डाउनलोड करें
+                      </button>
+                    </div>
                   </div>
                 )}
 
-                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                  <button onClick={handleDownloadIDCard} disabled={!idCards[activeTab]}
-                    style={{ padding: '11px 28px', borderRadius: '999px', border: 'none', background: idCards[activeTab] ? org.color : '#ccc', color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', cursor: idCards[activeTab] ? 'pointer' : 'not-allowed', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Download size={16} />
-                    ID Card डाउनलोड करें
-                  </button>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
                   <button onClick={() => setSubmitted(prev => ({ ...prev, [activeTab]: false }))}
-                    style={{ padding: '11px 28px', borderRadius: '999px', border: `1.5px solid ${org.color}`, background: 'transparent', color: org.color, fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', cursor: 'pointer' }}>
+                    style={{ padding: '11px 32px', borderRadius: '999px', border: `1.5px solid #d1d5db`, background: '#fff', color: '#374151', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', cursor: 'pointer', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
                     नया पंजीकरण करें
                   </button>
                 </div>
@@ -271,7 +258,7 @@ const RegistrationPage = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }} className="reg-form-grid">
                   {fields.map(f => {
                     const fkey = `${activeTab}-${f.id}`
-                    const IconComp = f.icon
+                    const IconComp = f.icon || FileText
                     return (
                       <div key={f.id} style={{ gridColumn: f.type === 'textarea' ? 'span 2' : 'span 1' }}>
                         <label style={{ display: 'block', fontFamily: 'Hind,sans-serif', fontSize: '12px', fontWeight: 700, color: '#374151', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>

@@ -22,7 +22,7 @@ const Footer = ({ setCurrentPage }) => {
   return (
     <footer 
       style={{
-        background: '#04150d', // Deep dark forest green background
+        background: '#1f0502', // Deep dark forest green background
         color: '#ffffff',
         padding: '80px 0 30px',
         position: 'relative',
@@ -59,7 +59,7 @@ const Footer = ({ setCurrentPage }) => {
           margin-bottom: 10px;
         }
         .footer-link-item:hover {
-          color: #f5b400;
+          color: #FDED95;
           transform: translateX(4px);
         }
         .footer-social-btn {
@@ -76,9 +76,9 @@ const Footer = ({ setCurrentPage }) => {
           transition: all 0.25s ease;
         }
         .footer-social-btn:hover {
-          background: #f5b400;
-          color: #04150d;
-          border-color: #f5b400;
+          background: #FDED95;
+          color: #1f0502;
+          border-color: #FDED95;
           transform: translateY(-2px);
         }
         .footer-bottom-bar {
@@ -91,7 +91,7 @@ const Footer = ({ setCurrentPage }) => {
           flex-wrap: wrap;
         }
         .footer-credit-link {
-          color: #f5b400;
+          color: #FDED95;
           font-weight: 650;
           text-decoration: none;
           transition: color 0.2s ease;
@@ -144,10 +144,10 @@ const Footer = ({ setCurrentPage }) => {
           pointerEvents: 'none',
           zIndex: 1,
           opacity: 0.65,
-          color: '#f5b400',
+          color: '#FDED95',
         }}
       >
-        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ filter: 'drop-shadow(0 0 12px rgba(245, 180, 0, 0.15))' }}>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ filter: 'drop-shadow(0 0 12px rgba(253, 237, 149, 0.15))' }}>
           <path d="M50,30 C50,30 45,15 30,15 C15,15 10,30 25,50 C40,70 50,85 50,85 C50,85 60,70 75,50 C90,30 85,15 70,15 C55,15 50,30 50,30 Z" />
         </svg>
       </div>
@@ -185,18 +185,19 @@ const Footer = ({ setCurrentPage }) => {
               <div 
                 style={{
                   background: '#ffffff',
-                  borderRadius: '14px',
-                  padding: '6px 16px',
+                  borderRadius: '50%',
+                  width: '90px',
+                  height: '90px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
                 }}
               >
                 <img 
-                  src="/images/logo.png" 
-                  alt="सहायता फाउंडेशन लोगो" 
-                  style={{ height: '36px', width: 'auto', objectFit: 'contain' }} 
+                  src="/main_logo.png" 
+                  alt="साधु लक्ष्मी जनकल्याण ट्रस्ट लोगो" 
+                  style={{ height: '80px', width: '80px', objectFit: 'contain' }} 
                 />
               </div>
             </div>
@@ -247,8 +248,8 @@ const Footer = ({ setCurrentPage }) => {
             
             {/* Custom Gold dashes underline */}
             <div style={{ display: 'flex', gap: '3px', marginBottom: '20px' }}>
-              <div style={{ width: '12px', height: '2.5px', background: '#f5b400', borderRadius: '1px' }} />
-              <div style={{ width: '4px', height: '2.5px', background: '#f5b400', borderRadius: '1px' }} />
+              <div style={{ width: '12px', height: '2.5px', background: '#FDED95', borderRadius: '1px' }} />
+              <div style={{ width: '4px', height: '2.5px', background: '#FDED95', borderRadius: '1px' }} />
             </div>
 
             <nav style={{ display: 'flex', flexDirection: 'column' }}>
@@ -263,7 +264,7 @@ const Footer = ({ setCurrentPage }) => {
                     window.scrollTo({ top: 0, behavior: 'smooth' })
                   }}
                 >
-                  <span style={{ fontSize: '11px', color: '#f5b400', marginRight: '2px' }}>↗</span> {l}
+                  <span style={{ fontSize: '11px', color: '#FDED95', marginRight: '2px' }}>↗</span> {l}
                 </a>
               ))}
             </nav>
@@ -277,8 +278,8 @@ const Footer = ({ setCurrentPage }) => {
 
             {/* Custom Gold dashes underline */}
             <div style={{ display: 'flex', gap: '3px', marginBottom: '20px' }}>
-              <div style={{ width: '12px', height: '2.5px', background: '#f5b400', borderRadius: '1px' }} />
-              <div style={{ width: '4px', height: '2.5px', background: '#f5b400', borderRadius: '1px' }} />
+              <div style={{ width: '12px', height: '2.5px', background: '#FDED95', borderRadius: '1px' }} />
+              <div style={{ width: '4px', height: '2.5px', background: '#FDED95', borderRadius: '1px' }} />
             </div>
 
             <nav style={{ display: 'flex', flexDirection: 'column' }}>
@@ -299,7 +300,7 @@ const Footer = ({ setCurrentPage }) => {
                   }}
                   className="footer-link-item"
                 >
-                  <span style={{ fontSize: '11px', color: '#f5b400', marginRight: '2px' }}>↗</span> {name}
+                  <span style={{ fontSize: '11px', color: '#FDED95', marginRight: '2px' }}>↗</span> {name}
                 </a>
               ))}
             </nav>
@@ -313,15 +314,15 @@ const Footer = ({ setCurrentPage }) => {
 
             {/* Custom Gold dashes underline */}
             <div style={{ display: 'flex', gap: '3px', marginBottom: '20px' }}>
-              <div style={{ width: '12px', height: '2.5px', background: '#f5b400', borderRadius: '1px' }} />
-              <div style={{ width: '4px', height: '2.5px', background: '#f5b400', borderRadius: '1px' }} />
+              <div style={{ width: '12px', height: '2.5px', background: '#FDED95', borderRadius: '1px' }} />
+              <div style={{ width: '4px', height: '2.5px', background: '#FDED95', borderRadius: '1px' }} />
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               
               {/* Location Address */}
               <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f5b400" strokeWidth="2.5" style={{ flexShrink: 0, marginTop: '2.5px' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FDED95" strokeWidth="2.5" style={{ flexShrink: 0, marginTop: '2.5px' }}>
                   <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z" />
                 </svg>
                 <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
@@ -331,7 +332,7 @@ const Footer = ({ setCurrentPage }) => {
 
               {/* Phone Line */}
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f5b400" strokeWidth="2.5" style={{ flexShrink: 0 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FDED95" strokeWidth="2.5" style={{ flexShrink: 0 }}>
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                 </svg>
                 <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}>
@@ -341,7 +342,7 @@ const Footer = ({ setCurrentPage }) => {
 
               {/* Email Envelope */}
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f5b400" strokeWidth="2.5" style={{ flexShrink: 0 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FDED95" strokeWidth="2.5" style={{ flexShrink: 0 }}>
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <path d="M22 6l-10 7L2 6" />
                 </svg>
@@ -359,7 +360,7 @@ const Footer = ({ setCurrentPage }) => {
         {/* ─── 3. BOTTOM BAR: Copyright & Legals ─── */}
         <div className="footer-bottom-bar">
           <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '12.5px', color: 'rgba(255,255,255,0.35)', margin: 0, fontWeight: 500 }}>
-            कॉपीराइट © 2026 <span style={{ color: '#f5b400', fontWeight: 650 }}>सहायता फाउंडेशन</span>। सर्वाधिकार सुरक्षित || crafted with ❤️ by <a href="https://digicoders.in/" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Team Digicoders</a>
+            कॉपीराइट © 2026 <span style={{ color: '#FDED95', fontWeight: 650 }}>साधु लक्ष्मी जनकल्याण ट्रस्ट</span>। सर्वाधिकार सुरक्षित || crafted with ❤️ by <a href="https://digicoders.in/" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Team Digicoders</a>
           </p>
 
           <div className="footer-bottom-bar-links-wrap" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
@@ -408,22 +409,22 @@ const Footer = ({ setCurrentPage }) => {
           width: '46px',
           height: '46px',
           borderRadius: '50%',
-          background: '#1a5c38',
+          background: '#821905',
           color: '#ffffff',
           border: 'none',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 8px 24px rgba(26,92,56,0.35)',
+          boxShadow: '0 8px 24px rgba(130, 25, 5,0.35)',
           transition: 'all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)',
           zIndex: 999,
           opacity: showScrollTop ? 1 : 0,
           transform: showScrollTop ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.8)',
           pointerEvents: showScrollTop ? 'auto' : 'none',
         }}
-        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)'; e.currentTarget.style.backgroundColor = '#124027'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(26,92,56,0.5)' }}
-        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.backgroundColor = '#1a5c38'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(26,92,56,0.35)' }}
+        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)'; e.currentTarget.style.backgroundColor = '#5a1002'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(130, 25, 5,0.5)' }}
+        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.backgroundColor = '#821905'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(130, 25, 5,0.35)' }}
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
           <line x1="12" y1="19" x2="12" y2="5"></line>

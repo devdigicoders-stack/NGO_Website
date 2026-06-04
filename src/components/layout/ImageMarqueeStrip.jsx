@@ -22,10 +22,10 @@ const ImageMarqueeStrip = () => {
   return (
     <div
       style={{
-        background: '#04150d',
+        background: '#1f0502',
         overflow: 'hidden',
         position: 'relative',
-        borderTop: '3px solid #1a5c38',
+        borderTop: '3px solid #821905',
       }}
     >
       {/* Keyframe animation injected inline */}
@@ -72,7 +72,7 @@ const ImageMarqueeStrip = () => {
           position: absolute;
           left: 0; top: 0; bottom: 0;
           width: 100px;
-          background: linear-gradient(to right, #04150d 0%, transparent 100%);
+          background: linear-gradient(to right, #1f0502 0%, transparent 100%);
           pointer-events: none;
           z-index: 5;
         }
@@ -80,7 +80,7 @@ const ImageMarqueeStrip = () => {
           position: absolute;
           right: 0; top: 0; bottom: 0;
           width: 100px;
-          background: linear-gradient(to left, #04150d 0%, transparent 100%);
+          background: linear-gradient(to left, #1f0502 0%, transparent 100%);
           pointer-events: none;
           z-index: 5;
         }

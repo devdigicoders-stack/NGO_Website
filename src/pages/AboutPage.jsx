@@ -11,6 +11,49 @@ const AboutPage = () => {
     'हम कंपनियों को उनके सामाजिक उत्तरदायित्व (CSR) को सुदृढ़ करने में मदद करते हैं।',
   ]
 
+  const cells = [
+    { 
+      name: 'अपराध नियंत्रण प्रकोष्ठ', 
+      img: '/ID/crime.png', 
+      desc: 'समाज में बढ़ते अपराधों के उन्मूलन, जन-जागरूकता फैलाने और स्थानीय प्रशासन व पुलिस के सहयोग से अपराध मुक्त समाज बनाना।' 
+    },
+    { 
+      name: 'भ्रष्टाचार निवारण प्रकोष्ठ', 
+      img: '/ID/bhrast.png', 
+      desc: 'शासकीय और गैर-शासकीय स्तर पर व्याप्त भ्रष्टाचार के खिलाफ जन-आंदोलन खड़ा करना तथा पारदर्शिता व ईमानदारी को बढ़ावा देना।' 
+    },
+    { 
+      name: 'मानवाधिकार प्रकोष्ठ', 
+      img: '/ID/right.png', 
+      desc: 'शोषण, अन्याय और अत्याचार के शिकार वंचितों को कानूनी सहायता प्रदान करना तथा मानवाधिकारों के संरक्षण के प्रति सजगता बढ़ाना।' 
+    },
+    { 
+      name: 'प्रेस एवं मीडिया प्रकोष्ठ', 
+      img: '/ID/press.png', 
+      desc: 'निष्पक्ष पत्रकारिता को बढ़ावा देना, पत्रकारों के हितों व अधिकारों की रक्षा करना तथा लोक-कल्याणकारी संवाद माध्यमों का संचालन करना।' 
+    },
+    { 
+      name: 'हिंदू विंग', 
+      img: '/ID/hindu.png', 
+      desc: 'सनातनी संस्कृति, संस्कारों का संवर्धन, हिंदू समाज में आपसी समरसता बढ़ाना तथा धार्मिक उत्सवों व परंपराओं का संरक्षण करना।' 
+    },
+    { 
+      name: 'मुस्लिम विंग', 
+      img: '/ID/mushlim.png', 
+      desc: 'अल्पसंख्यक वर्ग के युवाओं को शिक्षा, रोजगारपरक कौशल और मुख्यधारा से जोड़ना तथा आपसी भाईचारे व सामाजिक विकास में योगदान देना।' 
+    },
+    { 
+      name: 'भारतीय परिषद प्रकोष्ठ', 
+      img: '/ID/indian_council.png', 
+      desc: 'राष्ट्रीय एकता, अखंडता, संवैधानिक मूल्यों की रक्षा तथा देशप्रेम की भावना को जन-जन तक पहुँचाने हेतु संगठित प्रयास करना।' 
+    },
+    { 
+      name: 'अखिल भारतीय सेवा प्रकोष्ठ', 
+      img: '/ID/akhil.png', 
+      desc: 'राष्ट्रीय स्तर पर समाज कल्याण, आपदा राहत, स्वास्थ्य व शिक्षा सेवाओं का सुचारू प्रबंधन एवं स्वयंसेवक नेटवर्क का संचालन करना।' 
+    },
+  ]
+
   return (
     <div style={{ background: '#ffffff', overflow: 'hidden' }}>
       
@@ -57,7 +100,7 @@ const AboutPage = () => {
       {/* ─── 1. About Us Hero Banner ─── */}
       <div 
         style={{
-          background: 'linear-gradient(135deg, #05160e 0%, #0c351e 100%)',
+          background: 'linear-gradient(135deg, #2a0501 0%, #5a1002 100%)',
           height: '280px',
           position: 'relative',
           overflow: 'hidden',
@@ -93,7 +136,7 @@ const AboutPage = () => {
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(to right, #05160e 10%, transparent 50%, #05160e 90%)',
+              background: 'linear-gradient(to right, #2a0501 10%, transparent 50%, #2a0501 90%)',
             }}
           />
         </div>
@@ -107,7 +150,7 @@ const AboutPage = () => {
             top: '25%',
             pointerEvents: 'none',
             zIndex: 1,
-            color: '#f5b400',
+            color: '#FDED95',
             opacity: 0.85,
           }}
         >
@@ -118,7 +161,7 @@ const AboutPage = () => {
             fill="none" 
             stroke="currentColor" 
             strokeWidth="2"
-            style={{ filter: 'drop-shadow(0 2px 8px rgba(245,180,0,0.25))' }}
+            style={{ filter: 'drop-shadow(0 2px 8px rgba(253, 237, 149,0.25))' }}
           >
             <path d="M50,30 C50,30 45,15 30,15 C15,15 10,30 25,50 C40,70 50,85 50,85 C50,85 60,70 75,50 C90,30 85,15 70,15 C55,15 50,30 50,30 Z" />
           </svg>
@@ -164,7 +207,7 @@ const AboutPage = () => {
       </div>
 
 
-      {/* ─── 2. Main About Us Collage & Details Section ─── */}
+      {/* ─── 2. Grand Trust Section (Introduction, Mission/Vision, Cells Grid) ─── */}
       <section style={{ background: '#ffffff', padding: '90px 0 100px', position: 'relative' }}>
         
         {/* Background Decorative Faint Heart (Right edge) */}
@@ -173,11 +216,11 @@ const AboutPage = () => {
           style={{
             position: 'absolute',
             right: '4%',
-            top: '38%',
+            top: '15%',
             pointerEvents: 'none',
             zIndex: 1,
-            color: '#1a5c38',
-            opacity: 0.12,
+            color: '#821905',
+            opacity: 0.08,
           }}
         >
           <svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -185,424 +228,286 @@ const AboutPage = () => {
           </svg>
         </div>
 
-
         <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 10 }}>
           
+          {/* Part 1: Split-column Intro & trust.png */}
           <div 
             className="about-main-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1.15fr',
+              gridTemplateColumns: '1.2fr 1fr',
               gap: '60px',
               alignItems: 'center',
+              marginBottom: '90px'
             }}
           >
-            
-            {/* LEFT COLUMN: Visual Overlapping Image Collage */}
-            <div className="about-collage-perspective">
-              
-              {/* Faint Hand Outline (Far Left Backdrop) */}
-              <div style={{ position: 'absolute', left: '-56px', top: '15%', opacity: 0.05, pointerEvents: 'none', zIndex: 0, color: '#1a5c38' }}>
-                <svg width="100" height="150" viewBox="0 0 100 200" fill="none">
-                  <path d="M20 200 C30 160 35 150 25 120 C18 100 25 90 35 85 C42 82 52 85 58 92 C62 98 62 108 55 125 C48 140 55 160 62 200" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3" />
-                  <path d="M32 90 C32 75 28 65 24 55 C22 50 26 44 31 46 C36 48 38 56 42 66" stroke="currentColor" strokeWidth="2.5" />
-                  <path d="M42 66 C44 52 44 40 42 32 C41 27 46 23 50 26 C54 29 52 42 50 56" stroke="currentColor" strokeWidth="2.5" />
-                  <path d="M50 56 C54 46 58 38 60 30 C62 25 68 25 68 31 C68 37 60 49 56 64" stroke="currentColor" strokeWidth="2.5" />
-                  <path d="M56 64 C64 56 72 50 78 44 C82 40 86 44 82 50 C78 56 68 70 60 82" stroke="currentColor" strokeWidth="2.5" />
-                </svg>
-              </div>
-
-              {/* Dotted Gold Grid Accent (Bottom Left) */}
-              <div style={{ position: 'absolute', left: '-18px', bottom: '15px', zIndex: 0 }}>
-                <svg width="60" height="100" fill="#f5b400" opacity="0.8">
-                  <pattern id="collageDots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-                    <circle cx="2.5" cy="2.5" r="2" />
-                  </pattern>
-                  <rect width="60" height="100" fill="url(#collageDots)" />
-                </svg>
-              </div>
-
-              {/* Green Hand-drawn Wavy Curve SVG (Above Large Card) */}
-              <div style={{ position: 'absolute', top: '10px', left: '160px', zIndex: 0, opacity: 0.85 }}>
-                <svg width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="#1a5c38" strokeWidth="2.5">
-                  <path d="M0,12 Q15,0 30,12 T60,12 T90,12 T120,12" strokeLinecap="round" />
-                </svg>
-              </div>
-
-              {/* Tall Vertical Green Capsule Banner */}
-              <div 
-                style={{
-                  position: 'absolute',
-                  left: '0px',
-                  bottom: '36px',
-                  width: '44px',
-                  height: '240px',
-                  background: '#005f3c',
-                  borderRadius: '24px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 8px 24px rgba(0,95,60,0.25)',
-                  zIndex: 10,
-                }}
-              >
-                <span 
-                  style={{
-                    fontFamily: 'Hind, sans-serif',
-                    fontSize: '11px',
-                    fontWeight: 700,
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: '#ffffff',
-                    writingMode: 'vertical-lr',
-                    transform: 'rotate(180deg)',
-                    lineHeight: 1.2,
-                  }}
-                >
-                  गरीबों की मदद करें
+            {/* Left Column: Intro Text */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '12px', color: '#821905', fontWeight: 800, fontFamily: 'Hind, sans-serif', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  ✦ परिचय एवं उद्देश्य ✦
                 </span>
               </div>
-
-              {/* Image 1: Large Central Card (Grayscale Child Face with Play Button) */}
-              <div 
-                style={{
-                  position: 'absolute',
-                  left: '60px',
-                  top: '40px',
-                  width: '320px',
-                  height: '320px',
-                  borderRadius: '24px',
-                  overflow: 'hidden',
-                  boxShadow: '0 15px 35px rgba(0,0,0,0.12)',
-                  zIndex: 2,
-                }}
-              >
-                <img 
-                  src="/images/about_child2.png" 
-                  alt="children support visual background"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    filter: 'grayscale(100%) contrast(105%) brightness(90%)',
-                  }}
-                />
-                
-                {/* Overlay Green Vignette */}
-                <div style={{ position: 'absolute', inset: 0, background: 'rgba(26,92,56,0.18)' }} />
-
-                {/* Circular Outline Play Icon Centered */}
-                <div 
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    width: '64px',
-                    height: '64px',
-                    borderRadius: '50%',
-                    border: '2px dashed #ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'rgba(0,0,0,0.25)',
-                    backdropFilter: 'blur(3px)',
-                    zIndex: 10,
-                  }}
-                >
-                  <Play size={20} fill="#ffffff" stroke="none" style={{ marginLeft: '4px' }} />
-                </div>
-              </div>
-
-              {/* Image 2: Small Foreground Top-Left (Color kids eating) */}
-              <div 
-                style={{
-                  position: 'absolute',
-                  left: '12px',
-                  top: '0px',
-                  width: '120px',
-                  height: '120px',
-                  borderRadius: '16px',
-                  border: '4px solid #ffffff',
-                  overflow: 'hidden',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
-                  zIndex: 5,
-                }}
-              >
-                <img 
-                  src="/images/about_child1.png" 
-                  alt="kids eating healthy food"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
-              </div>
-
-              {/* Image 3: Small Foreground Bottom-Right (Color smiling boy) */}
-              <div 
-                style={{
-                  position: 'absolute',
-                  right: '40px',
-                  bottom: '0px',
-                  width: '140px',
-                  height: '140px',
-                  borderRadius: '20px',
-                  border: '5px solid #ffffff',
-                  overflow: 'hidden',
-                  boxShadow: '0 10px 28px rgba(0,0,0,0.15)',
-                  zIndex: 5,
-                }}
-              >
-                <img 
-                  src="/images/volunteer_child.png" 
-                  alt="smiling child support"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
-              </div>
-
-            </div>
-
-
-            {/* RIGHT COLUMN: Copywriting details in Hindi */}
-            <div>
-              
-              {/* Green Script Badge */}
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                {/* Elegant hand-heart SVG icon */}
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" stroke="#1a5c38" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M7 14C8.5 14.5 9.5 15 12 15C14.5 15 15.5 14.5 17 14" stroke="#1a5c38" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-                <span 
-                  style={{
-                    fontFamily: "'Playfair Display', 'Georgia', serif", 
-                    fontStyle: 'italic',
-                    fontWeight: 700,
-                    fontSize: '18px', 
-                    color: '#1a5c38',
-                    letterSpacing: '0.02em',
-                  }}
-                >
-                  गरीब लोगों को दान देना शुरू करें
-                </span>
-              </div>
-
-              {/* Title Header */}
-              <h2 
-                style={{
-                  fontFamily: 'Poppins, sans-serif',
-                  fontWeight: 800,
-                  fontSize: 'clamp(26px, 3.2vw, 36px)',
-                  color: '#111827',
-                  lineHeight: 1.25,
-                  margin: '0 0 16px',
-                }}
-              >
-                एक-दूसरे की मदद से ही संसार बेहतर बनेगा
+              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: 'clamp(28px, 3.5vw, 38px)', color: '#821905', lineHeight: 1.2, margin: 0 }}>
+                साधू लक्ष्मी जनकल्याण ट्रस्ट
               </h2>
-
-              {/* Paragraph */}
-              <p 
-                style={{
-                  fontFamily: 'Hind, sans-serif',
-                  fontSize: '14px',
-                  color: '#6b7280',
-                  lineHeight: 1.75,
-                  margin: '0 0 28px',
-                }}
-              >
-                स्वयंसेवा हमें नए कौशल विकसित करने और बहुमूल्य अनुभव प्राप्त करने का अनूठा अवसर देती है। आप हमारे साथ जुड़कर समाज सेवा, संवाद और टीम वर्क की क्षमताओं का विकास कर सकते हैं।
+              <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '15px', color: '#4b5563', lineHeight: 1.7, margin: 0 }}>
+                साधू लक्ष्मी जनकल्याण ट्रस्ट एक सामाजिक एवं जनहितकारी संस्था है, जिसका उद्देश्य समाज के गरीब, असहाय, जरूरतमंद एवं वंचित वर्ग के लोगों के जीवन स्तर को बेहतर बनाना है। हमारी संस्था "सेवा, सहयोग और समर्पण" के मूल सिद्धांतों पर कार्य करती है तथा मानव सेवा को ही सबसे बड़ी साधना मानती है।
               </p>
-
-              {/* Two Feature Blocks */}
+              <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '15px', color: '#4b5563', lineHeight: 1.7, margin: 0 }}>
+                हमारा विश्वास है कि एक सशक्त और समृद्ध समाज का निर्माण तभी संभव है जब प्रत्येक व्यक्ति को शिक्षा, स्वास्थ्य, भोजन, वस्त्र एवं सम्मानजनक जीवन जीने के समान अवसर प्राप्त हों। इसी सोच के साथ हमारा ट्रस्ट समाज के हर उस व्यक्ति तक सहायता पहुँचाने का प्रयास करता है जो किसी न किसी रूप में सहयोग का पात्र है।
+              </p>
+              <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '15px', color: '#4b5563', lineHeight: 1.7, margin: 0 }}>
+                साधू लक्ष्मी जनकल्याण ट्रस्ट विभिन्न सामाजिक कल्याणकारी गतिविधियों के माध्यम से समाज में सकारात्मक परिवर्तन लाने के लिए निरंतर कार्यरत है। हमारी प्रमुख सेवाओं में भोजन वितरण, शिक्षा सहयोग, स्वास्थ्य शिविर, वस्त्र वितरण, आर्थिक एवं सामाजिक सहायता तथा पर्यावरण संरक्षण हेतु वृक्षारोपण अभियान शामिल हैं। इन कार्यों के माध्यम से हम न केवल जरूरतमंद लोगों की तत्काल सहायता करते हैं, बल्कि उनके जीवन को आत्मनिर्भर और सम्मानजनक बनाने का भी प्रयास करते हैं।
+              </p>
+              <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '15px', color: '#4b5563', lineHeight: 1.7, margin: 0 }}>
+                हमारी संस्था का उद्देश्य केवल सहायता प्रदान करना ही नहीं, बल्कि समाज में सेवा, करुणा, भाईचारे और मानवीय मूल्यों को बढ़ावा देना भी है। हम मानते हैं कि प्रत्येक व्यक्ति का छोटा-सा सहयोग किसी जरूरतमंद के जीवन में बड़ा बदलाव ला सकता है। इसी भावना के साथ हम समाज के सभी जागरूक नागरिकों, सामाजिक कार्यकर्ताओं, युवाओं एवं दानदाताओं को हमारे इस सेवा अभियान से जुड़ने के लिए प्रेरित करते हैं।
+              </p>
+              <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '15.5px', color: '#111827', fontWeight: 700, lineHeight: 1.7, margin: 0 }}>
+                साधू लक्ष्मी जनकल्याण ट्रस्ट समाज के सर्वांगीण विकास के लिए पारदर्शिता, ईमानदारी एवं उत्तरदायित्व के साथ कार्य करने के लिए प्रतिबद्ध है। हमारा प्रयास है कि समाज के अंतिम व्यक्ति तक सहायता पहुँचे और कोई भी व्यक्ति शिक्षा, स्वास्थ्य, भोजन या अन्य मूलभूत आवश्यकताओं से वंचित न रहे।
+              </p>
               <div 
                 style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-                  gap: '16px', 
-                  marginBottom: '28px' 
+                  background: 'rgba(253, 237, 149, 0.12)', 
+                  borderLeft: '4px solid #821905', 
+                  borderRadius: '0 16px 16px 0', 
+                  padding: '16px 20px', 
+                  marginTop: '10px' 
                 }}
               >
-                {/* Feature 1: Start Helping Them */}
-                <div 
-                  style={{
-                    display: 'flex',
-                    gap: '12px',
-                    alignItems: 'flex-start',
-                    background: '#fafafa',
-                    border: '1px solid #f0f0f0',
-                    borderRadius: '14px',
-                    padding: '16px',
-                  }}
-                >
-                  {/* Hands + Globe custom inline SVG */}
-                  <div 
-                    style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '10px',
-                      background: 'rgba(245,180,0,0.1)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                    }}
-                  >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5b400" strokeWidth="2">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                      <circle cx="12" cy="11" r="3" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '13px', color: '#111827', margin: '0 0 4px' }}>
-                      मदद की शुरुआत करें
-                    </h4>
-                    <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '11.5px', color: '#9ca3af', lineHeight: 1.45, margin: 0 }}>
-                      संस्था के लक्ष्यों के प्रति समाज में जागरूकता फैलाना।
-                    </p>
-                  </div>
-                </div>
-
-                {/* Feature 2: Make Donations */}
-                <div 
-                  style={{
-                    display: 'flex',
-                    gap: '12px',
-                    alignItems: 'flex-start',
-                    background: '#fafafa',
-                    border: '1px solid #f0f0f0',
-                    borderRadius: '14px',
-                    padding: '16px',
-                  }}
-                >
-                  {/* Hands cradling heart custom inline SVG */}
-                  <div 
-                    style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '10px',
-                      background: 'rgba(26,92,56,0.08)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                    }}
-                  >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5c38" strokeWidth="2">
-                      <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '13px', color: '#111827', margin: '0 0 4px' }}>
-                      दान का योगदान दें
-                    </h4>
-                    <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '11.5px', color: '#9ca3af', lineHeight: 1.45, margin: 0 }}>
-                      आर्थिक या वस्तु दान देकर जरूरतमंदों को सशक्त बनाना।
-                    </p>
-                  </div>
-                </div>
-
+                <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '16px', fontWeight: 800, color: '#821905', margin: 0, fontStyle: 'italic' }}>
+                  "मानव सेवा ही सच्ची साधना है"
+                </p>
+                <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '12.5px', color: '#6b7280', margin: '4px 0 0' }}>
+                  — इसी विचार के साथ साधू लक्ष्मी जनकल्याण ट्रस्ट निरंतर समाज सेवा के कार्यों में समर्पित है।
+                </p>
               </div>
-
-              {/* Bullet list checkmarks */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '32px' }}>
-                {bullets.map((text, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                    <div 
-                      style={{
-                        width: '18px',
-                        height: '18px',
-                        borderRadius: '50%',
-                        background: '#111827',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                        marginTop: '2px',
-                      }}
-                    >
-                      <CheckCircle2 size={11} style={{ color: '#ffffff', strokeWidth: 3 }} />
-                    </div>
-                    <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '13.5px', color: '#374151', lineHeight: 1.5 }}>
-                      {text}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Bottom Row: More About Us & Phone Call Widget */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '30px', flexWrap: 'wrap' }}>
-                <a
-                  href="contact-page"
-                  onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('navigate-contact')) }}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '13px 30px',
-                    borderRadius: '999px',
-                    background: '#1a5c38',
-                    color: '#ffffff',
-                    fontWeight: 700,
-                    fontSize: '14px',
-                    fontFamily: 'Hind, sans-serif',
-                    textDecoration: 'none',
-                    transition: 'all 0.25s ease',
-                    boxShadow: '0 4px 14px rgba(26,92,56,0.3)',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(26,92,56,0.4)'; e.currentTarget.style.background = '#124027' }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(26,92,56,0.3)'; e.currentTarget.style.background = '#1a5c38' }}
-                >
-                  संपर्क करें <ArrowUpRight size={15} />
-                </a>
-
-                {/* Phone Widget */}
-                <a href="tel:+23645689622" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-                  <div 
-                    style={{
-                      width: '42px',
-                      height: '42px',
-                      borderRadius: '50%',
-                      border: '1.5px solid #e5e7eb',
-                      background: '#ffffff',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxShadow: '0 4px 10px rgba(0,0,0,0.04)',
-                      flexShrink: 0,
-                    }}
-                  >
-                    <Phone size={16} style={{ color: '#1a5c38' }} />
-                  </div>
-                  <div>
-                    <p style={{ fontSize: '9px', color: '#9ca3af', fontFamily: 'Hind, sans-serif', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 2px' }}>
-                      फ़ोन नंबर
-                    </p>
-                    <p style={{ fontSize: '14px', fontWeight: 700, color: '#111827', fontFamily: 'Poppins, sans-serif', margin: 0 }}>
-                      +236 (456) 896 22
-                    </p>
-                  </div>
-                </a>
-              </div>
-
             </div>
 
+            {/* Right Column: trust.png Frame */}
+            <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+              {/* Dotted Grid Background Accent */}
+              <div style={{ position: 'absolute', right: '-20px', top: '-20px', width: '100px', height: '100px', backgroundImage: 'radial-gradient(#FDED95 2px, transparent 2px)', backgroundSize: '16px 16px', opacity: 0.5, zIndex: 0 }} />
+              
+              <div 
+                style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  borderRadius: '24px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 48px rgba(0,0,0,0.12), 0 4px 12px rgba(130, 25, 5, 0.08)',
+                  border: '6px solid #ffffff',
+                  outline: '1.5px solid #FDED95',
+                  background: '#ffffff',
+                  maxWidth: '100%',
+                  transition: 'transform 0.3s ease',
+                }}
+                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-4px)'}
+                onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+              >
+                <img 
+                  src="/images/trust.png" 
+                  alt="साधू लक्ष्मी जनकल्याण ट्रस्ट सेवा कार्य" 
+                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
+                />
+              </div>
+            </div>
           </div>
 
-        </div>
+          {/* Part 2: Mission, Vision, & Values Grid */}
+          <div style={{ marginBottom: '90px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+              <span style={{ fontSize: '11px', color: '#821905', fontWeight: 800, fontFamily: 'Hind, sans-serif', letterSpacing: '0.12em', textTransform: 'uppercase' }}>✦ हमारे सिद्धांत ✦</span>
+              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: '28px', color: '#821905', margin: '6px 0 0' }}>मिशन, विजन एवं मूल मूल्य</h3>
+            </div>
 
+            <div 
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '30px',
+              }}
+            >
+              {/* Mission Card */}
+              <div 
+                style={{
+                  background: '#ffffff',
+                  border: '1.5px solid #faf0ee',
+                  borderRadius: '20px',
+                  padding: '30px 24px',
+                  boxShadow: '0 8px 30px rgba(0,0,0,0.02)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '14px',
+                  transition: 'all 0.3s ease',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = '#FDED95'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(130, 25, 5, 0.06)' }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#faf0ee'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.02)' }}
+              >
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(130, 25, 5, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#821905' }}>
+                  <Heart size={22} fill="#821905" />
+                </div>
+                <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: '18px', color: '#821905', margin: 0 }}>हमारा मिशन</h4>
+                <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '13.5px', color: '#6b7280', lineHeight: 1.6, margin: 0 }}>
+                  समाज के जरूरतमंद, गरीब एवं वंचित लोगों को शिक्षा, स्वास्थ्य, भोजन, वस्त्र एवं सामाजिक सहायता प्रदान कर उन्हें आत्मनिर्भर और सम्मानजनक जीवन जीने के लिए सक्षम बनाना।
+                </p>
+              </div>
+
+              {/* Vision Card */}
+              <div 
+                style={{
+                  background: '#ffffff',
+                  border: '1.5px solid #faf0ee',
+                  borderRadius: '20px',
+                  padding: '30px 24px',
+                  boxShadow: '0 8px 30px rgba(0,0,0,0.02)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '14px',
+                  transition: 'all 0.3s ease',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = '#FDED95'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(130, 25, 5, 0.06)' }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#faf0ee'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.02)' }}
+              >
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(130, 25, 5, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#821905' }}>
+                  <Play size={20} fill="#821905" style={{ transform: 'rotate(-90deg)' }} />
+                </div>
+                <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: '18px', color: '#821905', margin: 0 }}>हमारा विजन</h4>
+                <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '13.5px', color: '#6b7280', lineHeight: 1.6, margin: 0 }}>
+                  एक ऐसे समतामूलक, शिक्षित, स्वस्थ और सशक्त समाज का निर्माण करना जहाँ प्रत्येक व्यक्ति को विकास के समान अवसर प्राप्त हों और कोई भी व्यक्ति अभाव एवं असहायता का जीवन जीने के लिए मजबूर न हो।
+                </p>
+              </div>
+
+              {/* Values Card */}
+              <div 
+                style={{
+                  background: '#ffffff',
+                  border: '1.5px solid #faf0ee',
+                  borderRadius: '20px',
+                  padding: '30px 24px',
+                  boxShadow: '0 8px 30px rgba(0,0,0,0.02)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px',
+                  transition: 'all 0.3s ease',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = '#FDED95'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(130, 25, 5, 0.06)' }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#faf0ee'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.02)' }}
+              >
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(130, 25, 5, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#821905' }}>
+                  <CheckCircle2 size={22} />
+                </div>
+                <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: '18px', color: '#821905', margin: 0 }}>हमारे मूल्य</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  {[
+                    { name: 'सेवा', desc: 'मानवता की निस्वार्थ सेवा।' },
+                    { name: 'सहयोग', desc: 'समाज के प्रत्येक वर्ग को साथ लेकर चलना।' },
+                    { name: 'समर्पण', desc: 'सामाजिक कल्याण के प्रति पूर्ण प्रतिबद्धता।' },
+                    { name: 'पारदर्शिता', desc: 'प्रत्येक कार्य में ईमानदारी और जवाबदेही।' },
+                    { name: 'मानवता', desc: 'हर व्यक्ति के सम्मान और अधिकारों का संरक्षण।' },
+                  ].map((val, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '13px' }}>
+                      <span style={{ color: '#821905', fontWeight: 800, fontFamily: 'Hind, sans-serif' }}>• {val.name}:</span>
+                      <span style={{ color: '#6b7280', fontFamily: 'Hind, sans-serif' }}>{val.desc}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Part 3: Associated Cells & Wings Showcase Grid */}
+          <div>
+            <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+              <span style={{ fontSize: '11px', color: '#821905', fontWeight: 800, fontFamily: 'Hind, sans-serif', letterSpacing: '0.12em', textTransform: 'uppercase' }}>✦ हमारे कार्य अंग ✦</span>
+              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: '28px', color: '#821905', margin: '6px 0 0' }}>सहयोगी प्रकोष्ठ एवं विशिष्ट शाखाएं</h3>
+              <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '14.5px', color: '#6b7280', marginTop: '8px', maxWidth: '600px', margin: '8px auto 0', lineHeight: 1.5 }}>
+                ट्रस्ट के कार्यों को सुचारू रूप से संचालित करने के लिए विभिन्न प्रकोष्ठों का गठन किया गया है, जो संबंधित क्षेत्रों में सेवा अभियान चलाते हैं।
+              </p>
+            </div>
+
+            <div 
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '24px',
+              }}
+            >
+              {cells.map((cell, idx) => (
+                <div 
+                  key={idx}
+                  style={{
+                    background: '#ffffff',
+                    border: '1.5px solid #faf0ee',
+                    borderRadius: '20px',
+                    padding: '24px',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.015)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    transition: 'all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)',
+                  }}
+                  onMouseEnter={e => { 
+                    e.currentTarget.style.transform = 'translateY(-6px)'
+                    e.currentTarget.style.borderColor = '#FDED95'
+                    e.currentTarget.style.boxShadow = '0 15px 35px rgba(130, 25, 5, 0.08)'
+                    const img = e.currentTarget.querySelector('img')
+                    if (img) img.style.transform = 'scale(1.05)'
+                  }}
+                  onMouseLeave={e => { 
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.borderColor = '#faf0ee'
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.015)'
+                    const img = e.currentTarget.querySelector('img')
+                    if (img) img.style.transform = 'scale(1)'
+                  }}
+                >
+                  <div 
+                    style={{
+                      width: '100%',
+                      height: '95px',
+                      borderRadius: '12px',
+                      background: '#ffffff',
+                      boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.01), 0 2px 8px rgba(130, 25, 5, 0.04)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '20px',
+                      border: '1.5px solid #faf0ee',
+                      padding: '8px',
+                      boxSizing: 'border-box',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <img 
+                      src={cell.img} 
+                      alt={cell.name} 
+                      style={{ 
+                        width: '100%', 
+                        height: '100%', 
+                        objectFit: 'contain',
+                        transition: 'transform 0.4s ease',
+                      }} 
+                    />
+                  </div>
+                  <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: '16px', color: '#821905', margin: '0 0 10px' }}>
+                    {cell.name}
+                  </h4>
+                  <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', color: '#4b5563', lineHeight: 1.6, margin: 0 }}>
+                    {cell.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ─── 3. Dynamic Mid-Page Donation CTA Banner ─── */}
       <section 
         style={{
-          background: 'linear-gradient(135deg, #05160e 0%, #0c351e 100%)',
+          background: 'linear-gradient(135deg, #2a0501 0%, #5a1002 100%)',
           padding: '100px 0 110px',
           position: 'relative',
           overflow: 'hidden',
@@ -637,7 +542,7 @@ const AboutPage = () => {
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(to right, #05160e 20%, transparent 60%, #05160e 90%)',
+              background: 'linear-gradient(to right, #2a0501 20%, transparent 60%, #2a0501 90%)',
             }}
           />
         </div>
@@ -656,17 +561,17 @@ const AboutPage = () => {
         >
           <svg viewBox="0 0 120 300" fill="none" preserveAspectRatio="none" style={{ width: '100%', height: '100%', opacity: 0.95 }}>
             {/* Textured paint stroke SVG paths */}
-            <path d="M -20,-10 C 20,40 50,90 25,140 C -2,180 35,230 55,280 C 65,300 40,320 -20,320 Z" fill="#f5b400" />
+            <path d="M -20,-10 C 20,40 50,90 25,140 C -2,180 35,230 55,280 C 65,300 40,320 -20,320 Z" fill="#FDED95" />
             <path d="M -20,20 C 15,60 35,100 12,150 C -5,190 25,240 45,290 C 52,305 25,320 -20,320 Z" fill="#ffd54f" opacity="0.6" />
             {/* Splash dots */}
-            <circle cx="30" cy="50" r="3.5" fill="#f5b400" />
-            <circle cx="42" cy="110" r="5" fill="#f5b400" />
+            <circle cx="30" cy="50" r="3.5" fill="#FDED95" />
+            <circle cx="42" cy="110" r="5" fill="#FDED95" />
             <circle cx="58" cy="170" r="2.5" fill="#ffd54f" />
-            <circle cx="62" cy="220" r="4" fill="#f5b400" />
-            <circle cx="48" cy="260" r="2.5" fill="#f5b400" />
+            <circle cx="62" cy="220" r="4" fill="#FDED95" />
+            <circle cx="48" cy="260" r="2.5" fill="#FDED95" />
             <circle cx="32" cy="295" r="4.5" fill="#ffd54f" />
             {/* Streaks */}
-            <path d="M -20,70 Q 55,105 35,125 T -20,165" stroke="#f5b400" strokeWidth="4.5" strokeLinecap="round" />
+            <path d="M -20,70 Q 55,105 35,125 T -20,165" stroke="#FDED95" strokeWidth="4.5" strokeLinecap="round" />
             <path d="M -20,200 Q 65,230 45,250 T -20,290" stroke="#ffd54f" strokeWidth="3" strokeLinecap="round" />
           </svg>
         </div>
@@ -737,7 +642,7 @@ const AboutPage = () => {
               }}
               onMouseEnter={e => { 
                 e.currentTarget.style.background = '#ffffff'
-                e.currentTarget.style.color = '#05160e'
+                e.currentTarget.style.color = '#2a0501'
                 e.currentTarget.style.borderColor = '#ffffff'
                 e.currentTarget.style.transform = 'translateY(-2px)'
               }}
@@ -881,7 +786,7 @@ const FAQSection = () => {
                 fontStyle: 'italic',
                 fontWeight: 700,
                 fontSize: '18px', 
-                color: '#1a5c38',
+                color: '#821905',
                 letterSpacing: '0.02em',
               }}
             >
@@ -913,9 +818,9 @@ const FAQSection = () => {
                   <div
                     onClick={() => setActiveIdx(isActive ? -1 : idx)}
                     style={{
-                      background: isActive ? '#005f3c' : '#ffffff',
+                      background: isActive ? '#821905' : '#ffffff',
                       border: '1.5px solid #e5e7eb',
-                      borderColor: isActive ? '#005f3c' : '#e5e7eb',
+                      borderColor: isActive ? '#821905' : '#e5e7eb',
                       borderRadius: isActive ? '14px 14px 0 0' : '14px',
                       padding: '18px 24px',
                       cursor: 'pointer',
@@ -927,8 +832,8 @@ const FAQSection = () => {
                     }}
                     onMouseEnter={e => {
                       if (!isActive) {
-                        e.currentTarget.style.borderColor = '#1a5c38'
-                        e.currentTarget.style.color = '#1a5c38'
+                        e.currentTarget.style.borderColor = '#821905'
+                        e.currentTarget.style.color = '#821905'
                       }
                     }}
                     onMouseLeave={e => {
@@ -991,7 +896,7 @@ const FAQSection = () => {
         <div 
           className="faq-green-col"
           style={{
-            background: '#041d11',
+            background: '#1a0401',
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
@@ -1137,7 +1042,7 @@ const DonateSupportSection = () => {
           position: 'absolute',
           right: '5%',
           top: '40px',
-          color: '#005f3c',
+          color: '#821905',
           opacity: 0.1,
           pointerEvents: 'none',
           zIndex: 0,
@@ -1285,7 +1190,7 @@ const DonateSupportSection = () => {
             
             {/* Cursive Subtitle Badge */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-              <span style={{ color: '#005f3c', display: 'flex', alignItems: 'center' }}>
+              <span style={{ color: '#821905', display: 'flex', alignItems: 'center' }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" />
                 </svg>
@@ -1295,7 +1200,7 @@ const DonateSupportSection = () => {
                   fontFamily: 'Poppins, sans-serif',
                   fontWeight: 700,
                   fontSize: '13px', 
-                  color: '#005f3c',
+                  color: '#821905',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                 }}
@@ -1351,16 +1256,16 @@ const DonateSupportSection = () => {
                         fontFamily: 'Poppins, sans-serif',
                         fontWeight: 700,
                         fontSize: '13.5px',
-                        background: isActive ? '#005f3c' : 'transparent',
+                        background: isActive ? '#821905' : 'transparent',
                         color: isActive ? '#ffffff' : '#6b7280',
-                        boxShadow: isActive ? '0 4px 12px rgba(0, 95, 60, 0.15)' : 'none',
+                        boxShadow: isActive ? '0 4px 12px rgba(130, 25, 5, 0.15)' : 'none',
                         transform: isActive ? 'translateY(-1px)' : 'translateY(0)',
                         transition: 'all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                       }}
                       onMouseEnter={e => {
                         if (!isActive) {
-                          e.currentTarget.style.color = '#005f3c';
-                          e.currentTarget.style.background = 'rgba(26, 92, 56, 0.04)';
+                          e.currentTarget.style.color = '#821905';
+                          e.currentTarget.style.background = 'rgba(130, 25, 5, 0.04)';
                         }
                       }}
                       onMouseLeave={e => {
@@ -1385,14 +1290,14 @@ const DonateSupportSection = () => {
                         width: '20px',
                         height: '20px',
                         borderRadius: '50%',
-                        background: 'rgba(0, 95, 60, 0.1)',
+                        background: 'rgba(130, 25, 5, 0.1)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexShrink: 0,
                       }}
                     >
-                      <Check size={12} style={{ color: '#005f3c', strokeWidth: 3 }} />
+                      <Check size={12} style={{ color: '#821905', strokeWidth: 3 }} />
                     </div>
                     <span style={{ fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: 500, color: '#4b5563', lineHeight: 1.5 }}>
                       {text}
@@ -1410,7 +1315,7 @@ const DonateSupportSection = () => {
                 <div style={{ position: 'relative', width: '56px', height: '56px' }}>
                   <svg width="56" height="56" viewBox="0 0 36 36">
                     <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e5e7eb" strokeWidth="3" />
-                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#005f3c" strokeWidth="3" strokeDasharray="75, 100" strokeLinecap="round" />
+                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#821905" strokeWidth="3" strokeDasharray="75, 100" strokeLinecap="round" />
                   </svg>
                   <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 700, color: '#111827', fontFamily: 'Poppins, sans-serif' }}>
                     75%
@@ -1428,7 +1333,7 @@ const DonateSupportSection = () => {
                 <div style={{ position: 'relative', width: '56px', height: '56px' }}>
                   <svg width="56" height="56" viewBox="0 0 36 36">
                     <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e5e7eb" strokeWidth="3" />
-                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#005f3c" strokeWidth="3" strokeDasharray="90, 100" strokeLinecap="round" />
+                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#821905" strokeWidth="3" strokeDasharray="90, 100" strokeLinecap="round" />
                   </svg>
                   <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 700, color: '#111827', fontFamily: 'Poppins, sans-serif' }}>
                     90%
@@ -1458,8 +1363,8 @@ const DonateSupportSection = () => {
               
               {/* Stats Col 1: Donate Now */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(26,92,56,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a5c38" strokeWidth="2.5">
+                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(130, 25, 5,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#821905" strokeWidth="2.5">
                     <rect x="2" y="4" width="20" height="16" rx="2" />
                     <line x1="12" y1="18" x2="12" y2="18" />
                     <path d="M12 10a2 2 0 1 0 0 4 2 2 0 1 0 0-4z" />
@@ -1485,8 +1390,8 @@ const DonateSupportSection = () => {
                     }
                   }
                 `}} />
-                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(245,180,0,0.1)', display: 'flex', alignItems: 'center', justifyContainer: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5b400" strokeWidth="2.5">
+                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(253, 237, 149,0.1)', display: 'flex', alignItems: 'center', justifyContainer: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FDED95" strokeWidth="2.5">
                     <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                   </svg>
                 </div>
@@ -1494,7 +1399,7 @@ const DonateSupportSection = () => {
                   <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '11.5px', color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', margin: '0 0 2px' }}>
                     कुल एकत्रित कोष
                   </p>
-                  <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '17px', fontWeight: 800, color: '#1a5c38', margin: 0 }}>
+                  <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '17px', fontWeight: 800, color: '#821905', margin: 0 }}>
                     ₹15,40,456
                   </p>
                 </div>

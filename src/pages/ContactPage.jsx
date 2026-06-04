@@ -9,15 +9,15 @@ const contactInfo = [
     Icon: MapPin,
     title: 'हमारा पता',
     lines: ['कनॉट प्लेस, नई दिल्ली', 'पिन कोड — 110001'],
-    accent: '#1a5c38',
-    light: 'rgba(26,92,56,0.08)',
+    accent: '#821905',
+    light: 'rgba(130, 25, 5,0.08)',
   },
   {
     Icon: Phone,
     title: 'फोन नंबर',
     lines: ['+91 (123) 456-7890', '+91 (987) 654-3210'],
-    accent: '#f5b400',
-    light: 'rgba(245,180,0,0.1)',
+    accent: '#FDED95',
+    light: 'rgba(253, 237, 149,0.1)',
   },
   {
     Icon: Mail,
@@ -81,11 +81,11 @@ const ContactPage = () => {
   const inputStyle = (field) => ({
     width: '100%', boxSizing: 'border-box',
     padding: '13px 16px', borderRadius: '12px',
-    border: `1.5px solid ${focused === field ? '#1a5c38' : '#e5e7eb'}`,
+    border: `1.5px solid ${focused === field ? '#821905' : '#e5e7eb'}`,
     fontFamily: 'Hind, sans-serif', fontSize: '14px', color: '#374151',
     background: focused === field ? '#f8fdf9' : '#fff',
     outline: 'none', transition: 'all 0.2s ease',
-    boxShadow: focused === field ? '0 0 0 3px rgba(26,92,56,0.08)' : 'none',
+    boxShadow: focused === field ? '0 0 0 3px rgba(130, 25, 5,0.08)' : 'none',
   })
 
   return (
@@ -93,19 +93,19 @@ const ContactPage = () => {
 
       {/* ── 1. Hero Banner ── */}
       <div style={{
-        background: 'linear-gradient(135deg, #05160e 0%, #0c351e 100%)',
+        background: 'linear-gradient(135deg, #2a0501 0%, #5a1002 100%)',
         height: '280px', position: 'relative', overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         {/* BG image */}
         <div style={{ position: 'absolute', inset: 0, opacity: 0.2, mixBlendMode: 'luminosity', pointerEvents: 'none' }}>
           <img src="/images/hero.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #05160e 10%, transparent 50%, #05160e 90%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #2a0501 10%, transparent 50%, #2a0501 90%)' }} />
         </div>
 
         {/* Floating heart */}
-        <div style={{ position: 'absolute', left: '6%', top: '20%', color: '#f5b400', opacity: 0.85, pointerEvents: 'none', zIndex: 2 }}>
-          <svg width="72" height="72" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ filter: 'drop-shadow(0 2px 8px rgba(245,180,0,0.3))' }}>
+        <div style={{ position: 'absolute', left: '6%', top: '20%', color: '#FDED95', opacity: 0.85, pointerEvents: 'none', zIndex: 2 }}>
+          <svg width="72" height="72" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ filter: 'drop-shadow(0 2px 8px rgba(253, 237, 149,0.3))' }}>
             <path d="M50,30 C50,30 45,15 30,15 C15,15 10,30 25,50 C40,70 50,85 50,85 C50,85 60,70 75,50 C90,30 85,15 70,15 C55,15 50,30 50,30 Z" />
           </svg>
         </div>
@@ -167,23 +167,23 @@ const ContactPage = () => {
             <div style={{ background: '#f8f9fa', borderRadius: '24px', padding: '40px 36px' }}>
               {/* Header */}
               <div style={{ marginBottom: '32px' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(26,92,56,0.07)', border: '1px solid rgba(26,92,56,0.14)', borderRadius: '999px', padding: '5px 16px', marginBottom: '14px' }}>
-                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1a5c38' }} />
-                  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#1a5c38', fontFamily: 'Hind, sans-serif' }}>संदेश भेजें</span>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(130, 25, 5,0.07)', border: '1px solid rgba(130, 25, 5,0.14)', borderRadius: '999px', padding: '5px 16px', marginBottom: '14px' }}>
+                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#821905' }} />
+                  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#821905', fontFamily: 'Hind, sans-serif' }}>संदेश भेजें</span>
                 </div>
                 <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: 'clamp(22px, 2.5vw, 30px)', color: '#111827', margin: 0, lineHeight: 1.25 }}>
                   हम आपकी बात{' '}
-                  <span style={{ color: '#f5b400' }}>सुनना चाहते हैं</span>
+                  <span style={{ color: '#FDED95' }}>सुनना चाहते हैं</span>
                 </h2>
               </div>
 
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '48px 24px' }}>
-                  <CheckCircle2 size={56} style={{ color: '#1a5c38', marginBottom: '16px' }} />
+                  <CheckCircle2 size={56} style={{ color: '#821905', marginBottom: '16px' }} />
                   <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '20px', color: '#111827', margin: '0 0 8px' }}>संदेश भेज दिया गया!</h3>
                   <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '14px', color: '#6b7280' }}>हम जल्द ही आपसे संपर्क करेंगे।</p>
                   <button onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', subject: '', message: '' }) }}
-                    style={{ marginTop: '20px', padding: '10px 24px', borderRadius: '999px', border: '1.5px solid #1a5c38', background: 'transparent', color: '#1a5c38', fontFamily: 'Hind, sans-serif', fontWeight: 700, fontSize: '14px', cursor: 'pointer' }}>
+                    style={{ marginTop: '20px', padding: '10px 24px', borderRadius: '999px', border: '1.5px solid #821905', background: 'transparent', color: '#821905', fontFamily: 'Hind, sans-serif', fontWeight: 700, fontSize: '14px', cursor: 'pointer' }}>
                     नया संदेश भेजें
                   </button>
                 </div>
@@ -228,9 +228,9 @@ const ContactPage = () => {
                     <textarea required rows={5} placeholder="अपना संदेश यहाँ लिखें..." value={form.message} disabled={submitting} onChange={e => setForm({ ...form, message: e.target.value })} onFocus={() => setFocused('message')} onBlur={() => setFocused('')} style={{ ...inputStyle('message'), resize: 'none' }} />
                   </div>
 
-                  <button type="submit" disabled={submitting} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '14px', borderRadius: '14px', background: submitting ? '#4b7a5f' : 'linear-gradient(135deg,#1a5c38,#113d25)', color: '#fff', fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '15px', border: 'none', cursor: submitting ? 'wait' : 'pointer', opacity: submitting ? 0.9 : 1, boxShadow: '0 6px 20px rgba(26,92,56,0.3)', transition: 'all 0.25s ease' }}
-                    onMouseEnter={e => { if (!submitting) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(26,92,56,0.4)' } }}
-                    onMouseLeave={e => { if (!submitting) { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(26,92,56,0.3)' } }}
+                  <button type="submit" disabled={submitting} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '14px', borderRadius: '14px', background: submitting ? '#4b7a5f' : 'linear-gradient(135deg,#821905,#5a1002)', color: '#fff', fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '15px', border: 'none', cursor: submitting ? 'wait' : 'pointer', opacity: submitting ? 0.9 : 1, boxShadow: '0 6px 20px rgba(130, 25, 5,0.3)', transition: 'all 0.25s ease' }}
+                    onMouseEnter={e => { if (!submitting) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(130, 25, 5,0.4)' } }}
+                    onMouseLeave={e => { if (!submitting) { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(130, 25, 5,0.3)' } }}
                   >
                     <Send size={16} /> {submitting ? 'भेजा जा रहा है...' : 'संदेश भेजें'}
                   </button>
@@ -254,7 +254,7 @@ const ContactPage = () => {
               </div>
 
               {/* Quick info card */}
-              <div style={{ background: '#1a5c38', borderRadius: '20px', padding: '28px 28px', color: '#fff' }}>
+              <div style={{ background: '#821905', borderRadius: '20px', padding: '28px 28px', color: '#fff' }}>
                 <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '17px', color: '#fff', margin: '0 0 6px' }}>
                   सहायता फाउंडेशन
                 </h3>
@@ -270,7 +270,7 @@ const ContactPage = () => {
                   ].map(({ Icon, text }) => (
                     <div key={text} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Icon size={14} style={{ color: '#f5b400' }} />
+                        <Icon size={14} style={{ color: '#FDED95' }} />
                       </div>
                       <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.8)' }}>{text}</span>
                     </div>
@@ -282,7 +282,7 @@ const ContactPage = () => {
                   {socials.map(({ Icon, label }) => (
                     <a key={label} href="#" aria-label={label}
                       style={{ width: '34px', height: '34px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none', transition: 'all 0.2s ease' }}
-                      onMouseEnter={e => { e.currentTarget.style.background = '#f5b400'; e.currentTarget.style.color = '#1a5c38'; e.currentTarget.style.transform = 'translateY(-3px)' }}
+                      onMouseEnter={e => { e.currentTarget.style.background = '#FDED95'; e.currentTarget.style.color = '#821905'; e.currentTarget.style.transform = 'translateY(-3px)' }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.transform = 'translateY(0)' }}
                     >
                       <Icon size={13} />

@@ -1,9 +1,12 @@
 const companyLogos = [
-  '/company/1.png',
-  '/company/2.png',
-  '/company/3.png',
-  '/company/4.png',
-  '/company/6.png',
+  '/company/main/1.png',
+  '/company/main/2.png',
+  '/company/main/3.png',
+  '/company/main/4.png',
+  '/company/main/5.png',
+  '/company/main/6.png',
+  '/company/main/7.png',
+  '/company/main/8.png',
 ]
 
 // Triple for seamless loop
@@ -40,13 +43,13 @@ const PartnerLogos = () => {
       <div style={{ textAlign: 'center', marginBottom: '36px', padding: '0 24px' }}>
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: '10px',
-          background: 'rgba(26,92,56,0.06)', border: '1px solid rgba(26,92,56,0.12)',
+          background: 'rgba(130, 25, 5,0.06)', border: '1px solid rgba(130, 25, 5,0.12)',
           borderRadius: '999px', padding: '6px 18px', marginBottom: '14px',
         }}>
-          <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1a5c38' }} />
+          <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#821905' }} />
           <span style={{
             fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em',
-            textTransform: 'uppercase', color: '#1a5c38', fontFamily: 'Hind, sans-serif',
+            textTransform: 'uppercase', color: '#821905', fontFamily: 'Hind, sans-serif',
           }}>
             हमारे विश्वसनीय सहयोगी
           </span>
@@ -89,7 +92,7 @@ const PartnerLogos = () => {
                   flexShrink: 0,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   padding: '0 48px',
-                  height: '80px',
+                  height: '100px',
                   borderRight: '1px solid #f3f4f6',
                   filter: 'grayscale(100%) opacity(0.55)',
                   transition: 'filter 0.3s ease, transform 0.3s ease',
@@ -107,7 +110,7 @@ const PartnerLogos = () => {
                 <img
                   src={src}
                   alt={`Partner ${(i % companyLogos.length) + 1}`}
-                  style={{ height: '44px', width: 'auto', objectFit: 'contain', maxWidth: '130px' }}
+                  style={{ height: '60px', width: 'auto', objectFit: 'contain', maxWidth: '160px' }}
                   onError={e => { e.currentTarget.parentElement.style.display = 'none' }}
                 />
               </div>
@@ -124,7 +127,7 @@ const PartnerLogos = () => {
       }}>
         {['80G कर-मुक्ति प्रमाणित', 'FCRA पंजीकृत', '15+ वर्षों का विश्वास', '50,000+ लाभार्थी'].map((item, i) => (
           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#f5b400', flexShrink: 0 }} />
+            <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#FDED95', flexShrink: 0 }} />
             <span style={{ fontSize: '12.5px', color: '#6b7280', fontFamily: 'Hind, sans-serif', fontWeight: 500, whiteSpace: 'nowrap' }}>
               {item}
             </span>

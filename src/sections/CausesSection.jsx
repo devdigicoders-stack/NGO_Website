@@ -78,16 +78,16 @@ const CausesSection = () => {
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '48px', gap: '24px', flexWrap: 'wrap' }}>
 
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(26,92,56,0.07)', border: '1px solid rgba(26,92,56,0.14)', borderRadius: '999px', padding: '5px 16px', marginBottom: '14px' }}>
-              <Heart size={12} style={{ color: '#1a5c38', fill: '#1a5c38' }} />
-              <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#1a5c38', fontFamily: 'Hind, sans-serif' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(130, 25, 5,0.07)', border: '1px solid rgba(130, 25, 5,0.14)', borderRadius: '999px', padding: '5px 16px', marginBottom: '14px' }}>
+              <Heart size={12} style={{ color: '#821905', fill: '#821905' }} />
+              <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#821905', fontFamily: 'Hind, sans-serif' }}>
                 हमारे कार्यक्रम
               </span>
             </div>
 
             <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: 'clamp(24px, 3vw, 38px)', color: '#111827', lineHeight: 1.2, margin: 0 }}>
               जरूरतमंदों की मदद करें,{' '}
-              <span style={{ color: '#f5b400' }}>दान करें</span>
+              <span style={{ color: '#FDED95' }}>दान करें</span>
             </h2>
           </div>
 
@@ -96,7 +96,7 @@ const CausesSection = () => {
             <div style={{ display: 'flex', gap: '10px', flexShrink: 0 }}>
               {[
                 { onClick: goPrev, disabled: currentIndex === 0, bg: '#111827', disabledBg: '#e5e7eb', icon: ChevronLeft },
-                { onClick: goNext, disabled: currentIndex >= maxIndex, bg: '#f5b400', disabledBg: '#e5e7eb', icon: ChevronRight },
+                { onClick: goNext, disabled: currentIndex >= maxIndex, bg: '#FDED95', disabledBg: '#e5e7eb', icon: ChevronRight },
               ].map(({ onClick, disabled, bg, disabledBg, icon: Icon }, i) => (
                 <button
                   key={i}
@@ -126,7 +126,7 @@ const CausesSection = () => {
           <div style={{ display: 'flex', justifyContent: 'center', padding: '60px 0' }}>
             <div style={{
               width: '40px', height: '40px', borderRadius: '50%',
-              border: '3px solid #e5e7eb', borderTopColor: '#1a5c38',
+              border: '3px solid #e5e7eb', borderTopColor: '#821905',
               animation: 'spin 0.8s linear infinite',
             }} />
             <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
@@ -170,7 +170,7 @@ const CausesSection = () => {
                       width: i === currentIndex ? '28px' : '8px',
                       height: '8px',
                       borderRadius: '999px',
-                      background: i === currentIndex ? '#1a5c38' : '#d1d5db',
+                      background: i === currentIndex ? '#821905' : '#d1d5db',
                       border: 'none', cursor: 'pointer', padding: 0,
                       transition: 'all 0.3s ease',
                     }}
@@ -309,7 +309,7 @@ const CampaignCard = ({ campaign: c }) => {
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
             width: '100%', padding: '11px',
             background: hovered ? c.accentColor : 'transparent',
-            color: hovered ? (c.accentColor === '#f5b400' ? '#111827' : '#fff') : '#111827',
+            color: hovered ? (c.accentColor === '#FDED95' ? '#111827' : '#fff') : '#111827',
             border: `1.5px solid ${hovered ? c.accentColor : '#e5e7eb'}`,
             borderRadius: '12px',
             fontFamily: 'Hind, sans-serif', fontWeight: 700, fontSize: '13.5px',

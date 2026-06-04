@@ -20,17 +20,17 @@ const VolunteerCall = () => {
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(26,92,56,0.07)', border: '1px solid rgba(26,92,56,0.14)',
+            background: 'rgba(130, 25, 5,0.07)', border: '1px solid rgba(130, 25, 5,0.14)',
             borderRadius: '999px', padding: '5px 16px', marginBottom: '16px',
           }}>
-            <Heart size={12} style={{ color: '#1a5c38', fill: '#1a5c38' }} />
-            <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#1a5c38', fontFamily: 'Hind, sans-serif' }}>
+            <Heart size={12} style={{ color: '#821905', fill: '#821905' }} />
+            <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#821905', fontFamily: 'Hind, sans-serif' }}>
               हमारे साथ जुड़ें
             </span>
           </div>
           <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: 'clamp(24px, 3vw, 38px)', color: '#111827', lineHeight: 1.25, margin: 0 }}>
             बदलाव की शुरुआत{' '}
-            <span style={{ color: '#f5b400' }}>आपसे होती है</span>
+            <span style={{ color: '#FDED95' }}>आपसे होती है</span>
           </h2>
         </div>
 
@@ -47,18 +47,18 @@ const VolunteerCall = () => {
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
           />
           {/* Dark overlay */}
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(10,30,18,0.92) 0%, rgba(10,30,18,0.75) 50%, rgba(10,30,18,0.55) 100%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(42, 5, 1, 0.95) 0%, rgba(130, 25, 5, 0.85) 50%, rgba(130, 25, 5, 0.6) 100%)' }} />
 
           {/* Decorative yellow circle top-right */}
           <div style={{
             position: 'absolute', top: '-60px', right: '-60px',
             width: '280px', height: '280px', borderRadius: '50%',
-            background: 'rgba(245,180,0,0.08)', pointerEvents: 'none',
+            background: 'rgba(253, 237, 149,0.08)', pointerEvents: 'none',
           }} />
           <div style={{
             position: 'absolute', bottom: '-40px', left: '-40px',
             width: '200px', height: '200px', borderRadius: '50%',
-            background: 'rgba(26,92,56,0.15)', pointerEvents: 'none',
+            background: 'rgba(130, 25, 5,0.15)', pointerEvents: 'none',
           }} />
 
           {/* Content */}
@@ -73,8 +73,8 @@ const VolunteerCall = () => {
 
             {/* Left CTA — Volunteer */}
             <CtaCard
-              accent="#1a5c38"
-              accentLight="rgba(26,92,56,0.25)"
+              accent="#821905"
+              accentLight="rgba(130, 25, 5,0.25)"
               icon={<Users size={28} color="#fff" />}
               tag="स्वयंसेवक बनें"
               heading="अपना समय दें, किसी की जिंदगी बदलें"
@@ -93,17 +93,17 @@ const VolunteerCall = () => {
                 style={{
                   position: 'relative', width: '72px', height: '72px',
                   borderRadius: '50%', border: 'none', cursor: 'pointer',
-                  background: videoHovered ? '#f5b400' : 'rgba(255,255,255,0.15)',
+                  background: videoHovered ? '#FDED95' : 'rgba(255,255,255,0.15)',
                   backdropFilter: 'blur(8px)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transition: 'all 0.3s ease',
-                  boxShadow: videoHovered ? '0 0 0 8px rgba(245,180,0,0.2)' : '0 0 0 8px rgba(255,255,255,0.08)',
+                  boxShadow: videoHovered ? '0 0 0 8px rgba(253, 237, 149,0.2)' : '0 0 0 8px rgba(255,255,255,0.08)',
                 }}
               >
                 {/* Ping ring */}
                 <span style={{
                   position: 'absolute', inset: '-8px', borderRadius: '50%',
-                  border: '2px solid rgba(245,180,0,0.4)',
+                  border: '2px solid rgba(253, 237, 149,0.4)',
                   animation: 'ping-ring 2s ease-in-out infinite',
                 }} />
                 <Play size={26} style={{ color: videoHovered ? '#111827' : '#fff', marginLeft: '3px', transition: 'color 0.3s' }} />
@@ -115,8 +115,8 @@ const VolunteerCall = () => {
 
             {/* Right CTA — Donate */}
             <CtaCard
-              accent="#f5b400"
-              accentLight="rgba(245,180,0,0.2)"
+              accent="#FDED95"
+              accentLight="rgba(253, 237, 149,0.2)"
               icon={<Heart size={28} color="#111827" style={{ fill: '#111827' }} />}
               tag="दान करें"
               heading="आपका दान किसी की मुस्कान बन सकता है"
@@ -145,15 +145,15 @@ const VolunteerCall = () => {
                 display: 'flex', alignItems: 'center', gap: '16px',
                 transition: 'all 0.3s ease',
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#1a5c38'; e.currentTarget.style.background = '#fff'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(26,92,56,0.08)' }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#821905'; e.currentTarget.style.background = '#fff'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(130, 25, 5,0.08)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = '#f0f0f0'; e.currentTarget.style.background = '#f8f9fa'; e.currentTarget.style.boxShadow = 'none' }}
             >
               <div style={{
                 width: '48px', height: '48px', borderRadius: '14px',
-                background: 'rgba(26,92,56,0.08)',
+                background: 'rgba(130, 25, 5,0.08)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <Icon size={22} style={{ color: '#1a5c38' }} />
+                <Icon size={22} style={{ color: '#821905' }} />
               </div>
               <div>
                 <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: '22px', color: '#111827', lineHeight: 1, marginBottom: '4px' }}>
@@ -248,15 +248,15 @@ const CtaCard = ({ accent, accentLight, icon, tag, heading, desc, btnLabel, btnH
         style={{
           display: 'inline-flex', alignItems: 'center', gap: '8px',
           padding: '11px 24px', borderRadius: '999px',
-          background: btnStyle === 'yellow' ? '#f5b400' : '#1a5c38',
+          background: btnStyle === 'yellow' ? '#FDED95' : '#821905',
           color: btnStyle === 'yellow' ? '#111827' : '#fff',
           fontFamily: 'Hind, sans-serif', fontWeight: 700, fontSize: '13.5px',
           textDecoration: 'none',
-          boxShadow: btnStyle === 'yellow' ? '0 4px 16px rgba(245,180,0,0.35)' : '0 4px 16px rgba(26,92,56,0.35)',
+          boxShadow: btnStyle === 'yellow' ? '0 4px 16px rgba(253, 237, 149,0.35)' : '0 4px 16px rgba(130, 25, 5,0.35)',
           transition: 'transform 0.2s, box-shadow 0.2s',
         }}
-        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = btnStyle === 'yellow' ? '0 8px 24px rgba(245,180,0,0.5)' : '0 8px 24px rgba(26,92,56,0.5)' }}
-        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = btnStyle === 'yellow' ? '0 4px 16px rgba(245,180,0,0.35)' : '0 4px 16px rgba(26,92,56,0.35)' }}
+        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = btnStyle === 'yellow' ? '0 8px 24px rgba(253, 237, 149,0.5)' : '0 8px 24px rgba(130, 25, 5,0.5)' }}
+        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = btnStyle === 'yellow' ? '0 4px 16px rgba(253, 237, 149,0.35)' : '0 4px 16px rgba(130, 25, 5,0.35)' }}
       >
         {btnLabel} <ArrowUpRight size={15} />
       </a>

@@ -90,7 +90,7 @@ const HeroSection = () => {
           position: 'absolute',
           left: 0, bottom: '60px',
           width: '4px', height: '180px',
-          background: '#f5b400',
+          background: '#FDED95',
           borderRadius: '0 4px 4px 0',
         }} />
 
@@ -107,10 +107,10 @@ const HeroSection = () => {
 
           {/* Badge */}
           <div className="animate-fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
-            <div style={{ width: '28px', height: '2px', background: '#f5b400', borderRadius: '2px' }} />
-            <BadgeIcon size={14} style={{ color: '#f5b400', fill: '#f5b400', flexShrink: 0 }} />
+            <div style={{ width: '28px', height: '2px', background: '#FDED95', borderRadius: '2px' }} />
+            <BadgeIcon size={14} style={{ color: '#FDED95', fill: '#FDED95', flexShrink: 0 }} />
             <span style={{
-              color: '#f5b400', fontWeight: 600, fontSize: '12px',
+              color: '#FDED95', fontWeight: 600, fontSize: '12px',
               letterSpacing: '0.12em', fontFamily: 'Hind, sans-serif',
               textTransform: 'uppercase',
             }}>
@@ -135,7 +135,7 @@ const HeroSection = () => {
             </span>
             <span style={{ display: 'block', fontSize: 'clamp(26px, 3.2vw, 42px)' }}>
               {slide.line2}{' '}
-              <em style={{ fontStyle: 'normal', color: '#f5b400', textShadow: '0 0 30px rgba(245,180,0,0.3)' }}>
+              <em style={{ fontStyle: 'normal', color: '#FDED95', textShadow: '0 0 30px rgba(253, 237, 149,0.3)' }}>
                 {slide.highlight}
               </em>
               {slide.line2end && <> {slide.line2end}</>}
@@ -224,7 +224,7 @@ const HeroSection = () => {
       }}>
         {[
           { dir: -1, label: 'पिछली स्लाइड', Icon: ChevronLeft, style: { background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', color: '#fff' } },
-          { dir: 1,  label: 'अगली स्लाइड',  Icon: ChevronRight, style: { background: '#f5b400', border: '1px solid #f5b400', color: '#1a5c38' } },
+          { dir: 1,  label: 'अगली स्लाइड',  Icon: ChevronRight, style: { background: '#FDED95', border: '1px solid #FDED95', color: '#821905' } },
         ].map(({ dir, label, Icon, style: s }) => (
           <button
             key={dir}
@@ -237,7 +237,7 @@ const HeroSection = () => {
               backdropFilter: 'blur(8px)',
               ...s,
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#f5b400'; e.currentTarget.style.borderColor = '#f5b400'; e.currentTarget.style.color = '#1a5c38' }}
+            onMouseEnter={e => { e.currentTarget.style.background = '#FDED95'; e.currentTarget.style.borderColor = '#FDED95'; e.currentTarget.style.color = '#821905' }}
             onMouseLeave={e => { e.currentTarget.style.background = s.background; e.currentTarget.style.borderColor = s.border; e.currentTarget.style.color = s.color }}
           >
             <Icon size={18} />

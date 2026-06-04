@@ -113,10 +113,10 @@ const BlogSection = () => {
           pointerEvents: 'none',
           zIndex: 1,
           opacity: 0.8,
-          color: '#f5b400',
+          color: '#FDED95',
         }}
       >
-        <svg width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ filter: 'drop-shadow(0 4px 10px rgba(245,180,0,0.25))' }}>
+        <svg width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ filter: 'drop-shadow(0 4px 10px rgba(253, 237, 149,0.25))' }}>
           <path d="M50,30 C50,30 45,15 30,15 C15,15 10,30 25,50 C40,70 50,85 50,85 C50,85 60,70 75,50 C90,30 85,15 70,15 C55,15 50,30 50,30 Z" />
         </svg>
       </div>
@@ -130,7 +130,7 @@ const BlogSection = () => {
           pointerEvents: 'none',
           zIndex: 1,
           opacity: 0.16,
-          color: '#1a5c38',
+          color: '#821905',
           animationDelay: '1.5s',
         }}
       >
@@ -143,8 +143,8 @@ const BlogSection = () => {
         <div style={{ textAlign: 'center', marginBottom: '56px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" stroke="#1a5c38" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M7 14C8.5 14.5 9.5 15 12 15C14.5 15 15.5 14.5 17 14" stroke="#1a5c38" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" stroke="#821905" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M7 14C8.5 14.5 9.5 15 12 15C14.5 15 15.5 14.5 17 14" stroke="#821905" strokeWidth="1.5" strokeLinecap="round"/>
             </svg>
             <span
               style={{
@@ -152,7 +152,7 @@ const BlogSection = () => {
                 fontStyle: 'italic',
                 fontWeight: 700,
                 fontSize: '20px',
-                color: '#1a5c38',
+                color: '#821905',
                 letterSpacing: '0.02em',
               }}
             >
@@ -171,7 +171,7 @@ const BlogSection = () => {
             }}
           >
             {settings.blogSectionTitlePrefix}
-            <span style={{ color: '#f5b400' }}>{settings.blogSectionTitleHighlight}</span>
+            <span style={{ color: '#FDED95' }}>{settings.blogSectionTitleHighlight}</span>
             {settings.blogSectionTitleSuffix}
           </h2>
         </div>
@@ -210,7 +210,7 @@ const BlogSection = () => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#f5b400',
+              background: '#FDED95',
               color: '#111827',
               fontFamily: 'Hind, sans-serif',
               fontWeight: 800,
@@ -218,11 +218,11 @@ const BlogSection = () => {
               padding: '13px 36px',
               borderRadius: '999px',
               textDecoration: 'none',
-              boxShadow: '0 6px 20px rgba(245,180,0,0.3)',
+              boxShadow: '0 6px 20px rgba(253, 237, 149,0.3)',
               transition: 'all 0.3s ease',
             }}
-            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(245,180,0,0.45)' }}
-            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(245,180,0,0.3)' }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(253, 237, 149,0.45)' }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(253, 237, 149,0.3)' }}
           >
             {settings.blogSectionCtaText} <ArrowUpRight size={16} />
           </a>
@@ -271,7 +271,7 @@ const BlogCard = ({ post }) => {
             position: 'absolute',
             top: '14px',
             left: '14px',
-            background: '#0d3820',
+            background: '#821905',
             color: '#ffffff',
             display: 'inline-flex',
             alignItems: 'center',
@@ -289,13 +289,13 @@ const BlogCard = ({ post }) => {
 
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center', margin: '18px 6px 12px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <User size={14} style={{ color: '#f5b400' }} />
+          <User size={14} style={{ color: '#FDED95' }} />
           <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '12.5px', color: '#6b7280', fontWeight: 600 }}>
             {post.author}
           </span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <MessageCircle size={14} style={{ color: '#f5b400' }} />
+          <MessageCircle size={14} style={{ color: '#FDED95' }} />
           <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '12.5px', color: '#6b7280', fontWeight: 600 }}>
             {post.comments}
           </span>
@@ -345,7 +345,7 @@ const BlogCard = ({ post }) => {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            color: '#1a5c38',
+            color: '#821905',
             fontFamily: 'Hind, sans-serif',
             fontWeight: 800,
             fontSize: '13px',
@@ -361,7 +361,7 @@ const BlogCard = ({ post }) => {
               width: '24px',
               height: '24px',
               borderRadius: '50%',
-              background: 'rgba(26,92,56,0.1)',
+              background: 'rgba(130, 25, 5,0.1)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

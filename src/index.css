@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #1a5c38;
-  --primary-dark: #0f3d25;
-  --accent: #f5b400;
+  --primary: #821905;
+  --primary-dark: #5a1002;
+  --accent: #FDED95;
   --white: #ffffff;
   --dark: #111827;
 }
@@ -37,10 +37,10 @@ h1, h2, h3, h4, h5, h6 {
 .hero-overlay {
   background: linear-gradient(
     to right,
-    rgba(8, 35, 18, 0.93) 0%,
-    rgba(8, 35, 18, 0.78) 45%,
-    rgba(8, 35, 18, 0.20) 75%,
-    rgba(8, 35, 18, 0.05) 100%
+    rgba(45, 8, 3, 0.93) 0%,
+    rgba(45, 8, 3, 0.78) 45%,
+    rgba(45, 8, 3, 0.20) 75%,
+    rgba(45, 8, 3, 0.05) 100%
   );
 }
 
@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(245, 180, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(253, 237, 149, 0.4);
 }
 
 .btn-outline {
@@ -110,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Utility ── */
 .icon-bg-light {
-  background-color: rgba(26, 92, 56, 0.08);
+  background-color: rgba(130, 25, 5, 0.08);
 }
 
 .card-hover {
@@ -162,9 +162,9 @@ h1, h2, h3, h4, h5, h6 {
   .hero-overlay {
     background: linear-gradient(
       to bottom,
-      rgba(8, 35, 18, 0.55) 0%,
-      rgba(8, 35, 18, 0.70) 40%,
-      rgba(8, 35, 18, 0.90) 100%
+      rgba(45, 8, 3, 0.55) 0%,
+      rgba(45, 8, 3, 0.70) 40%,
+      rgba(45, 8, 3, 0.90) 100%
     ) !important;
   }
 }

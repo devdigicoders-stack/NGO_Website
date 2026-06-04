@@ -90,8 +90,8 @@ const Testimonials = () => {
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" stroke="#1a5c38" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M7 14C8.5 14.5 9.5 15 12 15C14.5 15 15.5 14.5 17 14" stroke="#1a5c38" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" stroke="#821905" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M7 14C8.5 14.5 9.5 15 12 15C14.5 15 15.5 14.5 17 14" stroke="#821905" strokeWidth="1.5" strokeLinecap="round"/>
             </svg>
             <span
               style={{
@@ -99,7 +99,7 @@ const Testimonials = () => {
                 fontStyle: 'italic',
                 fontWeight: 700,
                 fontSize: '20px',
-                color: '#1a5c38',
+                color: '#821905',
                 letterSpacing: '0.02em',
               }}
             >
@@ -118,7 +118,7 @@ const Testimonials = () => {
             }}
           >
             {settings.sectionTitlePrefix}
-            <span style={{ color: '#f5b400' }}>{settings.sectionTitleHighlight}</span>
+            <span style={{ color: '#FDED95' }}>{settings.sectionTitleHighlight}</span>
             {settings.sectionTitleSuffix}
           </h2>
         </div>
@@ -159,11 +159,11 @@ const Testimonials = () => {
                     position: 'relative',
                     overflow: 'hidden',
                     border: isHighlighted
-                      ? '2.5px solid #f5b400'
-                      : isHovered ? '2.5px solid #1a5c38' : '2.5px solid #ffffff',
+                      ? '2.5px solid #FDED95'
+                      : isHovered ? '2.5px solid #821905' : '2.5px solid #ffffff',
                     boxShadow: isHovered
                       ? '0 24px 50px rgba(0,0,0,0.08)'
-                      : isHighlighted ? '0 16px 36px rgba(245,180,0,0.06)' : '0 10px 30px rgba(0,0,0,0.02)',
+                      : isHighlighted ? '0 16px 36px rgba(253, 237, 149,0.06)' : '0 10px 30px rgba(0,0,0,0.02)',
                     transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
                     display: 'flex',
                     flexDirection: 'column',
@@ -191,7 +191,7 @@ const Testimonials = () => {
                   <div>
                     <div style={{ display: 'flex', gap: '3px', marginBottom: '22px' }}>
                       {[...Array(card.rating)].map((_, i) => (
-                        <span key={i} style={{ color: '#f5b400', fontSize: '18px' }}>★</span>
+                        <span key={i} style={{ color: '#FDED95', fontSize: '18px' }}>★</span>
                       ))}
                     </div>
 
@@ -227,7 +227,7 @@ const Testimonials = () => {
                         height: '46px',
                         borderRadius: '50%',
                         overflow: 'hidden',
-                        border: `1.5px solid ${isHighlighted ? '#f5b400' : '#e5e7eb'}`,
+                        border: `1.5px solid ${isHighlighted ? '#FDED95' : '#e5e7eb'}`,
                         flexShrink: 0,
                       }}
                     >

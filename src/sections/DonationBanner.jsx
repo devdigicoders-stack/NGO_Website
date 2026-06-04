@@ -71,7 +71,7 @@ const DonationBanner = () => {
     <section 
       id="donation-banner" 
       style={{ 
-        background: 'linear-gradient(135deg, #061910 0%, #0d3820 100%)',
+        background: 'linear-gradient(135deg, #2a0501 0%, #5a1002 100%)',
         padding: '100px 0 120px',
         position: 'relative',
         overflow: 'hidden',
@@ -176,7 +176,7 @@ const DonationBanner = () => {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to left, transparent 20%, #061910 100%), linear-gradient(to bottom, #061910 0%, transparent 20%, transparent 80%, #061910 100%)',
+            background: 'linear-gradient(to left, transparent 20%, #2a0501 100%), linear-gradient(to bottom, #2a0501 0%, transparent 20%, transparent 80%, #2a0501 100%)',
           }}
         />
       </div>
@@ -198,12 +198,12 @@ const DonationBanner = () => {
           height="260" 
           viewBox="0 0 200 200" 
           fill="none" 
-          stroke="#f5b400" 
+          stroke="#FDED95" 
           strokeWidth="3.5"
           strokeLinecap="round"
           strokeLinejoin="round"
           style={{
-            filter: 'drop-shadow(0 0 20px rgba(245, 180, 0, 0.45))',
+            filter: 'drop-shadow(0 0 20px rgba(253, 237, 149, 0.45))',
           }}
         >
           {/* A beautiful organic hand-drawn fluid outline heart */}
@@ -225,7 +225,7 @@ const DonationBanner = () => {
         }}
       >
         <svg viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
-          <path d="M0 120H400C320 85 240 100 190 70C120 30 70 50 0 0V120Z" fill="#f5b400" opacity="0.95" />
+          <path d="M0 120H400C320 85 240 100 190 70C120 30 70 50 0 0V120Z" fill="#FDED95" opacity="0.95" />
           <path d="M0 120H380C310 95 250 110 200 85C140 50 80 65 0 20V120Z" fill="#ffd54f" opacity="0.4" />
         </svg>
       </div>
@@ -254,16 +254,16 @@ const DonationBanner = () => {
         {/* Hand/Arm Vector Line Art */}
         <svg width="80" height="150" viewBox="0 0 100 200" fill="none">
           {/* Hand/arm sleeve outline */}
-          <path d="M20 200 C30 160 35 150 25 120 C18 100 25 90 35 85 C42 82 52 85 58 92 C62 98 62 108 55 125 C48 140 55 160 62 200" stroke="#4ade80" strokeWidth="2.5" strokeDasharray="3 3" />
+          <path d="M20 200 C30 160 35 150 25 120 C18 100 25 90 35 85 C42 82 52 85 58 92 C62 98 62 108 55 125 C48 140 55 160 62 200" stroke="#FDED95" strokeWidth="2.5" strokeDasharray="3 3" />
           {/* Palm and fingers cradling upwards */}
-          <path d="M32 90 C32 75 28 65 24 55 C22 50 26 44 31 46 C36 48 38 56 42 66" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M42 66 C44 52 44 40 42 32 C41 27 46 23 50 26 C54 29 52 42 50 56" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M50 56 C54 46 58 38 60 30 C62 25 68 25 68 31 C68 37 60 49 56 64" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M56 64 C64 56 72 50 78 44 C82 40 86 44 82 50 C78 56 68 70 60 82" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M32 90 C32 75 28 65 24 55 C22 50 26 44 31 46 C36 48 38 56 42 66" stroke="#FDED95" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M42 66 C44 52 44 40 42 32 C41 27 46 23 50 26 C54 29 52 42 50 56" stroke="#FDED95" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M50 56 C54 46 58 38 60 30 C62 25 68 25 68 31 C68 37 60 49 56 64" stroke="#FDED95" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M56 64 C64 56 72 50 78 44 C82 40 86 44 82 50 C78 56 68 70 60 82" stroke="#FDED95" strokeWidth="2.5" strokeLinecap="round" />
           {/* Swirling organic accent inside */}
-          <path d="M38 110 Q45 130 38 150" stroke="#4ade80" strokeWidth="1.5" opacity="0.6" />
-          <circle cx="48" cy="120" r="3" fill="#4ade80" opacity="0.5" />
-          <circle cx="42" cy="142" r="2" fill="#4ade80" opacity="0.5" />
+          <path d="M38 110 Q45 130 38 150" stroke="#FDED95" strokeWidth="1.5" opacity="0.6" />
+          <circle cx="48" cy="120" r="3" fill="#FDED95" opacity="0.5" />
+          <circle cx="42" cy="142" r="2" fill="#FDED95" opacity="0.5" />
         </svg>
       </div>
 
@@ -319,7 +319,7 @@ const DonationBanner = () => {
               textShadow: '0 4px 12px rgba(0,0,0,0.4)',
             }}
           >
-            बच्चों की शिक्षा के लिए आज ही <span style={{ color: '#f5b400', position: 'relative' }}>हमारे साथ</span> जुड़ें
+            बच्चों की शिक्षा के लिए आज ही <span style={{ color: '#FDED95', position: 'relative' }}>हमारे साथ</span> जुड़ें
           </h2>
 
         </div>
@@ -415,7 +415,7 @@ const DonationBanner = () => {
                       border: '2px solid transparent',
                       transition: 'border-color 0.25s',
                     }}
-                    onFocus={(e) => e.currentTarget.style.borderColor = '#1a5c38'}
+                    onFocus={(e) => e.currentTarget.style.borderColor = '#821905'}
                     onBlur={(e) => e.currentTarget.style.borderColor = 'transparent'}
                   >
                     {/* Custom Dollar Badge */}
@@ -526,7 +526,7 @@ const DonationBanner = () => {
 
                 {/* Secure Online Payment Notice */}
                 <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1a5c38' }} />
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#821905' }} />
                   <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', color: '#4b5563', fontWeight: 600 }}>
                     सुरक्षित ऑनलाइन भुगतान (UPI / QR कोड)
                   </span>
@@ -544,7 +544,7 @@ const DonationBanner = () => {
                   }}
                   style={{
                     width: '100%',
-                    background: '#f5b400',
+                    background: '#FDED95',
                     color: '#111827',
                     border: 'none',
                     borderRadius: '16px',
@@ -557,18 +557,18 @@ const DonationBanner = () => {
                     justifyContent: 'center',
                     gap: '8px',
                     cursor: 'pointer',
-                    boxShadow: '0 8px 24px rgba(245,180,0,0.3)',
+                    boxShadow: '0 8px 24px rgba(253, 237, 149,0.3)',
                     transition: 'all 0.3s ease',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(245,180,0,0.45)';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(253, 237, 149,0.45)';
                     e.currentTarget.style.background = '#ffd54f';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(245,180,0,0.3)';
-                    e.currentTarget.style.background = '#f5b400';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(253, 237, 149,0.3)';
+                    e.currentTarget.style.background = '#FDED95';
                   }}
                 >
                   अभी दान करें <ArrowRight size={16} />
@@ -582,15 +582,15 @@ const DonationBanner = () => {
                     display: 'inline-flex', 
                     alignItems: 'center', 
                     gap: '8px', 
-                    background: 'rgba(26,92,56,0.07)', 
-                    border: '1px solid rgba(26,92,56,0.14)', 
+                    background: 'rgba(130, 25, 5,0.07)', 
+                    border: '1px solid rgba(130, 25, 5,0.14)', 
                     borderRadius: '999px', 
                     padding: '4px 14px', 
                     marginBottom: '16px' 
                   }}
                 >
-                  <CheckCircle2 size={12} style={{ color: '#1a5c38' }} />
-                  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1a5c38', fontFamily: 'Hind, sans-serif' }}>
+                  <CheckCircle2 size={12} style={{ color: '#821905' }} />
+                  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#821905', fontFamily: 'Hind, sans-serif' }}>
                     QR से भुगतान करें
                   </span>
                 </div>
@@ -657,7 +657,7 @@ const DonationBanner = () => {
                           fontFamily: 'Poppins, sans-serif',
                           fontWeight: 700,
                           fontSize: '14.5px',
-                          color: '#1a5c38',
+                          color: '#821905',
                         }}
                       >
                         {upiId}
@@ -673,7 +673,7 @@ const DonationBanner = () => {
                           padding: '6px 12px',
                           borderRadius: '10px',
                           border: 'none',
-                          background: copied ? '#1a5c38' : '#e5e7eb',
+                          background: copied ? '#821905' : '#e5e7eb',
                           color: copied ? '#ffffff' : '#374151',
                           fontFamily: 'Hind, sans-serif',
                           fontWeight: 600,
@@ -743,7 +743,7 @@ const DonationBanner = () => {
                           width: '20px', 
                           height: '20px', 
                           borderRadius: '50%', 
-                          background: '#1a5c38', 
+                          background: '#821905', 
                           color: '#ffffff', 
                           display: 'flex', 
                           alignItems: 'center', 
@@ -786,7 +786,7 @@ const DonationBanner = () => {
                     cursor: 'pointer', 
                     transition: 'all 0.25s' 
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#1a5c38'; e.currentTarget.style.color = '#1a5c38' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#821905'; e.currentTarget.style.color = '#821905' }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.color = '#6b7280' }}
                 >
                   ← वापस जाएं

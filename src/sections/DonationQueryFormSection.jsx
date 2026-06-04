@@ -87,14 +87,14 @@ const DonationQueryFormSection = ({ source = 'website', sectionId = 'donation-qu
     boxSizing: 'border-box',
     padding: '13px 16px',
     borderRadius: '12px',
-    border: `1.5px solid ${focused === field ? '#1a5c38' : '#e5e7eb'}`,
+    border: `1.5px solid ${focused === field ? '#821905' : '#e5e7eb'}`,
     fontFamily: 'Hind, sans-serif',
     fontSize: '14px',
     color: '#374151',
     background: focused === field ? '#f8fdf9' : '#fff',
     outline: 'none',
     transition: 'all 0.2s ease',
-    boxShadow: focused === field ? '0 0 0 3px rgba(26,92,56,0.08)' : 'none',
+    boxShadow: focused === field ? '0 0 0 3px rgba(130, 25, 5,0.08)' : 'none',
   })
 
   const labelStyle = {
@@ -117,7 +117,7 @@ const DonationQueryFormSection = ({ source = 'website', sectionId = 'donation-qu
             borderRadius: '24px',
             border: '1.5px solid #eef2ef',
             padding: '40px 36px',
-            boxShadow: '0 8px 32px rgba(26,92,56,0.06)',
+            boxShadow: '0 8px 32px rgba(130, 25, 5,0.06)',
           }}
         >
           {loadingSettings ? (
@@ -132,7 +132,7 @@ const DonationQueryFormSection = ({ source = 'website', sectionId = 'donation-qu
                     fontFamily: 'Hind, sans-serif',
                     fontSize: '13px',
                     fontWeight: 600,
-                    color: '#1a5c38',
+                    color: '#821905',
                     margin: '0 0 8px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.08em',
@@ -157,7 +157,7 @@ const DonationQueryFormSection = ({ source = 'website', sectionId = 'donation-qu
 
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '32px 16px' }}>
-                  <CheckCircle2 size={52} style={{ color: '#1a5c38', marginBottom: '14px' }} />
+                  <CheckCircle2 size={52} style={{ color: '#821905', marginBottom: '14px' }} />
                   <p
                     style={{
                       fontFamily: 'Hind, sans-serif',
@@ -176,9 +176,9 @@ const DonationQueryFormSection = ({ source = 'website', sectionId = 'donation-qu
                       marginTop: '22px',
                       padding: '10px 24px',
                       borderRadius: '999px',
-                      border: '1.5px solid #1a5c38',
+                      border: '1.5px solid #821905',
                       background: 'transparent',
-                      color: '#1a5c38',
+                      color: '#821905',
                       fontFamily: 'Hind, sans-serif',
                       fontWeight: 700,
                       fontSize: '14px',
@@ -279,7 +279,7 @@ const DonationQueryFormSection = ({ source = 'website', sectionId = 'donation-qu
                       gap: '8px',
                       padding: '14px 28px',
                       borderRadius: '14px',
-                      background: submitting ? '#4b7a5f' : 'linear-gradient(135deg,#1a5c38,#113d25)',
+                      background: submitting ? '#4b7a5f' : 'linear-gradient(135deg,#821905,#5a1002)',
                       color: '#fff',
                       fontFamily: 'Poppins, sans-serif',
                       fontWeight: 700,
@@ -287,7 +287,7 @@ const DonationQueryFormSection = ({ source = 'website', sectionId = 'donation-qu
                       border: 'none',
                       cursor: submitting ? 'wait' : 'pointer',
                       alignSelf: 'flex-start',
-                      boxShadow: '0 6px 20px rgba(26,92,56,0.25)',
+                      boxShadow: '0 6px 20px rgba(130, 25, 5,0.25)',
                       transition: 'all 0.25s ease',
                     }}
                   >

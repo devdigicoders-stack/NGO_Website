@@ -62,7 +62,7 @@ const TeamCard = ({ member }) => {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(26, 92, 56, 0.18)',
+            background: 'rgba(130, 25, 5, 0.18)',
             opacity: hov ? 1 : 0,
             transition: 'opacity 0.4s ease',
             pointerEvents: 'none',
@@ -100,7 +100,7 @@ const TeamCard = ({ member }) => {
                 boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
                 transition: 'all 0.25s ease',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#005f3c'; e.currentTarget.style.color = '#ffffff' }}
+              onMouseEnter={e => { e.currentTarget.style.background = '#821905'; e.currentTarget.style.color = '#ffffff' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#111827' }}
             >
               <FacebookIcon size={14} />
@@ -125,7 +125,7 @@ const TeamCard = ({ member }) => {
                 boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
                 transition: 'all 0.25s ease',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#005f3c'; e.currentTarget.style.color = '#ffffff' }}
+              onMouseEnter={e => { e.currentTarget.style.background = '#821905'; e.currentTarget.style.color = '#ffffff' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#111827' }}
             >
               <TwitterIcon size={14} />
@@ -150,7 +150,7 @@ const TeamCard = ({ member }) => {
                 boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
                 transition: 'all 0.25s ease',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#005f3c'; e.currentTarget.style.color = '#ffffff' }}
+              onMouseEnter={e => { e.currentTarget.style.background = '#821905'; e.currentTarget.style.color = '#ffffff' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#111827' }}
             >
               <InstagramIcon size={14} />
@@ -175,7 +175,7 @@ const TeamCard = ({ member }) => {
                 boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
                 transition: 'all 0.25s ease',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#005f3c'; e.currentTarget.style.color = '#ffffff' }}
+              onMouseEnter={e => { e.currentTarget.style.background = '#821905'; e.currentTarget.style.color = '#ffffff' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#111827' }}
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -193,12 +193,12 @@ const TeamCard = ({ member }) => {
             width: '40px',
             height: '40px',
             borderRadius: '50%',
-            background: '#005f3c',
+            background: '#821905',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: '#ffffff',
-            boxShadow: '0 4px 10px rgba(0,95,60,0.3)',
+            boxShadow: '0 4px 10px rgba(130, 25, 5,0.3)',
             zIndex: 15,
             transition: 'transform 0.3s ease',
             transform: hov ? 'rotate(90deg) scale(1.08)' : 'rotate(0deg) scale(1)',
@@ -211,7 +211,7 @@ const TeamCard = ({ member }) => {
       <div
         style={{
           padding: '24px 24px 28px',
-          background: hov ? '#005f3c' : 'transparent',
+          background: hov ? '#821905' : 'transparent',
           transition: 'background 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
           position: 'relative',
           zIndex: 0,
@@ -303,7 +303,7 @@ const TeamSection = () => {
           position: 'absolute',
           right: '5%',
           top: '40px',
-          color: '#005f3c',
+          color: '#821905',
           opacity: 0.12,
           pointerEvents: 'none',
           zIndex: 0,
@@ -323,7 +323,7 @@ const TeamSection = () => {
                 fontStyle: 'italic',
                 fontWeight: 700,
                 fontSize: '18px',
-                color: '#1a5c38',
+                color: '#821905',
                 letterSpacing: '0.02em',
               }}
             >
@@ -382,24 +382,24 @@ const TeamSection = () => {
                 padding: '12px 28px',
                 borderRadius: '999px',
                 border: 'none',
-                background: showAll ? '#f0f7f5' : '#1a5c38',
-                color: showAll ? '#1a5c38' : '#ffffff',
+                background: showAll ? '#faf0ee' : '#821905',
+                color: showAll ? '#821905' : '#ffffff',
                 fontFamily: 'Poppins, sans-serif',
                 fontWeight: 700,
                 fontSize: '15px',
                 cursor: 'pointer',
                 transition: 'all 0.25s ease',
-                boxShadow: showAll ? 'none' : '0 4px 16px rgba(26,92,56,0.25)',
+                boxShadow: showAll ? 'none' : '0 4px 16px rgba(130, 25, 5,0.25)',
               }}
               onMouseEnter={e => {
                 if (!showAll) {
-                  e.currentTarget.style.background = '#124027'
+                  e.currentTarget.style.background = '#5a1002'
                   e.currentTarget.style.transform = 'translateY(-2px)'
                 }
               }}
               onMouseLeave={e => {
                 if (!showAll) {
-                  e.currentTarget.style.background = '#1a5c38'
+                  e.currentTarget.style.background = '#821905'
                   e.currentTarget.style.transform = 'translateY(0)'
                 }
               }}

@@ -20,17 +20,17 @@ const ContactItem = ({ href, icon: Icon, text }) => (
       transition: 'background 0.2s, color 0.2s',
       lineHeight: 1,
     }}
-    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#f5b400' }}
+    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#FDED95' }}
     onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#fff' }}
   >
-    <Icon size={13} style={{ color: '#f5b400', flexShrink: 0, display: 'block' }} />
+    <Icon size={13} style={{ color: '#FDED95', flexShrink: 0, display: 'block' }} />
     <span style={{ lineHeight: 1 }} className="hidden sm:inline">{text}</span>
   </a>
 )
 
 const Topbar = () => {
   return (
-    <div className="hidden md:block" style={{ background: '#1a5c38', color: '#fff' }}>
+    <div className="hidden md:block" style={{ background: '#821905', color: '#fff' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -51,7 +51,7 @@ const Topbar = () => {
               className="hidden lg:flex"
               style={{ alignItems: 'center', gap: '7px', padding: '4px 10px', color: 'rgba(255,255,255,0.65)', fontSize: '12.5px', fontFamily: 'Hind, sans-serif', lineHeight: 1 }}
             >
-              <MapPin size={13} style={{ color: '#f5b400', flexShrink: 0, display: 'block' }} />
+              <MapPin size={13} style={{ color: '#FDED95', flexShrink: 0, display: 'block' }} />
               <span style={{ lineHeight: 1 }}>नई दिल्ली, भारत</span>
             </div>
           </div>
@@ -66,17 +66,17 @@ const Topbar = () => {
               onClick={goToContact}
               style={{
                 alignItems: 'center', gap: '7px',
-                background: 'rgba(245,180,0,0.15)',
-                border: '1px solid rgba(245,180,0,0.3)',
+                background: 'rgba(253, 237, 149,0.15)',
+                border: '1px solid rgba(253, 237, 149,0.3)',
                 padding: '4px 14px', borderRadius: '999px',
                 cursor: 'pointer',
                 transition: 'background 0.2s, transform 0.2s',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(245,180,0,0.28)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(245,180,0,0.15)'; e.currentTarget.style.transform = 'translateY(0)' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(253, 237, 149,0.28)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(253, 237, 149,0.15)'; e.currentTarget.style.transform = 'translateY(0)' }}
             >
-              <Heart size={11} style={{ color: '#f5b400', fill: '#f5b400', flexShrink: 0, display: 'block' }} />
-              <span style={{ color: '#f5b400', fontSize: '11px', fontWeight: 600, fontFamily: 'Hind, sans-serif', whiteSpace: 'nowrap', lineHeight: 1 }}>
+              <Heart size={11} style={{ color: '#FDED95', fill: '#FDED95', flexShrink: 0, display: 'block' }} />
+              <span style={{ color: '#FDED95', fontSize: '11px', fontWeight: 600, fontFamily: 'Hind, sans-serif', whiteSpace: 'nowrap', lineHeight: 1 }}>
                 जरूरतमंदों की मदद करें — आज ही स्वयंसेवक बनें!
               </span>
             </button>
@@ -99,7 +99,7 @@ const Topbar = () => {
                     transition: 'background 0.25s, color 0.25s, transform 0.25s',
                     flexShrink: 0,
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = '#f5b400'; e.currentTarget.style.color = '#1a5c38'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = '#FDED95'; e.currentTarget.style.color = '#821905'; e.currentTarget.style.transform = 'translateY(-2px)' }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.transform = 'translateY(0)' }}
                 >
                   <Icon size={12} />
@@ -112,7 +112,7 @@ const Topbar = () => {
       </div>
 
       {/* Bottom accent line */}
-      <div style={{ height: '2px', background: 'linear-gradient(to right, transparent, rgba(245,180,0,0.4), transparent)' }} />
+      <div style={{ height: '2px', background: 'linear-gradient(to right, transparent, rgba(253, 237, 149,0.4), transparent)' }} />
     </div>
   )
 }

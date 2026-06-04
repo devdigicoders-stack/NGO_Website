@@ -10,16 +10,16 @@ const getFullDescription = (article) => {
 }
 
 const categoryColors = {
-  'शिक्षा':           { bg: 'rgba(26,92,56,0.1)',  text: '#1a5c38' },
-  'स्वास्थ्य':        { bg: 'rgba(0,95,60,0.08)',   text: '#005f3c' },
-  'महिला सशक्तिकरण': { bg: 'rgba(245,180,0,0.12)', text: '#b07d00' },
-  'दान':              { bg: 'rgba(245,180,0,0.12)', text: '#b07d00' },
+  'शिक्षा':           { bg: 'rgba(130, 25, 5,0.1)',  text: '#821905' },
+  'स्वास्थ्य':        { bg: 'rgba(130, 25, 5,0.08)',   text: '#821905' },
+  'महिला सशक्तिकरण': { bg: 'rgba(253, 237, 149,0.12)', text: '#b07d00' },
+  'दान':              { bg: 'rgba(253, 237, 149,0.12)', text: '#b07d00' },
   'आगामी कार्यक्रम': { bg: 'rgba(79,70,229,0.08)', text: '#4f46e5' },
   'स्वयंसेवा':        { bg: 'rgba(236,72,153,0.08)', text: '#be185d' },
 }
 
 const tagColors = {
-  'ताज़ा':      { bg: '#1a5c38', color: '#fff' },
+  'ताज़ा':      { bg: '#821905', color: '#fff' },
   'महत्वपूर्ण': { bg: '#dc2626', color: '#fff' },
   'नया':        { bg: '#2563eb', color: '#fff' },
   'बड़ी खबर':   { bg: '#7c3aed', color: '#fff' },
@@ -137,8 +137,8 @@ const NewsPage = () => {
         }
         .news-card:hover {
           transform: translateY(-6px);
-          box-shadow: 0 20px 40px rgba(26, 92, 56, 0.1);
-          border-color: rgba(26, 92, 56, 0.18);
+          box-shadow: 0 20px 40px rgba(130, 25, 5, 0.1);
+          border-color: rgba(130, 25, 5, 0.18);
         }
         .news-card-img img {
           transition: transform 0.5s ease;
@@ -159,8 +159,8 @@ const NewsPage = () => {
         }
         .news-search-input:focus {
           outline: none;
-          border-color: #1a5c38 !important;
-          box-shadow: 0 0 0 3px rgba(26, 92, 56, 0.08);
+          border-color: #821905 !important;
+          box-shadow: 0 0 0 3px rgba(130, 25, 5, 0.08);
         }
         @media (max-width: 900px) {
           .news-featured-grid {
@@ -180,7 +180,7 @@ const NewsPage = () => {
       ═══════════════════════════════════════════ */}
       <div
         style={{
-          background: 'linear-gradient(135deg, #05160e 0%, #0c351e 100%)',
+          background: 'linear-gradient(135deg, #2a0501 0%, #5a1002 100%)',
           height: '300px',
           position: 'relative',
           overflow: 'hidden',
@@ -205,7 +205,7 @@ const NewsPage = () => {
           />
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'linear-gradient(to right, #05160e 10%, transparent 50%, #05160e 90%)',
+            background: 'linear-gradient(to right, #2a0501 10%, transparent 50%, #2a0501 90%)',
           }} />
         </div>
 
@@ -225,7 +225,7 @@ const NewsPage = () => {
           />
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'linear-gradient(to right, #05160e 0%, transparent 60%)',
+            background: 'linear-gradient(to right, #2a0501 0%, transparent 60%)',
           }} />
         </div>
 
@@ -235,13 +235,13 @@ const NewsPage = () => {
           style={{
             position: 'absolute', left: '6%', top: '22%',
             pointerEvents: 'none', zIndex: 2,
-            color: '#f5b400', opacity: 0.9,
+            color: '#FDED95', opacity: 0.9,
           }}
         >
           <svg
             width="72" height="72" viewBox="0 0 100 100"
             fill="none" stroke="currentColor" strokeWidth="2"
-            style={{ filter: 'drop-shadow(0 2px 8px rgba(245,180,0,0.3))' }}
+            style={{ filter: 'drop-shadow(0 2px 8px rgba(253, 237, 149,0.3))' }}
           >
             <path d="M50,30 C50,30 45,15 30,15 C15,15 10,30 25,50 C40,70 50,85 50,85 C50,85 60,70 75,50 C90,30 85,15 70,15 C55,15 50,30 50,30 Z" />
           </svg>
@@ -249,7 +249,7 @@ const NewsPage = () => {
 
         {/* Decorative dots top-right */}
         <div style={{ position: 'absolute', right: '38%', top: '18px', pointerEvents: 'none', zIndex: 2 }}>
-          <svg width="60" height="60" fill="#f5b400" opacity="0.18">
+          <svg width="60" height="60" fill="#FDED95" opacity="0.18">
             <pattern id="newsDots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
               <circle cx="2.5" cy="2.5" r="2" />
             </pattern>
@@ -333,15 +333,15 @@ const NewsPage = () => {
                     className="news-cat-filter"
                     onClick={() => setActiveCategory(cat)}
                     style={{
-                      background: isActive ? '#1a5c38' : '#ffffff',
+                      background: isActive ? '#821905' : '#ffffff',
                       color: isActive ? '#ffffff' : '#6b7280',
-                      borderColor: isActive ? '#1a5c38' : '#e5e7eb',
-                      boxShadow: isActive ? '0 4px 12px rgba(26,92,56,0.2)' : 'none',
+                      borderColor: isActive ? '#821905' : '#e5e7eb',
+                      boxShadow: isActive ? '0 4px 12px rgba(130, 25, 5,0.2)' : 'none',
                     }}
                     onMouseEnter={e => {
                       if (!isActive) {
-                        e.currentTarget.style.borderColor = '#1a5c38'
-                        e.currentTarget.style.color = '#1a5c38'
+                        e.currentTarget.style.borderColor = '#821905'
+                        e.currentTarget.style.color = '#821905'
                       }
                     }}
                     onMouseLeave={e => {
@@ -422,10 +422,10 @@ const NewsPage = () => {
                     display: 'inline-flex', alignItems: 'center', gap: '8px',
                     marginBottom: '24px',
                   }}>
-                    <div style={{ width: '28px', height: '2px', background: '#1a5c38' }} />
+                    <div style={{ width: '28px', height: '2px', background: '#821905' }} />
                     <span style={{
                       fontFamily: 'Poppins, sans-serif', fontWeight: 700,
-                      fontSize: '12px', color: '#1a5c38', letterSpacing: '0.1em',
+                      fontSize: '12px', color: '#821905', letterSpacing: '0.1em',
                       textTransform: 'uppercase',
                     }}>मुख्य समाचार</span>
                   </div>
@@ -442,7 +442,7 @@ const NewsPage = () => {
                       cursor: 'pointer',
                       transition: 'box-shadow 0.3s ease',
                     }}
-                    onMouseEnter={e => e.currentTarget.style.boxShadow = '0 20px 50px rgba(26,92,56,0.1)'}
+                    onMouseEnter={e => e.currentTarget.style.boxShadow = '0 20px 50px rgba(130, 25, 5,0.1)'}
                     onMouseLeave={e => e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.06)'}
                   >
                     {/* Image */}
@@ -463,7 +463,7 @@ const NewsPage = () => {
                       {/* Tag badge */}
                       <div style={{
                         position: 'absolute', top: '18px', left: '18px',
-                        background: tagColors[featured.tag]?.bg || '#1a5c38',
+                        background: tagColors[featured.tag]?.bg || '#821905',
                         color: tagColors[featured.tag]?.color || '#fff',
                         fontFamily: 'Poppins, sans-serif', fontWeight: 700,
                         fontSize: '11px', padding: '5px 14px', borderRadius: '999px',
@@ -484,8 +484,8 @@ const NewsPage = () => {
                         <span style={{
                           fontFamily: 'Poppins, sans-serif', fontWeight: 600, fontSize: '12px',
                           padding: '4px 12px', borderRadius: '999px',
-                          background: categoryColors[featured.category]?.bg || 'rgba(26,92,56,0.08)',
-                          color: categoryColors[featured.category]?.text || '#1a5c38',
+                          background: categoryColors[featured.category]?.bg || 'rgba(130, 25, 5,0.08)',
+                          color: categoryColors[featured.category]?.text || '#821905',
                         }}>
                           {featured.category}
                         </span>
@@ -517,23 +517,23 @@ const NewsPage = () => {
                         style={{
                           display: 'inline-flex', alignItems: 'center', gap: '8px',
                           padding: '12px 28px', borderRadius: '999px',
-                          background: '#1a5c38', color: '#ffffff',
+                          background: '#821905', color: '#ffffff',
                           fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '13.5px',
                           border: 'none',
                           cursor: 'pointer',
                           transition: 'all 0.25s ease',
                           alignSelf: 'flex-start',
-                          boxShadow: '0 4px 14px rgba(26,92,56,0.25)',
+                          boxShadow: '0 4px 14px rgba(130, 25, 5,0.25)',
                         }}
                         onMouseEnter={e => {
-                          e.currentTarget.style.background = '#113d25'
+                          e.currentTarget.style.background = '#5a1002'
                           e.currentTarget.style.transform = 'translateY(-2px)'
-                          e.currentTarget.style.boxShadow = '0 8px 22px rgba(26,92,56,0.35)'
+                          e.currentTarget.style.boxShadow = '0 8px 22px rgba(130, 25, 5,0.35)'
                         }}
                         onMouseLeave={e => {
-                          e.currentTarget.style.background = '#1a5c38'
+                          e.currentTarget.style.background = '#821905'
                           e.currentTarget.style.transform = 'translateY(0)'
-                          e.currentTarget.style.boxShadow = '0 4px 14px rgba(26,92,56,0.25)'
+                          e.currentTarget.style.boxShadow = '0 4px 14px rgba(130, 25, 5,0.25)'
                         }}
                       >
                         {isExpanded ? 'कम पढ़ें' : 'पूरा पढ़ें'} <ArrowUpRight size={15} />
@@ -548,10 +548,10 @@ const NewsPage = () => {
               {rest.length > 0 && (
                 <>
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '30px' }}>
-                    <div style={{ width: '28px', height: '2px', background: '#1a5c38' }} />
+                    <div style={{ width: '28px', height: '2px', background: '#821905' }} />
                     <span style={{
                       fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '12px',
-                      color: '#1a5c38', letterSpacing: '0.1em', textTransform: 'uppercase',
+                      color: '#821905', letterSpacing: '0.1em', textTransform: 'uppercase',
                     }}>
                       और समाचार
                     </span>
@@ -588,7 +588,7 @@ const NewsPage = () => {
                           {/* Tag badge */}
                           <div style={{
                             position: 'absolute', top: '14px', left: '14px',
-                            background: tagColors[article.tag]?.bg || '#1a5c38',
+                            background: tagColors[article.tag]?.bg || '#821905',
                             color: tagColors[article.tag]?.color || '#fff',
                             fontFamily: 'Poppins, sans-serif', fontWeight: 700,
                             fontSize: '10.5px', padding: '4px 12px', borderRadius: '999px',
@@ -599,8 +599,8 @@ const NewsPage = () => {
                           {/* Category badge bottom-left */}
                           <div style={{
                             position: 'absolute', bottom: '14px', left: '14px',
-                            background: categoryColors[article.category]?.bg || 'rgba(26,92,56,0.8)',
-                            color: categoryColors[article.category]?.text || '#1a5c38',
+                            background: categoryColors[article.category]?.bg || 'rgba(130, 25, 5,0.8)',
+                            color: categoryColors[article.category]?.text || '#821905',
                             fontFamily: 'Poppins, sans-serif', fontWeight: 600, fontSize: '11px',
                             padding: '3px 10px', borderRadius: '999px',
                             backdropFilter: 'blur(4px)',
@@ -648,7 +648,7 @@ const NewsPage = () => {
                             style={{
                               display: 'inline-flex', alignItems: 'center', gap: '6px',
                               fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '13px',
-                              color: '#1a5c38', textDecoration: 'none',
+                              color: '#821905', textDecoration: 'none',
                               background: 'none', border: 'none', padding: 0,
                               cursor: 'pointer',
                               transition: 'gap 0.2s ease, color 0.2s ease',
@@ -656,7 +656,7 @@ const NewsPage = () => {
                             }}
                             onMouseEnter={e => {
                               e.currentTarget.style.gap = '10px'
-                              e.currentTarget.style.borderBottomColor = '#1a5c38'
+                              e.currentTarget.style.borderBottomColor = '#821905'
                             }}
                             onMouseLeave={e => {
                               e.currentTarget.style.gap = '6px'
@@ -681,20 +681,20 @@ const NewsPage = () => {
               <button
                 style={{
                   padding: '15px 42px', borderRadius: '999px',
-                  border: '1.5px solid #1a5c38',
-                  background: 'transparent', color: '#1a5c38',
+                  border: '1.5px solid #821905',
+                  background: 'transparent', color: '#821905',
                   fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '14px',
                   cursor: 'pointer', transition: 'all 0.3s ease',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background = '#1a5c38'
+                  e.currentTarget.style.background = '#821905'
                   e.currentTarget.style.color = '#ffffff'
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(26,92,56,0.25)'
+                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(130, 25, 5,0.25)'
                   e.currentTarget.style.transform = 'translateY(-2px)'
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.background = 'transparent'
-                  e.currentTarget.style.color = '#1a5c38'
+                  e.currentTarget.style.color = '#821905'
                   e.currentTarget.style.boxShadow = 'none'
                   e.currentTarget.style.transform = 'translateY(0)'
                 }}

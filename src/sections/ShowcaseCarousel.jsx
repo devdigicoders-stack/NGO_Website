@@ -99,16 +99,16 @@ const ShowcaseCarousel = () => {
         }
         .arrow-nav-left {
           left: 4%;
-          background: #1a5c38;
+          background: #821905;
           color: #ffffff;
         }
         .arrow-nav-left:hover {
-          background: #124027;
+          background: #5a1002;
           transform: translateY(-50%) scale(1.08);
         }
         .arrow-nav-right {
           right: 4%;
-          background: #f5b400;
+          background: #FDED95;
           color: #111827;
         }
         .arrow-nav-right:hover {
@@ -244,17 +244,17 @@ const ShowcaseCarousel = () => {
                         width: '72px',
                         height: '72px',
                         borderRadius: '50%',
-                        background: '#1a5c38',
+                        background: '#821905',
                         color: '#ffffff',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        boxShadow: '0 8px 24px rgba(26,92,56,0.4)',
+                        boxShadow: '0 8px 24px rgba(130, 25, 5,0.4)',
                         textDecoration: 'none',
                         transition: 'transform 0.25s, background-color 0.25s',
                       }}
-                      onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.backgroundColor = '#124027' }}
-                      onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.backgroundColor = '#1a5c38' }}
+                      onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.backgroundColor = '#5a1002' }}
+                      onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.backgroundColor = '#821905' }}
                     >
                       <ArrowUpRight size={28} />
                     </a>
@@ -265,7 +265,7 @@ const ShowcaseCarousel = () => {
                         width: '8px',
                         height: '8px',
                         borderRadius: '1px',
-                        background: '#1a5c38',
+                        background: '#821905',
                         boxShadow: '0 0 0 3px rgba(255,255,255,0.4)',
                       }}
                     />

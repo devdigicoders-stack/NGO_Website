@@ -9,7 +9,7 @@ const SectionHeader = ({ tag, title, subtitle, light = false }) => (
   <div className="text-center mb-10">
     <span
       className={`text-xs font-bold tracking-[0.2em] uppercase font-['Hind'] ${
-        light ? 'text-[#f5b400]' : 'text-[#1a5c38]'
+        light ? 'text-[#FDED95]' : 'text-[#821905]'
       }`}
     >
       {tag}
@@ -21,7 +21,7 @@ const SectionHeader = ({ tag, title, subtitle, light = false }) => (
     >
       {title}
     </h2>
-    <div className="w-12 h-1 bg-[#f5b400] mx-auto mt-3 rounded-full" />
+    <div className="w-12 h-1 bg-[#FDED95] mx-auto mt-3 rounded-full" />
     {subtitle && (
       <p
         className={`mt-4 max-w-2xl mx-auto text-[15px] leading-relaxed font-['Hind'] ${

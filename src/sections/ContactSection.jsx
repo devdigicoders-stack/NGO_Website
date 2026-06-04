@@ -67,10 +67,10 @@ const ContactSection = () => {
               <a
                 key={label}
                 href={href}
-                className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 hover:border-[#1a5c38]/20 hover:shadow-md transition-all duration-200 group"
+                className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 hover:border-[#821905]/20 hover:shadow-md transition-all duration-200 group"
               >
-                <div className="w-11 h-11 rounded-xl icon-bg-light group-hover:bg-[#1a5c38] flex items-center justify-center shrink-0 transition-colors duration-200">
-                  <Icon size={20} className="text-[#1a5c38] group-hover:text-white transition-colors duration-200" />
+                <div className="w-11 h-11 rounded-xl icon-bg-light group-hover:bg-[#821905] flex items-center justify-center shrink-0 transition-colors duration-200">
+                  <Icon size={20} className="text-[#821905] group-hover:text-white transition-colors duration-200" />
                 </div>
                 <div>
                   <p className="text-gray-400 text-xs font-['Hind']">{label}</p>
@@ -88,7 +88,7 @@ const ContactSection = () => {
                     key={label}
                     href="#"
                     aria-label={label}
-                    className="w-9 h-9 rounded-full icon-bg-light hover:bg-[#1a5c38] flex items-center justify-center text-[#1a5c38] hover:text-white transition-all duration-200"
+                    className="w-9 h-9 rounded-full icon-bg-light hover:bg-[#821905] flex items-center justify-center text-[#821905] hover:text-white transition-all duration-200"
                   >
                     <Icon size={16} />
                   </a>
@@ -108,7 +108,7 @@ const ContactSection = () => {
                 value={contactForm.name}
                 onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
                 required
-                className="col-span-2 sm:col-span-1 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#1a5c38] transition-colors"
+                className="col-span-2 sm:col-span-1 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#821905] transition-colors"
               />
               <input
                 type="email"
@@ -116,7 +116,7 @@ const ContactSection = () => {
                 value={contactForm.email}
                 onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
                 required
-                className="col-span-2 sm:col-span-1 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#1a5c38] transition-colors"
+                className="col-span-2 sm:col-span-1 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#821905] transition-colors"
               />
               <input
                 type="text"
@@ -124,7 +124,7 @@ const ContactSection = () => {
                 value={contactForm.subject}
                 onChange={(e) => setContactForm(prev => ({ ...prev, subject: e.target.value }))}
                 required
-                className="col-span-2 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#1a5c38] transition-colors"
+                className="col-span-2 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#821905] transition-colors"
               />
               <textarea
                 rows={4}
@@ -132,7 +132,7 @@ const ContactSection = () => {
                 value={contactForm.message}
                 onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
                 required
-                className="col-span-2 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#1a5c38] transition-colors resize-none"
+                className="col-span-2 border border-gray-200 bg-white rounded-lg px-3 py-2.5 text-sm font-['Hind'] focus:outline-none focus:border-[#821905] transition-colors resize-none"
               />
               {submitError && (
                 <div className="col-span-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-['Hind']">
