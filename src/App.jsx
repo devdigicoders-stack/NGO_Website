@@ -44,9 +44,33 @@ function App() {
 
   // Listen for cross-section page navigation
   useEffect(() => {
-    const handleDonateNav = () => setCurrentPage('donate')
-    const handleNewsNav = () => setCurrentPage('news')
-    const handleContactNav = () => setCurrentPage('contact')
+    const handleDonateNav = () => {
+      let targetPath = '/donate'
+      if (window.location.pathname !== targetPath) {
+        window.history.pushState({}, '', targetPath)
+        setPath(targetPath)
+        window.location.hash = ''
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    }
+    const handleNewsNav = () => {
+      let targetPath = '/news'
+      if (window.location.pathname !== targetPath) {
+        window.history.pushState({}, '', targetPath)
+        setPath(targetPath)
+        window.location.hash = ''
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    }
+    const handleContactNav = () => {
+      let targetPath = '/contact'
+      if (window.location.pathname !== targetPath) {
+        window.history.pushState({}, '', targetPath)
+        setPath(targetPath)
+        window.location.hash = ''
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    }
     window.addEventListener('navigate-donate', handleDonateNav)
     window.addEventListener('navigate-news', handleNewsNav)
     window.addEventListener('navigate-contact', handleContactNav)
@@ -104,7 +128,7 @@ function App() {
     return 'home'
   }
 
-  const currentPage = getPageName(path)
+  const currentPage = getPageName(path) || 'home'
 
   // Smart routing function
   const setCurrentPage = (pageName, anchor = '') => {

@@ -537,10 +537,7 @@ const DonationBanner = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    const parsedVal = parseFloat(amount);
-                    if (parsedVal > 0) {
-                      setStep(2);
-                    }
+                    window.dispatchEvent(new Event('navigate-donate'))
                   }}
                   style={{
                     width: '100%',
