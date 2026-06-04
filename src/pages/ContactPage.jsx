@@ -264,7 +264,7 @@ const ContactPage = () => {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '22px' }}>
                   {[
-                    { Icon: MapPin, text: 'पता:486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020' },
+                    { Icon: MapPin, text: '486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020' },
                     { Icon: Phone,  text: ' 9569036324' },
                     { Icon: Mail,   text: 'Shakti.singh20017@gmail.com' },
                   ].map(({ Icon, text }) => (

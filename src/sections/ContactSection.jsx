@@ -6,7 +6,7 @@ import SectionHeader from '../components/ui/SectionHeader'
 const contactInfo = [
   { Icon: Mail, label: 'ईमेल पता', value: 'Shakti.singh20017@gmail.com', href: 'mailto:Shakti.singh20017@gmail.com' },
   { Icon: Phone, label: 'फोन नंबर', value: ' 9569036324', href: 'tel:+911234567890' },
-  { Icon: MapPin, label: 'मुख्य कार्यालय', value: 'पता:486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020', href: '#' },
+  { Icon: MapPin, label: 'मुख्य कार्यालय', value: '486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020', href: '#' },
 ]
 
 const socials = [

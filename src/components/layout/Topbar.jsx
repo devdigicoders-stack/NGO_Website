@@ -52,7 +52,7 @@ const Topbar = () => {
               style={{ alignItems: 'center', gap: '7px', padding: '4px 10px', color: 'rgba(255,255,255,0.65)', fontSize: '12.5px', fontFamily: 'Hind, sans-serif', lineHeight: 1 }}
             >
               <MapPin size={13} style={{ color: '#FDED95', flexShrink: 0, display: 'block' }} />
-              <span style={{ lineHeight: 1 }}>नई दिल्ली, भारत</span>
+              <span style={{ lineHeight: 1 }}>486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020</span>
             </div>
           </div>
 

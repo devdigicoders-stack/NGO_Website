@@ -326,7 +326,7 @@ const Footer = ({ setCurrentPage }) => {
                   <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z" />
                 </svg>
                 <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
-                  पता:486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020
+                  486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020
                 </span>
               </div>
 
