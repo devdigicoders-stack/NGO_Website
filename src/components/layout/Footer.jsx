@@ -326,7 +326,7 @@ const Footer = ({ setCurrentPage }) => {
                   <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z" />
                 </svg>
                 <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
-                  कनॉट प्लेस, नई दिल्ली — 110001
+                  पता:486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020
                 </span>
               </div>
 
@@ -336,7 +336,7 @@ const Footer = ({ setCurrentPage }) => {
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                 </svg>
                 <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}>
-                  +91 (123) 456-7890
+                   9569036324
                 </span>
               </div>
 
@@ -347,7 +347,7 @@ const Footer = ({ setCurrentPage }) => {
                   <path d="M22 6l-10 7L2 6" />
                 </svg>
                 <span style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}>
-                  sahayata@example.com
+                  Shakti.singh20017@gmail.com
                 </span>
               </div>
 

@@ -4,9 +4,9 @@ import { FacebookIcon, TwitterIcon, InstagramIcon, YoutubeIcon } from '../compon
 import SectionHeader from '../components/ui/SectionHeader'
 
 const contactInfo = [
-  { Icon: Mail, label: 'ईमेल पता', value: 'sahayata@example.com', href: 'mailto:sahayata@example.com' },
-  { Icon: Phone, label: 'फोन नंबर', value: '+91-123-456-7890', href: 'tel:+911234567890' },
-  { Icon: MapPin, label: 'मुख्य कार्यालय', value: 'कनॉट प्लेस, नई दिल्ली — 110001', href: '#' },
+  { Icon: Mail, label: 'ईमेल पता', value: 'Shakti.singh20017@gmail.com', href: 'mailto:Shakti.singh20017@gmail.com' },
+  { Icon: Phone, label: 'फोन नंबर', value: ' 9569036324', href: 'tel:+911234567890' },
+  { Icon: MapPin, label: 'मुख्य कार्यालय', value: 'पता:486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020', href: '#' },
 ]
 
 const socials = [

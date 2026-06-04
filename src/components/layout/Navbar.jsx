@@ -252,7 +252,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
               </div>
               <div style={{ lineHeight: 1 }}>
                 <p style={{ fontSize: '9px', color: '#6b7280', fontWeight: 600, fontFamily: 'Hind, sans-serif', marginBottom: '3px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>अभी कॉल करें</p>
-                <p style={{ fontSize: '13px', color: '#821905', fontWeight: 700, fontFamily: 'Poppins, sans-serif' }}>+91-123-456-7890</p>
+                <p style={{ fontSize: '13px', color: '#821905', fontWeight: 700, fontFamily: 'Poppins, sans-serif' }}> 9569036324</p>
               </div>
             </div>
 
@@ -355,7 +355,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
               </div>
               <div>
                 <p style={{ fontSize: '10px', color: '#9ca3af', fontFamily: 'Hind, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>अभी कॉल करें</p>
-                <p style={{ fontSize: '15px', fontWeight: 700, color: '#821905', fontFamily: 'Poppins, sans-serif', margin: 0 }}>+91-123-456-7890</p>
+                <p style={{ fontSize: '15px', fontWeight: 700, color: '#821905', fontFamily: 'Poppins, sans-serif', margin: 0 }}> 9569036324</p>
               </div>
             </div>
             {/* ID Card Button */}

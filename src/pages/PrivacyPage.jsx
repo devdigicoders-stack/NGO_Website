@@ -100,7 +100,7 @@ const PrivacyPage = () => {
                 4. हमसे संपर्क करें (Contact Us)
               </h3>
               <p style={{ fontFamily: 'Hind, sans-serif', fontSize: '14px', color: '#4b5563', lineHeight: 1.6, margin: 0 }}>
-                यदि आपके पास इस गोपनीयता नीति या अपने व्यक्तिगत डेटा के संबंध में कोई प्रश्न हैं, तो आप हमें <strong style={{ color: '#821905' }}>sahayata@example.com</strong> पर ईमेल कर सकते हैं।
+                यदि आपके पास इस गोपनीयता नीति या अपने व्यक्तिगत डेटा के संबंध में कोई प्रश्न हैं, तो आप हमें <strong style={{ color: '#821905' }}>Shakti.singh20017@gmail.com</strong> पर ईमेल कर सकते हैं।
               </p>
             </div>
           </div>

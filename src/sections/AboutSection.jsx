@@ -561,7 +561,7 @@ const AboutSection = () => {
                     फ़ोन नंबर
                   </p>
                   <p style={{ fontSize: '14px', fontWeight: 700, color: '#111827', fontFamily: 'Poppins, sans-serif', margin: 0 }}>
-                    +236 (456) 896 22
+                     9569036324
                   </p>
                 </div>
               </a>

@@ -10,17 +10,50 @@ const DEFAULT_SETTINGS = {
   sectionTitle: 'हमारे समर्पित स्वयंसेवक दल से मिलें',
 }
 
+const STATIC_TEAM_MEMBERS = [
+  {
+    id: 'team-1',
+    name: 'विशाल सिंह साधू',
+    role: 'सचिव',
+    image: '/images/team1.png',
+    facebook: '#',
+    twitter: '#',
+    instagram: '#',
+    behance: '#',
+  },
+  {
+    id: 'team-3',
+    name: 'नीलम सिंह',
+    role: 'कोषाध्यक्ष',
+    image: '/images/team3.png',
+    facebook: '#',
+    twitter: '#',
+    instagram: '#',
+    behance: '#',
+  },
+  {
+    id: 'team-4',
+    name: 'आचार्य डॉ शक्ति सिंह साधू',
+    role: 'अध्यक्ष',
+    image: '/images/team4.png',
+    facebook: '#',
+    twitter: '#',
+    instagram: '#',
+    behance: '#',
+  },
+]
+
 const INITIAL_VISIBLE_COUNT = 4
 
 const mapMemberForCard = (m) => ({
   id: m.id,
   name: m.name,
-  role: m.designation,
+  role: m.role,
   image: resolveImageUrl(m.image),
   facebook: m.facebook || '#',
   twitter: m.twitter || '#',
   instagram: m.instagram || '#',
-  behance: m.other || '#',
+  behance: m.behance || '#',
 })
 
 const TeamCard = ({ member }) => {
@@ -253,38 +286,14 @@ const TeamSection = () => {
   const [showAll, setShowAll] = useState(false)
   const gridRef = useRef(null)
 
-  const hasMore = teamMembers.length > INITIAL_VISIBLE_COUNT
-  const visibleMembers = showAll || !hasMore
-    ? teamMembers
-    : teamMembers.slice(0, INITIAL_VISIBLE_COUNT)
+  const hasMore = false // Static team has only 3 members, no "show more" needed
+  const visibleMembers = teamMembers
 
   useEffect(() => {
-    const fetchTeam = async () => {
-      try {
-        const [membersRes, settingsRes] = await Promise.all([
-          fetch(`${API_BASE}/team?activeOnly=true`),
-          fetch(`${API_BASE}/team/settings`),
-        ])
-        const membersJson = await membersRes.json()
-        const settingsJson = await settingsRes.json()
-
-        if (membersJson.success && membersJson.data?.length) {
-          setTeamMembers(membersJson.data.map(mapMemberForCard))
-        }
-
-        if (settingsJson.success && settingsJson.data) {
-          setSettings({
-            sectionSubtitle: settingsJson.data.sectionSubtitle || DEFAULT_SETTINGS.sectionSubtitle,
-            sectionTitle: settingsJson.data.sectionTitle || DEFAULT_SETTINGS.sectionTitle,
-          })
-        }
-      } catch (err) {
-        console.error('Error fetching team:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchTeam()
+    // Static team members - no API call
+    setTeamMembers(STATIC_TEAM_MEMBERS.map(mapMemberForCard))
+    setSettings(DEFAULT_SETTINGS)
+    setLoading(false)
   }, [])
 
   const handleToggleShowAll = () => {

@@ -15,14 +15,14 @@ const contactInfo = [
   {
     Icon: Phone,
     title: 'फोन नंबर',
-    lines: ['+91 (123) 456-7890', '+91 (987) 654-3210'],
+    lines: [' 9569036324', ''],
     accent: '#FDED95',
     light: 'rgba(253, 237, 149,0.1)',
   },
   {
     Icon: Mail,
     title: 'ईमेल पता',
-    lines: ['sahayata@example.com', 'support@sahayata.org'],
+    lines: ['Shakti.singh20017@gmail.com', ''],
     accent: '#7c3aed',
     light: 'rgba(124,58,237,0.08)',
   },
@@ -264,9 +264,9 @@ const ContactPage = () => {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '22px' }}>
                   {[
-                    { Icon: MapPin, text: 'कनॉट प्लेस, नई दिल्ली — 110001' },
-                    { Icon: Phone,  text: '+91 (123) 456-7890' },
-                    { Icon: Mail,   text: 'sahayata@example.com' },
+                    { Icon: MapPin, text: 'पता:486/238डी डालीगंज लखनऊ उत्तर प्रदेश 226020' },
+                    { Icon: Phone,  text: ' 9569036324' },
+                    { Icon: Mail,   text: 'Shakti.singh20017@gmail.com' },
                   ].map(({ Icon, text }) => (
                     <div key={text} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>

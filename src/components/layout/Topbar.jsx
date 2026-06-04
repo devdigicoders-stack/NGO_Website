@@ -39,11 +39,11 @@ const Topbar = () => {
 
           {/* Left: Contact Info */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
-            <ContactItem href="mailto:sahayata@example.com" icon={Mail} text="sahayata@example.com" />
+            <ContactItem href="mailto:Shakti.singh20017@gmail.com" icon={Mail} text="Shakti.singh20017@gmail.com" />
 
             <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '14px', userSelect: 'none' }} className="hidden sm:inline">|</span>
 
-            <ContactItem href="tel:+911234567890" icon={Phone} text="+91 (123) 456-7890" />
+            <ContactItem href="tel:+911234567890" icon={Phone} text=" 9569036324" />
 
             <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '14px', userSelect: 'none' }} className="hidden lg:inline">|</span>
 
