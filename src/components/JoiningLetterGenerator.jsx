@@ -88,10 +88,11 @@ const JoiningLetterGenerator = ({ orgId, formData = {}, regNumber, onGenerated }
     if (logoImg) {
       const logoHeight = 180
       const logoWidth = logoHeight * (logoImg.width / logoImg.height)
-      ctx.drawImage(logoImg, 100, headerY - 90, logoWidth, logoHeight)
+      const logoX = 60 // Shifted left to compensate for transparent padding in the image
+      ctx.drawImage(logoImg, logoX, headerY - 90, logoWidth, logoHeight)
       
       // Texts next to logo
-      const textX = 100 + logoWidth + 40
+      const textX = logoX + logoWidth + 20
       ctx.fillStyle = primaryColor
       ctx.textAlign = 'left'
       ctx.textBaseline = 'middle'
@@ -225,8 +226,8 @@ const JoiningLetterGenerator = ({ orgId, formData = {}, regNumber, onGenerated }
     ctx.font = "italic 48px 'Caveat', cursive, sans-serif"
     ctx.fillText('Sadhu Laxmi', 120, contentY)
     
-    // Line under signature
-    contentY += 20
+    // Line under signature (increased padding to avoid overlap)
+    contentY += 45
     ctx.strokeStyle = '#cbd5e1'
     ctx.lineWidth = 2
     ctx.beginPath()
@@ -234,32 +235,33 @@ const JoiningLetterGenerator = ({ orgId, formData = {}, regNumber, onGenerated }
     ctx.lineTo(400, contentY)
     ctx.stroke()
 
-    contentY += 15
+    contentY += 20
     ctx.fillStyle = '#64748b'
     ctx.font = "600 22px 'Hind', sans-serif"
     ctx.fillText('General Manager / महासचिव', 120, contentY)
 
     // Contact Us Section (Bottom Right)
     const contactX = width - 120
-    let contactY = contentY - 80
+    let contactY = contentY - 85 // start slightly higher
     
     ctx.textAlign = 'right'
     ctx.font = "bold 26px 'Poppins', sans-serif"
     ctx.fillStyle = '#1e293b'
     ctx.fillText('Contact Us', contactX, contactY)
     
-    contactY += 50
+    contactY += 45
     ctx.font = "500 20px 'Poppins', sans-serif"
     ctx.fillStyle = '#64748b'
     
+    // Align all elements to contactX so they are perfectly flush right
     // Phone
-    ctx.fillText('+91-XXXXX-XXXXX', contactX - 40, contactY)
+    ctx.fillText('+91-XXXXX-XXXXX', contactX, contactY)
     // Email
     contactY += 35
-    ctx.fillText('info@sadhulaxmitrust.org', contactX - 40, contactY)
+    ctx.fillText('info@sadhulaxmitrust.org', contactX, contactY)
     // Web
     contactY += 35
-    ctx.fillText('www.sadhulaxmitrust.org', contactX - 40, contactY)
+    ctx.fillText('www.sadhulaxmitrust.org', contactX, contactY)
 
     // Bottom Wave
     ctx.fillStyle = secondaryColor
