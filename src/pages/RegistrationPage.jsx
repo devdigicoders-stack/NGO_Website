@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ChevronRight, CheckCircle2, Upload, User, Phone, Mail, MapPin, Calendar, FileText, Shield, Download } from 'lucide-react'
 import { saveRegistration, orgs, extraFields } from '../utils/registrationUtils'
 import IDCardGenerator from '../components/IDCardGenerator'
+import JoiningLetterGenerator from '../components/JoiningLetterGenerator'
 
 // Common fields for all forms
 const commonFields = [
@@ -25,6 +26,7 @@ const RegistrationPage = () => {
   const [focused, setFocused] = useState('')
   const [regNumbers, setRegNumbers] = useState({})
   const [idCards, setIdCards] = useState({})
+  const [joiningLetters, setJoiningLetters] = useState({})
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState({})
 
@@ -74,11 +76,19 @@ const RegistrationPage = () => {
   }
 
   const handleDownloadPart = (part) => {
-    const cardPart = idCards[activeTab]?.[part]
-    if (cardPart) {
+    let url, filename;
+    if (part === 'joining_letter') {
+      url = joiningLetters[activeTab]
+      filename = `Joining_Letter_${regNumbers[activeTab].replace(/\//g, '_')}.png`
+    } else {
+      url = idCards[activeTab]?.[part]
+      filename = `ID_Card_${part === 'front' ? 'Front' : 'Back'}_${regNumbers[activeTab].replace(/\//g, '_')}.png`
+    }
+    
+    if (url) {
       const link = document.createElement('a')
-      link.download = `ID_Card_${part === 'front' ? 'Front' : 'Back'}_${regNumbers[activeTab].replace(/\//g, '_')}.png`
-      link.href = cardPart
+      link.download = filename
+      link.href = url
       link.click()
     }
   }
@@ -205,6 +215,21 @@ const RegistrationPage = () => {
                   <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '11px', color: '#9ca3af', margin: '6px 0 0' }}>इस नंबर को सुरक्षित रखें</p>
                 </div>
 
+                {/* Joining Letter Preview */}
+                {joiningLetters[activeTab] && (
+                  <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', margin: '0 auto 28px', maxWidth: '600px' }}>
+                    <div style={{ flex: 1, minWidth: '280px', textAlign: 'center' }}>
+                      <p style={{ fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', marginBottom: '8px', color: '#4b5563' }}>जॉइनिंग लेटर (Joining Letter)</p>
+                      <img src={joiningLetters[activeTab]} alt="Joining Letter" style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.12)', border: '1px solid #e5e7eb' }} />
+                      <button onClick={() => handleDownloadPart('joining_letter')}
+                        style={{ width: '100%', marginTop: '12px', padding: '10px', borderRadius: '8px', border: 'none', background: org.color, color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                        <Download size={15} />
+                        जॉइनिंग लेटर डाउनलोड करें
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 {/* ID Card Previews */}
                 {idCards[activeTab] && (
                   <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', margin: '0 auto 28px', maxWidth: '800px' }}>
@@ -242,6 +267,14 @@ const RegistrationPage = () => {
                   formData={formData}
                   regNumber={regNumbers[activeTab]}
                   onGenerated={(data) => setIdCards(prev => ({ ...prev, [activeTab]: data }))}
+                />
+                
+                {/* Joining Letter Generator */}
+                <JoiningLetterGenerator
+                  orgId={activeTab}
+                  formData={formData}
+                  regNumber={regNumbers[activeTab]}
+                  onGenerated={(data) => setJoiningLetters(prev => ({ ...prev, [activeTab]: data }))}
                 />
               </div>
             ) : (

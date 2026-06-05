@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Download, Search, AlertCircle, CheckCircle2, CreditCard, Loader2, RefreshCw } from 'lucide-react'
 import IDCardGenerator from '../components/IDCardGenerator'
+import JoiningLetterGenerator from '../components/JoiningLetterGenerator'
 
 // Use relative /api in dev (Vite proxy → localhost:5002), full URL in prod
 const API_BASE = import.meta.env.DEV ? '/api' : import.meta.env.VITE_API_BASE
@@ -10,6 +11,7 @@ const IDCardDownloadPage = () => {
   const [registration, setRegistration] = useState(null)
   const [error, setError]               = useState('')
   const [idCardData, setIdCardData]     = useState(null)
+  const [joiningLetterData, setJoiningLetterData] = useState(null)
   const [searching, setSearching]       = useState(false)
   const [generating, setGenerating]     = useState(false)
   const inputRef = useRef(null)
@@ -20,7 +22,7 @@ const IDCardDownloadPage = () => {
   const handleSearch = async () => {
     const trimmed = regNumber.trim().toUpperCase()
     if (!trimmed) { setError('कृपया रजिस्ट्रेशन नंबर दर्ज करें।'); return }
-    setError(''); setRegistration(null); setIdCardData(null); setGenerating(false); setSearching(true)
+    setError(''); setRegistration(null); setIdCardData(null); setJoiningLetterData(null); setGenerating(false); setSearching(true)
 
     // 1️⃣  API first (query param avoids slash-in-path issue with Express)
     try {
@@ -43,15 +45,24 @@ const IDCardDownloadPage = () => {
   const handleGenerated = (data) => { setIdCardData(data); setGenerating(false) }
 
   const downloadPart = (part) => {
-    const url = idCardData?.[part]; if (!url) return
+    let url, filename;
     const reg = registration?.regNumber || regNumber
+    if (part === 'joining_letter') {
+      url = joiningLetterData
+      filename = `Joining_Letter_${reg.replace(/\//g, '_')}.png`
+    } else {
+      url = idCardData?.[part]
+      filename = `ID_Card_${part === 'front' ? 'Front' : 'Back'}_${reg.replace(/\//g, '_')}.png`
+    }
+    
+    if (!url) return
     const link = document.createElement('a')
-    link.download = `ID_Card_${part === 'front' ? 'Front' : 'Back'}_${reg.replace(/\//g, '_')}.png`
+    link.download = filename
     link.href = url; link.click()
   }
-  const downloadBoth = () => { downloadPart('front'); setTimeout(() => downloadPart('back'), 400) }
+  const downloadBoth = () => { downloadPart('front'); setTimeout(() => downloadPart('back'), 400); setTimeout(() => downloadPart('joining_letter'), 800) }
   const reset = () => {
-    setRegNumber(''); setRegistration(null); setIdCardData(null); setError(''); setGenerating(false)
+    setRegNumber(''); setRegistration(null); setIdCardData(null); setJoiningLetterData(null); setError(''); setGenerating(false)
     setTimeout(() => inputRef.current?.focus(), 100)
   }
 
@@ -277,6 +288,42 @@ const IDCardDownloadPage = () => {
                   </div>
                 </div>
 
+                {/* Joining Letter Preview */}
+                {joiningLetterData && (
+                  <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '28px' }}>
+                    <div style={{ flex: '1 1 280px', maxWidth: '380px', textAlign: 'center' }}>
+                      <p style={{
+                        fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '13px',
+                        marginBottom: '10px', color: primaryDk, textTransform: 'uppercase', letterSpacing: '1px'
+                      }}>📜 जॉइनिंग लेटर (Joining Letter)</p>
+                      <img
+                        src={joiningLetterData} alt="Joining Letter"
+                        style={{
+                          width: '100%', height: 'auto', borderRadius: '14px',
+                          boxShadow: '0 8px 32px rgba(0,0,0,0.14)',
+                          border: `1px solid ${borderClr}`, display: 'block'
+                        }}
+                      />
+                      <button
+                        onClick={() => downloadPart('joining_letter')}
+                        style={{
+                          width: '100%', marginTop: '14px', padding: '13px',
+                          background: `linear-gradient(135deg,${primary},${primaryLt})`,
+                          color: '#fff', border: 'none', borderRadius: '12px',
+                          fontFamily: 'Hind,sans-serif', fontSize: '14px', fontWeight: 700,
+                          cursor: 'pointer', display: 'flex', alignItems: 'center',
+                          justifyContent: 'center', gap: '8px',
+                          boxShadow: `0 4px 14px rgba(130,25,5,0.32)`, transition: 'opacity 0.2s'
+                        }}
+                        onMouseOver={e => e.currentTarget.style.opacity = '0.88'}
+                        onMouseOut={e  => e.currentTarget.style.opacity = '1'}
+                      >
+                        <Download size={16} /> जॉइनिंग लेटर डाउनलोड करें
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 {/* Download both */}
                 <div style={{ textAlign: 'center', paddingTop: '8px', borderTop: `1px solid ${borderClr}` }}>
                   <button
@@ -306,6 +353,12 @@ const IDCardDownloadPage = () => {
                 formData={registration.formData}
                 regNumber={registration.regNumber}
                 onGenerated={handleGenerated}
+              />
+              <JoiningLetterGenerator
+                orgId={registration.orgId}
+                formData={registration.formData}
+                regNumber={registration.regNumber}
+                onGenerated={setJoiningLetterData}
               />
             </div>
           </div>
