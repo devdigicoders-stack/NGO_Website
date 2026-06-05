@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Download, Search, AlertCircle, CheckCircle2, CreditCard, Loader2, RefreshCw } from 'lucide-react'
+import { Download, Search, AlertCircle, CheckCircle2, CreditCard, Loader2, RefreshCw, Clock, XCircle } from 'lucide-react'
 import IDCardGenerator from '../components/IDCardGenerator'
 import JoiningLetterGenerator from '../components/JoiningLetterGenerator'
 
@@ -203,8 +203,33 @@ const IDCardDownloadPage = () => {
               </button>
             </div>
 
+            {/* Status Checks */}
+            {registration.status === 'pending' && (
+              <div style={{ textAlign: 'center', padding: '48px 0' }}>
+                <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+                  <Clock size={48} color="#f59e0b" />
+                  <h3 style={{ fontFamily: 'Hind,sans-serif', fontSize: '20px', fontWeight: 800, color: '#92400e', margin: 0 }}>लंबित (Pending Approval)</h3>
+                  <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '15px', color: subtleClr, margin: 0, maxWidth: '400px' }}>
+                    आपका पंजीकरण अभी एडमिन द्वारा सत्यापित किया जा रहा है। अप्रूव होने के बाद ही आप अपना ID Card और Joining Letter डाउनलोड कर सकेंगे।
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {registration.status === 'rejected' && (
+              <div style={{ textAlign: 'center', padding: '48px 0' }}>
+                <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+                  <XCircle size={48} color="#ef4444" />
+                  <h3 style={{ fontFamily: 'Hind,sans-serif', fontSize: '20px', fontWeight: 800, color: '#991b1b', margin: 0 }}>अस्वीकृत (Rejected)</h3>
+                  <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '15px', color: subtleClr, margin: 0, maxWidth: '400px' }}>
+                    क्षमा करें, आपका पंजीकरण किसी कारणवश अस्वीकृत कर दिया गया है। अधिक जानकारी के लिए कृपया हमसे संपर्क करें।
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Generating spinner */}
-            {generating && (
+            {generating && registration.status === 'approved' && (
               <div style={{ textAlign: 'center', padding: '48px 0' }}>
                 <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
                   <div style={{
@@ -220,7 +245,7 @@ const IDCardDownloadPage = () => {
             )}
 
             {/* Card previews */}
-            {idCardData && !generating && (
+            {idCardData && !generating && registration.status === 'approved' && (
               <>
                 <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '28px' }}>
 
@@ -348,18 +373,22 @@ const IDCardDownloadPage = () => {
 
             {/* Hidden generator canvas */}
             <div style={{ position: 'absolute', left: '-9999px', top: '-9999px', pointerEvents: 'none' }}>
-              <IDCardGenerator
-                orgId={registration.orgId}
-                formData={registration.formData}
-                regNumber={registration.regNumber}
-                onGenerated={handleGenerated}
-              />
-              <JoiningLetterGenerator
-                orgId={registration.orgId}
-                formData={registration.formData}
-                regNumber={registration.regNumber}
-                onGenerated={setJoiningLetterData}
-              />
+              {registration.status === 'approved' && (
+                <>
+                  <IDCardGenerator
+                    orgId={registration.orgId}
+                    formData={{ ...registration.formData, role: registration.role }}
+                    regNumber={registration.regNumber}
+                    onGenerated={handleGenerated}
+                  />
+                  <JoiningLetterGenerator
+                    orgId={registration.orgId}
+                    formData={{ ...registration.formData, role: registration.role }}
+                    regNumber={registration.regNumber}
+                    onGenerated={setJoiningLetterData}
+                  />
+                </>
+              )}
             </div>
           </div>
         )}

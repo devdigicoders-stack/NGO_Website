@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { ChevronRight, CheckCircle2, Upload, User, Phone, Mail, MapPin, Calendar, FileText, Shield, Download } from 'lucide-react'
 import { saveRegistration, orgs, extraFields } from '../utils/registrationUtils'
-import IDCardGenerator from '../components/IDCardGenerator'
-import JoiningLetterGenerator from '../components/JoiningLetterGenerator'
 
 // Common fields for all forms
 const commonFields = [
@@ -25,8 +23,6 @@ const RegistrationPage = () => {
   const [submitted, setSubmitted] = useState({})
   const [focused, setFocused] = useState('')
   const [regNumbers, setRegNumbers] = useState({})
-  const [idCards, setIdCards] = useState({})
-  const [joiningLetters, setJoiningLetters] = useState({})
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState({})
 
@@ -75,23 +71,7 @@ const RegistrationPage = () => {
     }
   }
 
-  const handleDownloadPart = (part) => {
-    let url, filename;
-    if (part === 'joining_letter') {
-      url = joiningLetters[activeTab]
-      filename = `Joining_Letter_${regNumbers[activeTab].replace(/\//g, '_')}.png`
-    } else {
-      url = idCards[activeTab]?.[part]
-      filename = `ID_Card_${part === 'front' ? 'Front' : 'Back'}_${regNumbers[activeTab].replace(/\//g, '_')}.png`
-    }
-    
-    if (url) {
-      const link = document.createElement('a')
-      link.download = filename
-      link.href = url
-      link.click()
-    }
-  }
+  const handleDownloadPart = () => {}; // Removed as we no longer download here
 
   const inputBase = (field) => ({
     width: '100%', boxSizing: 'border-box',
@@ -215,67 +195,37 @@ const RegistrationPage = () => {
                   <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '11px', color: '#9ca3af', margin: '6px 0 0' }}>इस नंबर को सुरक्षित रखें</p>
                 </div>
 
-                {/* Joining Letter Preview */}
-                {joiningLetters[activeTab] && (
-                  <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', margin: '0 auto 28px', maxWidth: '600px' }}>
-                    <div style={{ flex: 1, minWidth: '280px', textAlign: 'center' }}>
-                      <p style={{ fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', marginBottom: '8px', color: '#4b5563' }}>जॉइनिंग लेटर (Joining Letter)</p>
-                      <img src={joiningLetters[activeTab]} alt="Joining Letter" style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.12)', border: '1px solid #e5e7eb' }} />
-                      <button onClick={() => handleDownloadPart('joining_letter')}
-                        style={{ width: '100%', marginTop: '12px', padding: '10px', borderRadius: '8px', border: 'none', background: org.color, color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                        <Download size={15} />
-                        जॉइनिंग लेटर डाउनलोड करें
-                      </button>
+                {/* Important Instruction */}
+                <div style={{ background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '12px', padding: '20px', margin: '0 auto 28px', maxWidth: '500px', textAlign: 'left' }}>
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#f59e0b', color: '#fff', padding: '6px', borderRadius: '50%', flexShrink: 0, marginTop: '2px' }}>
+                      <CheckCircle2 size={16} />
+                    </div>
+                    <div>
+                      <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '15px', fontWeight: 700, color: '#92400e', margin: '0 0 8px' }}>
+                        महत्वपूर्ण जानकारी
+                      </p>
+                      <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '14px', color: '#b45309', margin: 0, lineHeight: 1.6 }}>
+                        आपका आवेदन समीक्षा के लिए भेज दिया गया है। <strong>एडमिन द्वारा अप्रूव होने के बाद</strong>, आप 
+                        <br/>
+                        <a href="/download-id" style={{ color: '#ea580c', fontWeight: 600, textDecoration: 'underline' }}>/download-id</a>
+                        <br/>
+                        पेज पर जाकर अपना रजिस्ट्रेशन नंबर डालकर अपना ID Card और Joining Letter डाउनलोड कर सकेंगे।
+                      </p>
                     </div>
                   </div>
-                )}
-
-                {/* ID Card Previews */}
-                {idCards[activeTab] && (
-                  <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', margin: '0 auto 28px', maxWidth: '800px' }}>
-                    <div style={{ flex: 1, minWidth: '280px', maxWidth: '360px', textAlign: 'center' }}>
-                      <p style={{ fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', marginBottom: '8px', color: '#4b5563' }}>सामने का भाग (Front)</p>
-                      <img src={idCards[activeTab].front} alt="Front ID Card" style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.12)', border: '1px solid #e5e7eb' }} />
-                      <button onClick={() => handleDownloadPart('front')}
-                        style={{ width: '100%', marginTop: '12px', padding: '10px', borderRadius: '8px', border: 'none', background: org.color, color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                        <Download size={15} />
-                        सामने का भाग डाउनलोड करें
-                      </button>
-                    </div>
-                    <div style={{ flex: 1, minWidth: '280px', maxWidth: '360px', textAlign: 'center' }}>
-                      <p style={{ fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', marginBottom: '8px', color: '#4b5563' }}>पीछे का भाग (Back)</p>
-                      <img src={idCards[activeTab].back} alt="Back ID Card" style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.12)', border: '1px solid #e5e7eb' }} />
-                      <button onClick={() => handleDownloadPart('back')}
-                        style={{ width: '100%', marginTop: '12px', padding: '9px', borderRadius: '8px', border: `1.5px solid ${org.color}`, background: 'transparent', color: org.color, fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                        <Download size={15} />
-                        पीछे का भाग डाउनलोड करें
-                      </button>
-                    </div>
-                  </div>
-                )}
+                </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
                   <button onClick={() => setSubmitted(prev => ({ ...prev, [activeTab]: false }))}
                     style={{ padding: '11px 32px', borderRadius: '999px', border: `1.5px solid #d1d5db`, background: '#fff', color: '#374151', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', cursor: 'pointer', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
                     नया पंजीकरण करें
                   </button>
+                  <a href="/download-id"
+                    style={{ padding: '11px 32px', borderRadius: '999px', border: `none`, background: org.color, color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', cursor: 'pointer', boxShadow: '0 4px 14px rgba(0,0,0,0.1)', marginLeft: '12px', textDecoration: 'none' }}>
+                    डाउनलोड पेज पर जाएं
+                  </a>
                 </div>
-
-                {/* ID Card Generator */}
-                <IDCardGenerator
-                  orgId={activeTab}
-                  formData={formData}
-                  regNumber={regNumbers[activeTab]}
-                  onGenerated={(data) => setIdCards(prev => ({ ...prev, [activeTab]: data }))}
-                />
-                
-                {/* Joining Letter Generator */}
-                <JoiningLetterGenerator
-                  orgId={activeTab}
-                  formData={formData}
-                  regNumber={regNumbers[activeTab]}
-                  onGenerated={(data) => setJoiningLetters(prev => ({ ...prev, [activeTab]: data }))}
-                />
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
