@@ -54,7 +54,19 @@ const JoiningLetterGenerator = ({ orgId, formData = {}, regNumber, onGenerated }
         img.src = src
       })
     }
-    const logoImg = await loadImage(resolveImageUrl(org.logo))
+    const letterLogos = {
+      patrakar: '/letter/राष्ट्रीय पत्रकार समर्पित संघ.png',
+      crime: '/letter/राष्ट्रीय क्राइम इन्वेस्टिगेशन ब्यूरो .png',
+      chikitsa: '/letter/आखिल भारतीय चिकित्सा संघ .png',
+      hindu: '/letter/राष्ट्रीय हिन्दू महासभा साधू.png',
+      journalist: '/letter/राइट टू रिकॉल मंच.png',
+      manav: '/letter/राष्ट्रीय मानवधिकार आयोग साधू.png',
+      bhrashtachar: '/letter/भ्रष्टाचार उन्मूलन अपराध अनुसंधान केन्द्र साधू .png',
+      muslim: '/letter/भारतीय मुस्लिम मं.png',
+    }
+    
+    const letterLogoPath = letterLogos[org.id] || org.logo
+    const logoImg = await loadImage(resolveImageUrl(letterLogoPath))
 
     // Wait for fonts
     if (document.fonts) await document.fonts.ready
