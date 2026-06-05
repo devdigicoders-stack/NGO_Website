@@ -134,8 +134,9 @@ const DonationLetter = ({ donation, onBack }) => {
       </div>
 
       {/* ── Letter Container (A4) ── */}
-      <div
-        ref={printAreaRef}
+      <div style={{ width: '100%', overflowX: 'auto', paddingBottom: '20px' }}>
+        <div
+          ref={printAreaRef}
         className="donation-print-letter"
         style={{
           width: '794px',
@@ -204,9 +205,9 @@ const DonationLetter = ({ donation, onBack }) => {
             </div>
 
             <div style={{ textAlign: 'right', fontSize: '10.5px', color: '#475569', lineHeight: 1.55, fontWeight: 500 }}>
-              <div>📞 +91 98765 43210</div>
-              <div>✉️ info@sadhulaxmitrust.org</div>
-              <div>🌐 www.sadhulaxmitrust.org</div>
+              <div>📞 +91 9569036324</div>
+              <div>✉️Shakti.singh20017@gmail.com</div>
+              {/* <div>🌐 www.sadhulaxmitrust.org</div> */}
             </div>
           </div>
 
@@ -463,6 +464,7 @@ const DonationLetter = ({ donation, onBack }) => {
           background: `linear-gradient(90deg, ${primary} 0%, ${gold} 50%, ${primary} 100%)`,
           flexShrink: 0,
         }} />
+      </div>
       </div>
 
       {/* ── Print Styles ── */}

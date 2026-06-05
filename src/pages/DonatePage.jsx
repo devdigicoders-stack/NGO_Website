@@ -628,9 +628,11 @@ const DonatePage = () => {
                   <button type="button" onClick={() => { setStep(1); setScreenshotFile(null); setScreenshotPreview(null); setUploadDone(false); }} style={{ padding: '10px 24px', borderRadius: '999px', border: '1.5px solid #e5e7eb', background: 'transparent', color: '#6b7280', fontFamily: 'Hind,sans-serif', fontWeight: 600, fontSize: '13px', cursor: 'pointer' }}>
                     ← वापस जाएं
                   </button>
-                  <button type="button" onClick={() => handleDownloadLetterFromSuccess(donationId)} style={{ padding: '10px 24px', borderRadius: '999px', border: 'none', background: '#821905', color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 600, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', boxShadow: '0 4px 12px rgba(130,25,5,0.2)' }}>
-                    📄 कन्फर्मेशन लेटर देखें
-                  </button>
+                  {uploadDone && (
+                    <button type="button" onClick={() => handleDownloadLetterFromSuccess(donationId)} style={{ padding: '10px 24px', borderRadius: '999px', border: 'none', background: '#821905', color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 600, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', boxShadow: '0 4px 12px rgba(130,25,5,0.2)' }}>
+                      📄 कन्फर्मेशन लेटर देखें
+                    </button>
+                  )}
                 </div>
               </div>
             )}
