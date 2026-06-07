@@ -38,14 +38,15 @@ const PartnerLogos = () => {
         .partner-logo-item {
           flex-shrink: 0;
           display: flex; align-items: center; justify-content: center;
-          padding: 0 36px; height: 88px;
+          padding: 0 48px; height: 120px;
           border-right: 1px solid #e5e7eb;
           filter: grayscale(100%) opacity(0.4);
           transition: filter 0.35s ease, transform 0.35s ease;
         }
         .partner-logo-item:hover {
           filter: grayscale(0%) opacity(1);
-          transform: scale(1.1);
+          transform: scale(1.3);
+          z-index: 10;
         }
 
         /* ── Trust Cards ── */
@@ -107,10 +108,10 @@ const PartnerLogos = () => {
             flex-shrink: 0;
           }
           .partner-logo-item {
-            padding: 0 24px;
-            height: 68px;
+            padding: 0 28px;
+            height: 80px;
           }
-          .partner-logo-item img { height: 36px !important; }
+          .partner-logo-item img { height: 50px !important; }
         }
 
         /* ── Badge ping ── */
@@ -170,7 +171,7 @@ const PartnerLogos = () => {
                 <img
                   src={src}
                   alt={`Partner ${(i % companyLogos.length) + 1}`}
-                  style={{ height: '48px', width: 'auto', objectFit: 'contain', maxWidth: '130px' }}
+                  style={{ height: '70px', width: 'auto', objectFit: 'contain', maxWidth: '180px' }}
                   onError={e => { e.currentTarget.parentElement.style.display = 'none' }}
                 />
               </div>
