@@ -14,8 +14,26 @@ import IDCardDownloadPage from './pages/IDCardDownloadPage'
 import TermsPage from './pages/TermsPage'
 import PrivacyPage from './pages/PrivacyPage'
 
+function useScrollReveal() {
+  useEffect(() => {
+    const observe = () => {
+      const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+      if (!els.length) return
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }),
+        { threshold: 0.12 }
+      )
+      els.forEach(el => observer.observe(el))
+      return observer
+    }
+    const observer = observe()
+    return () => observer && observer.disconnect()
+  })
+}
+
 // App — handles dynamic page routing (Topbar + Navbar + Router + Footer)
 function App() {
+  useScrollReveal()
   const [path, setPath] = useState(window.location.pathname)
 
   // Sync browser path with react state

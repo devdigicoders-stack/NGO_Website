@@ -310,7 +310,7 @@ const DonatePage = () => {
       </div>
 
       <div style={{ maxWidth: '1100px', margin: '30px auto 0', padding: '0 24px' }} className="no-print">
-        <div style={{ display: 'flex', gap: '12px', borderBottom: '2px solid #e5e7eb', paddingBottom: '1px' }}>
+        <div className="donate-tabs-container" style={{ display: 'flex', gap: '12px', borderBottom: '2px solid #e5e7eb', paddingBottom: '1px' }}>
           <button
             onClick={() => { setActiveTab('donate'); setSelectedDonation(null); }}
             style={{
@@ -338,21 +338,21 @@ const DonatePage = () => {
         </div>
       </div>
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '48px 24px 80px' }}>
+      <div className="donate-main-wrapper" style={{ maxWidth: '1100px', margin: '0 auto', padding: '48px 24px 80px' }}>
         {activeTab === 'lookup' ? (
-          <div style={{ background: '#fff', borderRadius: '24px', padding: '40px 32px', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
+          <div className="form-card" style={{ background: '#fff', borderRadius: '24px', padding: '40px 32px', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
             <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(130,25,5,0.08)', marginBottom: '18px', color: '#821905' }}>
                 <Award size={26} />
               </div>
-              <h2 style={{ fontFamily: 'Poppins,sans-serif', fontWeight: 800, fontSize: '24px', color: '#111827', margin: '0 0 10px' }}>
+              <h2 style={{ fontFamily: 'Poppins,sans-serif', fontWeight: 800, fontSize: 'clamp(20px, 5vw, 24px)', color: '#111827', margin: '0 0 10px' }}>
                 कन्फर्मेशन लेटर डाउनलोड करें
               </h2>
               <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '15px', color: '#6b7280', margin: '0 0 28px' }}>
                 अपना दान रेफरेंस ID दर्ज करें और 80G टैक्स-सर्टिफिकेट / कन्फर्मेशन लेटर डाउनलोड करें
               </p>
 
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '18px' }}>
+              <div className="search-container" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '18px' }}>
                 <input
                   type="text"
                   value={searchId}
@@ -399,7 +399,7 @@ const DonatePage = () => {
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '32px', alignItems: 'start' }} className="donate-main-grid">
 
-          <div style={{ background: '#fff', borderRadius: '24px', padding: '36px 32px', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
+          <div className="form-card" style={{ background: '#fff', borderRadius: '24px', padding: '36px 32px', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
 
             {step === 1 ? (
               <>
@@ -408,12 +408,12 @@ const DonatePage = () => {
                     <Heart size={11} style={{ color: '#821905', fill: '#821905' }} />
                     <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#821905', fontFamily: 'Hind,sans-serif' }}>{settings.formStepBadge}</span>
                   </div>
-                  <h2 style={{ fontFamily: 'Poppins,sans-serif', fontWeight: 800, fontSize: '22px', color: '#111827', margin: 0 }}>
+                  <h2 style={{ fontFamily: 'Poppins,sans-serif', fontWeight: 800, fontSize: 'clamp(18px, 4.5vw, 22px)', color: '#111827', margin: 0 }}>
                     {settings.formStepTitle}
                   </h2>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '10px', marginBottom: '16px' }}>
+                <div className="amount-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '10px', marginBottom: '16px' }}>
                   {settings.presetAmounts.map((p) => {
                     const active = !custom && amount === String(p)
                     return (
@@ -438,7 +438,7 @@ const DonatePage = () => {
 
                 <div style={{ marginBottom: '24px' }}>
                   <label style={{ display: 'block', fontFamily: 'Hind,sans-serif', fontSize: '12px', fontWeight: 700, color: '#374151', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>किस कार्य के लिए दान करें?</label>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  <div className="causes-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                     {settings.causes.map((c) => (
                       <button key={c.id} type="button" onClick={() => setCause(c.id)} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '8px 14px', borderRadius: '999px', border: `1.5px solid ${cause === c.id ? '#821905' : '#e5e7eb'}`, background: cause === c.id ? 'rgba(130, 25, 5,0.07)' : '#fff', color: cause === c.id ? '#821905' : '#6b7280', fontFamily: 'Hind,sans-serif', fontWeight: 600, fontSize: '13px', cursor: 'pointer' }}>
                         <span>{c.icon}</span> {c.label}
@@ -452,7 +452,7 @@ const DonatePage = () => {
                     <label style={{ display: 'block', fontFamily: 'Hind,sans-serif', fontSize: '12px', fontWeight: 700, color: '#374151', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>आपका नाम *</label>
                     <input required type="text" placeholder="राम कुमार" value={name} onChange={(e) => setName(e.target.value)} onFocus={() => setFocused('name')} onBlur={() => setFocused('')} style={inputStyle('name')} />
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                  <div className="form-row-mobile" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                     <div>
                       <label style={{ display: 'block', fontFamily: 'Hind,sans-serif', fontSize: '12px', fontWeight: 700, color: '#374151', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>ईमेल *</label>
                       <input required type="email" placeholder="अपना ईमेल दर्ज करें" value={email} onChange={(e) => setEmail(e.target.value)} onFocus={() => setFocused('email')} onBlur={() => setFocused('')} style={inputStyle('email')} />
@@ -685,7 +685,54 @@ const DonatePage = () => {
       </div>
 
       <style>{`
-        @media (max-width: 900px) { .donate-main-grid { grid-template-columns: 1fr !important; } }
+        .donate-tabs-container::-webkit-scrollbar { display: none; }
+        .donate-tabs-container { scrollbar-width: none; }
+
+        @media (max-width: 900px) { 
+          .donate-main-grid { grid-template-columns: 1fr !important; } 
+          .donate-main-grid > div { min-width: 0; }
+        }
+        @media (max-width: 640px) {
+          .donate-main-wrapper { padding: 32px 16px 60px !important; }
+          .donate-tabs-container {
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            padding-bottom: 4px !important;
+            -webkit-overflow-scrolling: touch;
+          }
+          .donate-tabs-container button {
+            white-space: nowrap !important;
+            padding: 10px 16px !important;
+            font-size: 14px !important;
+          }
+          .form-card {
+            padding: 24px 20px !important;
+          }
+          .amount-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+          .search-container {
+            flex-direction: column !important;
+          }
+          .search-container input, .search-container button {
+            width: 100% !important;
+          }
+          .causes-container {
+            flex-wrap: wrap !important;
+            overflow-x: visible !important;
+            padding-bottom: 0 !important;
+          }
+          .causes-container button {
+            white-space: normal !important;
+            flex: 1 1 calc(50% - 8px) !important;
+            justify-content: center !important;
+            padding: 10px 12px !important;
+          }
+          .form-row-mobile {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
+        }
       `}</style>
     </div>
   )

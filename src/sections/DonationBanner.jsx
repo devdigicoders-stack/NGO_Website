@@ -72,7 +72,7 @@ const DonationBanner = () => {
       id="donation-banner" 
       style={{ 
         background: 'linear-gradient(135deg, #2a0501 0%, #5a1002 100%)',
-        padding: '100px 0 120px',
+        padding: '72px 0 88px',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -96,18 +96,12 @@ const DonationBanner = () => {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        .animate-float-breathing {
-          animation: float-breathing 8s ease-in-out infinite;
-        }
-        .animate-heart-pulse {
-          animation: heart-beat-pulse 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
-        }
-        .animate-wave-paint {
-          animation: wave-paint 10s ease-in-out infinite;
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.45s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-        }
+        .animate-float-breathing { animation: float-breathing 8s ease-in-out infinite; }
+        .animate-heart-pulse { animation: heart-beat-pulse 2.2s cubic-bezier(0.25,0.8,0.25,1) infinite; }
+        .animate-wave-paint { animation: wave-paint 10s ease-in-out infinite; }
+        .animate-fade-in { animation: fadeIn 0.45s cubic-bezier(0.25,0.8,0.25,1) forwards; }
+
+        /* ── Preset buttons ── */
         .luxury-preset-btn {
           font-family: 'Poppins', 'Hind', sans-serif;
           font-weight: 700;
@@ -115,33 +109,73 @@ const DonationBanner = () => {
           border-radius: 999px;
           padding: 8px 18px;
           cursor: pointer;
-          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
         }
-        .luxury-payment-radio {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 10px 14px;
-          border-radius: 12px;
-          border: 1.5px solid #efefef;
-          cursor: pointer;
-          transition: all 0.25s ease;
-          font-family: 'Hind', sans-serif;
-          font-size: 13.5px;
-          font-weight: 600;
-          color: #4b5563;
+
+        /* ── Card layout ── */
+        .donation-card-overlay {
+          max-width: 1080px;
+          margin: 0 auto;
+          background: #ffffff;
+          border-radius: 32px;
+          box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+          display: grid;
+          grid-template-columns: 1.25fr 1fr;
+          overflow: hidden;
         }
+
+        /* ── Tablet & below: hide image panel ── */
         @media (max-width: 1024px) {
-          .banner-main-grid {
-            flex-direction: column !important;
-            gap: 40px !important;
-          }
           .donation-card-overlay {
             grid-template-columns: 1fr !important;
           }
-          .donation-card-image-panel {
-            display: none !important;
+          .donation-card-image-panel { display: none !important; }
+        }
+
+        /* ── Mobile: full-width form card ── */
+        @media (max-width: 640px) {
+          .donation-card-overlay {
+            margin: 0 !important;
+            border-radius: 24px !important;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.35) !important;
           }
+          .db-form-panel {
+            padding: 24px 20px 30px !important;
+          }
+          .db-form-title { font-size: 17px !important; margin-bottom: 14px !important; }
+          .db-amount-box { padding: 5px 12px !important; border-radius: 14px !important; }
+          .db-amount-input { font-size: 20px !important; }
+          .db-rupee-badge { width: 32px !important; height: 32px !important; font-size: 14px !important; margin-right: 10px !important; }
+          /* Preset buttons: 3-column grid on mobile */
+          .db-presets-row {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 8px !important;
+          }
+          .luxury-preset-btn {
+            font-size: 12.5px !important;
+            padding: 9px 6px !important;
+            text-align: center !important;
+            width: 100% !important;
+          }
+          .db-submit-btn {
+            padding: 15px 20px !important;
+            font-size: 15px !important;
+            border-radius: 14px !important;
+          }
+          .db-section-header { margin-bottom: 36px !important; }
+          .db-section-header h2 { font-size: clamp(22px,6vw,32px) !important; }
+          /* Hide big decorative elements on mobile */
+          .db-deco-heart { display: none !important; }
+          .db-deco-hand  { display: none !important; }
+          .db-deco-wave  { display: none !important; }
+        }
+
+        @media (max-width: 400px) {
+          .db-presets-row {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+          .db-form-panel { padding: 20px 16px 26px !important; }
         }
       `}} />
 
@@ -150,47 +184,22 @@ const DonationBanner = () => {
       {/* 1. Grayscale Kids Photo Background (Right side) */}
       <div 
         style={{
-          position: 'absolute',
-          right: 0,
-          top: 0,
-          bottom: 0,
-          width: '50%',
-          opacity: 0.16,
-          mixBlendMode: 'luminosity',
-          pointerEvents: 'none',
-          zIndex: 0,
+          position: 'absolute', right: 0, top: 0, bottom: 0, width: '50%',
+          opacity: 0.16, mixBlendMode: 'luminosity', pointerEvents: 'none', zIndex: 0,
         }}
       >
-        <img 
-          src="/images/volunteer_child.png" 
-          alt="बाल सहायता पृष्ठभूमि"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center right',
-          }}
+        <img src="/images/volunteer_child.png" alt="बाल सहायता पृष्ठभूमि"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center right' }}
         />
-        {/* Dark vignette blending mask */}
-        <div 
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to left, transparent 20%, #2a0501 100%), linear-gradient(to bottom, #2a0501 0%, transparent 20%, transparent 80%, #2a0501 100%)',
-          }}
-        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to left, transparent 20%, #2a0501 100%), linear-gradient(to bottom, #2a0501 0%, transparent 20%, transparent 80%, #2a0501 100%)' }} />
       </div>
 
       {/* 2. Massive Floating Glowing Gold Outline Heart */}
       <div 
-        className="animate-float-breathing"
+        className="animate-float-breathing db-deco-heart"
         style={{
-          position: 'absolute',
-          right: '8%',
-          top: '12%',
-          pointerEvents: 'none',
-          zIndex: 1,
-          opacity: 0.85,
+          position: 'absolute', right: '8%', top: '12%',
+          pointerEvents: 'none', zIndex: 1, opacity: 0.85,
         }}
       >
         <svg 
@@ -213,15 +222,10 @@ const DonationBanner = () => {
 
       {/* 3. Bottom-Left Gold Paint Brush Stroke SVG */}
       <div 
-        className="animate-wave-paint"
+        className="animate-wave-paint db-deco-wave"
         style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '32%',
-          pointerEvents: 'none',
-          zIndex: 1,
-          transformOrigin: 'bottom left',
+          position: 'absolute', bottom: 0, left: 0, width: '32%',
+          pointerEvents: 'none', zIndex: 1, transformOrigin: 'bottom left',
         }}
       >
         <svg viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
@@ -232,16 +236,11 @@ const DonationBanner = () => {
 
       {/* 4. Whimsical Hand-and-Heart Vector Illustration (Middle-Left) */}
       <div 
+        className="db-deco-hand"
         style={{
-          position: 'absolute',
-          bottom: '2%',
-          left: '4%',
-          pointerEvents: 'none',
-          zIndex: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '8px',
+          position: 'absolute', bottom: '2%', left: '4%',
+          pointerEvents: 'none', zIndex: 2,
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
         }}
       >
         {/* Pulsing red/pink glowing vector heart */}
@@ -280,7 +279,7 @@ const DonationBanner = () => {
       >
         
         {/* ── Header Titles ── */}
-        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+        <div className="db-section-header" style={{ textAlign: 'center', marginBottom: '48px' }}>
           
           {/* Script badge / Subtitle */}
           <div 
@@ -319,42 +318,24 @@ const DonationBanner = () => {
               textShadow: '0 4px 12px rgba(0,0,0,0.4)',
             }}
           >
-            बच्चों की शिक्षा के लिए आज ही <span style={{ color: '#FDED95', position: 'relative' }}>हमारे साथ</span> जुड़ें
+            बच्चों की शिक्षा के लिए आज ही <span style={{ color: '#FDED95', position: 'relative', borderBottom: '3px solid rgba(253,237,149,0.5)', paddingBottom: '2px' }}>हमारे साथ</span> जुड़ें
           </h2>
 
         </div>
 
 
         {/* ── Overlap Donation Card ── */}
-        <div 
-          className="donation-card-overlay"
-          style={{
-            maxWidth: '1080px',
-            margin: '0 auto',
-            background: '#ffffff',
-            borderRadius: '32px',
-            boxShadow: '0 24px 60px rgba(0, 0, 0, 0.45)',
-            display: 'grid',
-            gridTemplateColumns: '1.25fr 1fr',
-            overflow: 'hidden',
-          }}
-        >
+        <div className="donation-card-overlay">
           
           {/* LEFT PANEL: The Interactive Calculator Form */}
-          <div style={{ padding: '40px 36px 44px' }}>
+          <div className="db-form-panel" style={{ padding: '36px 32px 40px' }}>
             
             {step === 1 ? (
               <div className="animate-fade-in">
                 {/* Header label */}
                 <h3 
-                  style={{ 
-                    fontFamily: 'Poppins, sans-serif', 
-                    fontWeight: 800, 
-                    fontSize: '20px', 
-                    color: '#111827', 
-                    marginBottom: '18px',
-                    letterSpacing: '-0.02em',
-                  }}
+                  className="db-form-title"
+                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: '20px', color: '#111827', marginBottom: '18px', letterSpacing: '-0.02em' }}
                 >
                   सही जगह पर सहायता पहुँचाएँ
                 </h3>
@@ -406,35 +387,15 @@ const DonationBanner = () => {
 
                   {/* Amount Display and Custom Input */}
                   <div 
-                    style={{ 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      background: '#f3f4f6', 
-                      borderRadius: '16px', 
-                      padding: '6px 14px',
-                      border: '2px solid transparent',
-                      transition: 'border-color 0.25s',
-                    }}
-                    onFocus={(e) => e.currentTarget.style.borderColor = '#821905'}
-                    onBlur={(e) => e.currentTarget.style.borderColor = 'transparent'}
+                    className="db-amount-box"
+                    style={{ display: 'flex', alignItems: 'center', background: '#f3f4f6', borderRadius: '16px', padding: '6px 14px', border: '2px solid transparent', transition: 'border-color 0.25s' }}
+                    onFocus={e => e.currentTarget.style.borderColor = '#821905'}
+                    onBlur={e => e.currentTarget.style.borderColor = 'transparent'}
                   >
-                    {/* Custom Dollar Badge */}
+                    {/* Rupee Badge */}
                     <div 
-                      style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '50%',
-                        background: '#111827',
-                        color: '#ffffff',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontFamily: 'Poppins, sans-serif',
-                        fontWeight: 700,
-                        fontSize: '16px',
-                        marginRight: '12px',
-                        flexShrink: 0,
-                      }}
+                      className="db-rupee-badge"
+                      style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#111827', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '16px', marginRight: '12px', flexShrink: 0 }}
                     >
                       ₹
                     </div>
@@ -445,29 +406,16 @@ const DonationBanner = () => {
                       value={amount}
                       onChange={handleInputChange}
                       placeholder="0"
-                      style={{
-                        width: '100%',
-                        background: 'transparent',
-                        border: 'none',
-                        outline: 'none',
-                        fontFamily: 'Poppins, sans-serif',
-                        fontWeight: 700,
-                        fontSize: '22px',
-                        color: '#111827',
-                        padding: '4px 0',
-                      }}
+                      className="db-amount-input"
+                      style={{ width: '100%', background: 'transparent', border: 'none', outline: 'none', fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '22px', color: '#111827', padding: '4px 0' }}
                     />
                   </div>
                 </div>
 
                 {/* Quick Presets row */}
                 <div 
-                  style={{ 
-                    display: 'flex', 
-                    flexWrap: 'wrap', 
-                    gap: '8px', 
-                    marginBottom: '28px',
-                  }}
+                  className="db-presets-row"
+                  style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}
                 >
                   {presetAmounts.map((preset) => (
                     <button
@@ -536,37 +484,11 @@ const DonationBanner = () => {
                 {/* Submit Button */}
                 <button
                   type="button"
-                  onClick={() => {
-                    window.dispatchEvent(new Event('navigate-donate'))
-                  }}
-                  style={{
-                    width: '100%',
-                    background: '#FDED95',
-                    color: '#111827',
-                    border: 'none',
-                    borderRadius: '16px',
-                    padding: '16px 24px',
-                    fontFamily: 'Hind, sans-serif',
-                    fontWeight: 800,
-                    fontSize: '15px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    cursor: 'pointer',
-                    boxShadow: '0 8px 24px rgba(253, 237, 149,0.3)',
-                    transition: 'all 0.3s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(253, 237, 149,0.45)';
-                    e.currentTarget.style.background = '#ffd54f';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(253, 237, 149,0.3)';
-                    e.currentTarget.style.background = '#FDED95';
-                  }}
+                  onClick={() => window.dispatchEvent(new Event('navigate-donate'))}
+                  className="db-submit-btn"
+                  style={{ width: '100%', background: '#FDED95', color: '#111827', border: 'none', borderRadius: '16px', padding: '16px 24px', fontFamily: 'Hind, sans-serif', fontWeight: 800, fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', cursor: 'pointer', boxShadow: '0 8px 24px rgba(253,237,149,0.3)', transition: 'all 0.3s ease' }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.background = '#ffd54f'; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.background = '#FDED95'; }}
                 >
                   अभी दान करें <ArrowRight size={16} />
                 </button>

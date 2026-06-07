@@ -237,12 +237,13 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           {/* ── Right Actions ── */}
           <div className="hidden lg:flex" style={{ alignItems: 'center', gap: '14px' }}>
             {/* Phone pill */}
-            <div style={{
+            <a href="tel:9569036324" style={{
               display: 'flex', alignItems: 'center', gap: '10px',
               background: '#fcfcfc', border: '1.5px solid #e5e7eb',
               borderRadius: '999px', padding: '6px 16px 6px 6px',
               boxShadow: '0 2px 6px rgba(0,0,0,0.02)',
               transition: 'all 0.3s ease', cursor: 'pointer',
+              textDecoration: 'none',
             }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = '#821905'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(130, 25, 5,0.06)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = '#e5e7eb'; e.currentTarget.style.boxShadow = '0 2px 6px rgba(0,0,0,0.02)' }}
@@ -254,7 +255,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
                 <p style={{ fontSize: '9px', color: '#6b7280', fontWeight: 600, fontFamily: 'Hind, sans-serif', marginBottom: '3px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>अभी कॉल करें</p>
                 <p style={{ fontSize: '13px', color: '#821905', fontWeight: 700, fontFamily: 'Poppins, sans-serif' }}> 9569036324</p>
               </div>
-            </div>
+            </a>
 
             {/* ID Card */}
             <button onClick={() => handleNav({ page: 'download-id' })}
@@ -349,7 +350,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
           {/* Mobile bottom */}
           <div style={{ marginTop: '14px', paddingTop: '14px', borderTop: '1px solid rgba(130, 25, 5,0.08)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(130, 25, 5,0.04)', border: '1px solid rgba(130, 25, 5,0.08)', borderRadius: '12px', padding: '12px 16px' }}>
+            <a href="tel:9569036324" style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(130, 25, 5,0.04)', border: '1px solid rgba(130, 25, 5,0.08)', borderRadius: '12px', padding: '12px 16px', textDecoration: 'none' }}>
               <div style={{ width: '36px', height: '36px', background: 'linear-gradient(135deg,#821905,#5a1002)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <Phone size={14} color="#fff" />
               </div>
@@ -357,7 +358,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
                 <p style={{ fontSize: '10px', color: '#9ca3af', fontFamily: 'Hind, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>अभी कॉल करें</p>
                 <p style={{ fontSize: '15px', fontWeight: 700, color: '#821905', fontFamily: 'Poppins, sans-serif', margin: 0 }}> 9569036324</p>
               </div>
-            </div>
+            </a>
             {/* ID Card Button */}
             <button onClick={() => { handleNav({ page: 'download-id' }, true) }}
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '13px', borderRadius: '12px', background: 'linear-gradient(135deg,#821905,#5a1002)', color: '#fff', fontWeight: 700, fontSize: '14.5px', fontFamily: 'Hind, sans-serif', border: 'none', cursor: 'pointer', boxShadow: '0 4px 12px rgba(130, 25, 5,0.2)' }}

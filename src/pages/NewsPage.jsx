@@ -162,6 +162,16 @@ const NewsPage = () => {
           border-color: #821905 !important;
           box-shadow: 0 0 0 3px rgba(130, 25, 5, 0.08);
         }
+        .news-category-container {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          scrollbar-width: none;
+        }
+        .news-category-container::-webkit-scrollbar {
+          display: none;
+        }
+
         @media (max-width: 900px) {
           .news-featured-grid {
             grid-template-columns: 1fr !important;
@@ -171,6 +181,19 @@ const NewsPage = () => {
           }
           .news-grid {
             grid-template-columns: 1fr !important;
+          }
+        }
+        
+        @media (max-width: 640px) {
+          .news-category-container {
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            padding-bottom: 8px;
+            -webkit-overflow-scrolling: touch;
+          }
+          .news-search-wrapper {
+            width: 100% !important;
+            min-width: unset !important;
           }
         }
       `}} />
@@ -324,7 +347,7 @@ const NewsPage = () => {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
 
             {/* Category filter pills */}
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <div className="news-category-container">
               {categories.map(cat => {
                 const isActive = activeCategory === cat
                 return (
@@ -358,7 +381,7 @@ const NewsPage = () => {
             </div>
 
             {/* Search box */}
-            <div style={{ position: 'relative', minWidth: '260px' }}>
+            <div className="news-search-wrapper" style={{ position: 'relative', minWidth: '260px' }}>
               <Search size={15} style={{
                 position: 'absolute', left: '14px', top: '50%',
                 transform: 'translateY(-50%)', color: '#9ca3af', pointerEvents: 'none',

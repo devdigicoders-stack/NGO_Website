@@ -140,18 +140,20 @@ const ContactPage = () => {
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '20px' }} className="contact-info-grid">
             {contactInfo.map(({ Icon, title, lines, accent, light }) => (
-              <div key={title} style={{ background: '#fff', border: '1.5px solid #f0f0f0', borderRadius: '20px', padding: '28px 24px', transition: 'all 0.3s ease' }}
+              <div key={title} className="contact-info-card" style={{ background: '#fff', border: '1.5px solid #f0f0f0', borderRadius: '20px', padding: '28px 24px', transition: 'all 0.3s ease' }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = accent; e.currentTarget.style.boxShadow = `0 16px 40px rgba(0,0,0,0.08)`; e.currentTarget.style.transform = 'translateY(-4px)' }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = '#f0f0f0'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)' }}
               >
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: light, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '18px' }}>
+                <div className="contact-icon-wrapper" style={{ width: '52px', height: '52px', borderRadius: '14px', background: light, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '18px', flexShrink: 0 }}>
                   <Icon size={22} style={{ color: accent }} />
                 </div>
-                <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '15px', color: '#111827', margin: '0 0 10px' }}>{title}</h3>
-                <div style={{ width: '28px', height: '2px', background: accent, borderRadius: '2px', marginBottom: '12px' }} />
-                {lines.map((l, i) => (
-                  <p key={i} style={{ fontFamily: 'Hind, sans-serif', fontSize: '13.5px', color: '#6b7280', margin: '0 0 4px', lineHeight: 1.5 }}>{l}</p>
-                ))}
+                <div className="contact-text-wrapper">
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '15px', color: '#111827', margin: '0 0 10px' }}>{title}</h3>
+                  <div className="contact-accent-line" style={{ width: '28px', height: '2px', background: accent, borderRadius: '2px', marginBottom: '12px' }} />
+                  {lines.map((l, i) => (
+                    <p key={i} style={{ fontFamily: 'Hind, sans-serif', fontSize: '13.5px', color: '#6b7280', margin: '0 0 4px', lineHeight: 1.5 }}>{l}</p>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
@@ -164,7 +166,7 @@ const ContactPage = () => {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'start' }} className="contact-main-grid">
 
             {/* Left — Form */}
-            <div style={{ background: '#f8f9fa', borderRadius: '24px', padding: '40px 36px' }}>
+            <div className="contact-form-card" style={{ background: '#f8f9fa', borderRadius: '24px', padding: '40px 36px' }}>
               {/* Header */}
               <div style={{ marginBottom: '32px' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(130, 25, 5,0.07)', border: '1px solid rgba(130, 25, 5,0.14)', borderRadius: '999px', padding: '5px 16px', marginBottom: '14px' }}>
@@ -202,7 +204,7 @@ const ContactPage = () => {
                       {error}
                     </div>
                   )}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div className="form-row-mobile" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div>
                       <label style={{ display: 'block', fontFamily: 'Hind, sans-serif', fontSize: '12px', fontWeight: 600, color: '#374151', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>आपका नाम *</label>
                       <input required type="text" placeholder="राम कुमार" value={form.name} disabled={submitting} onChange={e => setForm({ ...form, name: e.target.value })} onFocus={() => setFocused('name')} onBlur={() => setFocused('')} style={inputStyle('name')} />
@@ -297,7 +299,23 @@ const ContactPage = () => {
 
       <style>{`
         @media (max-width: 1024px) { .contact-info-grid { grid-template-columns: repeat(2,1fr) !important; } }
-        @media (max-width: 600px)  { .contact-info-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 600px)  { 
+          .contact-info-grid { grid-template-columns: 1fr !important; gap: 12px !important; } 
+          .contact-info-card { 
+            padding: 18px 20px !important; 
+            display: flex; 
+            align-items: center; 
+            gap: 16px; 
+          }
+          .contact-icon-wrapper { margin-bottom: 0 !important; width: 44px !important; height: 44px !important; }
+          .contact-icon-wrapper svg { width: 18px !important; height: 18px !important; }
+          .contact-text-wrapper h3 { margin: 0 0 2px !important; font-size: 14px !important; }
+          .contact-accent-line { display: none !important; }
+          .contact-text-wrapper p { margin: 0 !important; font-size: 12.5px !important; line-height: 1.4 !important; }
+          
+          .contact-form-card { padding: 24px 20px !important; }
+          .form-row-mobile { grid-template-columns: 1fr !important; gap: 16px !important; }
+        }
         @media (max-width: 900px)  { .contact-main-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </div>

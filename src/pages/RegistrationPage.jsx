@@ -129,7 +129,7 @@ const RegistrationPage = () => {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '32px 24px 80px' }}>
 
         {/* ── Org Tabs ── */}
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '32px', justifyContent: 'center' }}>
+        <div className="org-tabs-container" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '32px', justifyContent: 'center' }}>
           {orgs.map(o => (
             <button key={o.id} onClick={() => { setActiveTab(o.id); setFocused('') }}
               style={{
@@ -156,7 +156,7 @@ const RegistrationPage = () => {
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
 
           {/* Org header */}
-          <div style={{ background: org.color, borderRadius: '20px 20px 0 0', padding: '24px 32px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div className="form-card-header" style={{ background: org.color, borderRadius: '20px 20px 0 0', padding: '24px 32px', display: 'flex', alignItems: 'center', gap: '16px' }}>
             <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', flexShrink: 0 }}>
               {org.icon}
             </div>
@@ -171,7 +171,7 @@ const RegistrationPage = () => {
           </div>
 
           {/* Form body */}
-          <div style={{ background: '#fff', borderRadius: '0 0 20px 20px', padding: '36px 32px', boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
+          <div className="form-card-body" style={{ background: '#fff', borderRadius: '0 0 20px 20px', padding: '36px 32px', boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
 
             {submitted[activeTab] ? (
               /* Success state */
@@ -336,7 +336,36 @@ const RegistrationPage = () => {
       </div>
 
       <style>{`
-        @media (max-width: 640px) { .reg-form-grid { grid-template-columns: 1fr !important; } .reg-form-grid > div { grid-column: span 1 !important; } }
+        @media (max-width: 640px) { 
+          .reg-form-grid { grid-template-columns: 1fr !important; } 
+          .reg-form-grid > div { grid-column: span 1 !important; } 
+          
+          .org-tabs-container {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 10px !important;
+            padding-bottom: 0 !important;
+            width: 100%;
+          }
+          
+          .org-tabs-container button {
+            width: 100% !important;
+            justify-content: flex-start !important;
+            padding: 14px 20px !important;
+            border-radius: 12px !important;
+          }
+          
+          .form-card-header {
+            padding: 20px 20px !important;
+            flex-direction: column !important;
+            text-align: center !important;
+            gap: 12px !important;
+          }
+          
+          .form-card-body {
+            padding: 24px 20px !important;
+          }
+        }
       `}</style>
     </div>
   )

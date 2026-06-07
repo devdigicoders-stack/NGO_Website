@@ -80,9 +80,10 @@ const TeamCard = ({ member }) => {
         <img
           src={member.image}
           alt={member.name}
+          className="team-card-img"
           style={{
             width: '100%',
-            height: '320px',
+            height: '280px',
             objectFit: 'cover',
             objectPosition: 'top',
             transform: hov ? 'scale(1.05)' : 'scale(1)',
@@ -103,6 +104,7 @@ const TeamCard = ({ member }) => {
         />
 
         <div
+          className="team-social-icons"
           style={{
             position: 'absolute',
             right: hov ? '16px' : '-48px',
@@ -219,6 +221,7 @@ const TeamCard = ({ member }) => {
         </div>
 
         <div
+          className="team-plus-btn"
           style={{
             position: 'absolute',
             right: '20px',
@@ -242,6 +245,7 @@ const TeamCard = ({ member }) => {
       </div>
 
       <div
+        className="team-card-body"
         style={{
           padding: '24px 24px 28px',
           background: hov ? '#821905' : 'transparent',
@@ -251,26 +255,14 @@ const TeamCard = ({ member }) => {
         }}
       >
         <h3
-          style={{
-            fontFamily: 'Poppins, sans-serif',
-            fontWeight: 800,
-            fontSize: '17px',
-            color: hov ? '#ffffff' : '#111827',
-            margin: '0 0 6px',
-            transition: 'color 0.4s ease',
-          }}
+          className="team-card-name"
+          style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 800, fontSize: '17px', color: hov ? '#ffffff' : '#111827', margin: '0 0 6px', transition: 'color 0.4s ease' }}
         >
           {member.name}
         </h3>
         <p
-          style={{
-            fontFamily: 'Hind, sans-serif',
-            fontSize: '13px',
-            fontWeight: 500,
-            color: hov ? 'rgba(255,255,255,0.7)' : '#6b7280',
-            margin: 0,
-            transition: 'color 0.4s ease',
-          }}
+          className="team-card-role"
+          style={{ fontFamily: 'Hind, sans-serif', fontSize: '13px', fontWeight: 500, color: hov ? 'rgba(255,255,255,0.7)' : '#6b7280', margin: 0, transition: 'color 0.4s ease' }}
         >
           {member.role}
         </p>
@@ -306,7 +298,7 @@ const TeamSection = () => {
   }
 
   return (
-    <section id="team" style={{ background: '#ffffff', padding: '90px 0 100px', overflow: 'hidden', position: 'relative' }}>
+    <section id="team" style={{ background: '#ffffff', padding: '72px 0 80px', overflow: 'hidden', position: 'relative' }}>
       <div
         style={{
           position: 'absolute',
@@ -324,7 +316,7 @@ const TeamSection = () => {
       </div>
 
       <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 10 }}>
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
             <span
               style={{
@@ -369,8 +361,8 @@ const TeamSection = () => {
             style={{
               display: 'grid',
               gridTemplateColumns: `repeat(${Math.min(visibleMembers.length, 4)}, 1fr)`,
-              gap: '28px',
-              marginBottom: hasMore ? '28px' : '50px',
+              gap: '24px',
+              marginBottom: hasMore ? '28px' : '40px',
             }}
           >
             {visibleMembers.map(m => (
@@ -433,17 +425,45 @@ const TeamSection = () => {
       </div>
 
       <style dangerouslySetInnerHTML={{__html: `
+        /* ── Tablet ── */
         @media (max-width: 1024px) {
           .team-main-grid {
             grid-template-columns: repeat(2, 1fr) !important;
-            gap: 24px !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .team-main-grid {
-            grid-template-columns: 1fr !important;
             gap: 20px !important;
           }
+        }
+        /* ── Mobile: 2-col grid ── */
+        @media (max-width: 600px) {
+          .team-main-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 14px !important;
+            margin-bottom: 32px !important;
+          }
+          .team-card-img {
+            height: 180px !important;
+          }
+          /* On mobile: show social icons always (no hover) */
+          .team-social-icons {
+            right: 12px !important;
+            opacity: 1 !important;
+          }
+          /* Reduce name/role text on mobile */
+          .team-card-body {
+            padding: 14px 14px 18px !important;
+          }
+          .team-card-name { font-size: 13.5px !important; }
+          .team-card-role { font-size: 11.5px !important; }
+          .team-plus-btn {
+            width: 32px !important;
+            height: 32px !important;
+            right: 12px !important;
+            bottom: -16px !important;
+          }
+        }
+        /* ── Very small: still 2-col ── */
+        @media (max-width: 380px) {
+          .team-main-grid { gap: 10px !important; }
+          .team-card-img { height: 150px !important; }
         }
       `}} />
     </section>

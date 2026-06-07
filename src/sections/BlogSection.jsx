@@ -171,7 +171,7 @@ const BlogSection = () => {
             }}
           >
             {settings.blogSectionTitlePrefix}
-            <span style={{ color: '#FDED95' }}>{settings.blogSectionTitleHighlight}</span>
+            <span style={{ color: '#821905', borderBottom: '3px solid #FDED95', paddingBottom: '1px' }}>{settings.blogSectionTitleHighlight}</span>
             {settings.blogSectionTitleSuffix}
           </h2>
         </div>
@@ -261,8 +261,9 @@ const BlogCard = ({ post }) => {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            filter: hovered ? 'grayscale(0%) scale(1.05)' : 'grayscale(100%) scale(1)',
-            transition: 'all 0.6s ease',
+            filter: 'grayscale(0%)',
+            transform: hovered ? 'scale(1.06)' : 'scale(1)',
+            transition: 'transform 0.6s ease',
           }}
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.2) 0%, transparent 60%)' }} />
