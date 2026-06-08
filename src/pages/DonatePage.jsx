@@ -193,7 +193,7 @@ const DonatePage = () => {
   }
 
   const handleProceed = async () => {
-    if (finalAmount <= 0 || !name.trim() || !email.trim()) return
+    if (finalAmount <= 0 || !name.trim()) return
     setSubmitError('')
     setSubmitting(true)
 
@@ -454,8 +454,8 @@ const DonatePage = () => {
                   </div>
                   <div className="form-row-mobile" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                     <div>
-                      <label style={{ display: 'block', fontFamily: 'Hind,sans-serif', fontSize: '12px', fontWeight: 700, color: '#374151', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>ईमेल *</label>
-                      <input required type="email" placeholder="अपना ईमेल दर्ज करें" value={email} onChange={(e) => setEmail(e.target.value)} onFocus={() => setFocused('email')} onBlur={() => setFocused('')} style={inputStyle('email')} />
+                      <label style={{ display: 'block', fontFamily: 'Hind,sans-serif', fontSize: '12px', fontWeight: 700, color: '#374151', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>ईमेल (वैकल्पिक)</label>
+                      <input type="email" placeholder="अपना ईमेल दर्ज करें" value={email} onChange={(e) => setEmail(e.target.value)} onFocus={() => setFocused('email')} onBlur={() => setFocused('')} style={inputStyle('email')} />
                     </div>
                     <div>
                       <label style={{ display: 'block', fontFamily: 'Hind,sans-serif', fontSize: '12px', fontWeight: 700, color: '#374151', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>फोन</label>
@@ -473,8 +473,8 @@ const DonatePage = () => {
                 <button
                   type="button"
                   onClick={handleProceed}
-                  disabled={finalAmount <= 0 || !name.trim() || !email.trim() || submitting}
-                  style={{ width: '100%', padding: '15px', borderRadius: '14px', border: 'none', background: finalAmount > 0 && name && email && !submitting ? 'linear-gradient(135deg,#821905,#5a1002)' : '#e5e7eb', color: finalAmount > 0 && name && email && !submitting ? '#fff' : '#9ca3af', fontFamily: 'Poppins,sans-serif', fontWeight: 700, fontSize: '15px', cursor: finalAmount > 0 && name && email && !submitting ? 'pointer' : 'not-allowed', transition: 'all 0.25s ease', boxShadow: finalAmount > 0 && name && email ? '0 6px 20px rgba(130, 25, 5,0.3)' : 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                  disabled={finalAmount <= 0 || !name.trim() || submitting}
+                  style={{ width: '100%', padding: '15px', borderRadius: '14px', border: 'none', background: finalAmount > 0 && name && !submitting ? 'linear-gradient(135deg,#821905,#5a1002)' : '#e5e7eb', color: finalAmount > 0 && name && !submitting ? '#fff' : '#9ca3af', fontFamily: 'Poppins,sans-serif', fontWeight: 700, fontSize: '15px', cursor: finalAmount > 0 && name && !submitting ? 'pointer' : 'not-allowed', transition: 'all 0.25s ease', boxShadow: finalAmount > 0 && name ? '0 6px 20px rgba(130, 25, 5,0.3)' : 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
                 >
                   <Heart size={16} style={{ fill: 'currentColor' }} />
                   {submitting ? 'प्रोसेस हो रहा है...' : finalAmount > 0 ? `₹${finalAmount.toLocaleString('en-IN')} का दान करें` : 'राशि और जानकारी भरें'}

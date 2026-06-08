@@ -1,6 +1,8 @@
-import { useState } from 'react'
-import { ChevronRight, CheckCircle2, Upload, User, Phone, Mail, MapPin, Calendar, FileText, Shield, Download } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { ChevronRight, CheckCircle2, Upload, User, Phone, Mail, MapPin, Calendar, FileText, Shield, Download, Copy, Check, Image as ImageIcon } from 'lucide-react'
 import { saveRegistration, orgs, extraFields } from '../utils/registrationUtils'
+
+const API_BASE = import.meta.env.DEV ? '/api' : import.meta.env.VITE_API_BASE;
 
 // Common fields for all forms
 const commonFields = [
@@ -8,7 +10,7 @@ const commonFields = [
   { id: 'father',      label: 'पिता / पति का नाम', type: 'text',   placeholder: 'पिता / पति का नाम',         icon: User,     required: true  },
   { id: 'dob',         label: 'जन्म तिथि',          type: 'date',   placeholder: '',                          icon: Calendar, required: true  },
   { id: 'mobile',      label: 'मोबाइल नंबर',        type: 'tel',    placeholder: '+91 98765 43210',           icon: Phone,    required: true  },
-  { id: 'email',       label: 'ईमेल पता',           type: 'email',  placeholder: 'अपना ईमेल दर्ज करें',         icon: Mail,     required: false },
+  { id: 'email',       label: 'ईमेल पता (वैकल्पिक)', type: 'email',  placeholder: 'अपना ईमेल दर्ज करें',         icon: Mail,     required: false },
   { id: 'address',     label: 'पूरा पता',           type: 'textarea', placeholder: 'ग्राम/मोहल्ला, तहसील, जिला, राज्य', icon: MapPin, required: true },
   { id: 'pincode',     label: 'पिन कोड',            type: 'text',   placeholder: '226001',                    icon: MapPin,   required: true  },
   { id: 'aadhar',      label: 'आधार नंबर',          type: 'text',   placeholder: 'XXXX XXXX XXXX',            icon: FileText, required: true  },
@@ -20,11 +22,33 @@ const commonFields = [
 const RegistrationPage = () => {
   const [activeTab, setActiveTab] = useState('patrakar')
   const [forms, setForms] = useState({})
-  const [submitted, setSubmitted] = useState({})
+  const [step, setStep] = useState(1) // 1: Form, 2: Payment, 3: Success
   const [focused, setFocused] = useState('')
   const [regNumbers, setRegNumbers] = useState({})
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState({})
+
+  // Payment step state
+  const [upiId, setUpiId] = useState('')
+  const [donationAmount, setDonationAmount] = useState('')
+  const [screenshotFile, setScreenshotFile] = useState(null)
+  const [screenshotPreview, setScreenshotPreview] = useState(null)
+  const [uploading, setUploading] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const fileInputRef = useRef(null)
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/donations/settings`)
+        const json = await res.json()
+        if (json.success && json.data?.upiId) {
+          setUpiId(json.data.upiId)
+        }
+      } catch (err) { console.error('Failed to load settings:', err) }
+    }
+    fetchSettings()
+  }, [])
 
   const org = orgs.find(o => o.id === activeTab)
   const fields = [...commonFields, ...(extraFields[activeTab] || [])]
@@ -47,7 +71,7 @@ const RegistrationPage = () => {
         const regNumber = res.data.regNumber
         // Store registration number
         setRegNumbers(prev => ({ ...prev, [activeTab]: regNumber }))
-        setSubmitted(prev => ({ ...prev, [activeTab]: true }))
+        setStep(2) // Go to payment step
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
         setError(prev => ({ ...prev, [activeTab]: res.error || 'पंजीकरण विफल रहा। कृपया पुन: प्रयास करें।' }))
@@ -58,6 +82,49 @@ const RegistrationPage = () => {
     } finally {
       setSubmitting(false)
     }
+  }
+
+
+  const handleScreenshotSelect = (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setScreenshotFile(file)
+    const reader = new FileReader()
+    reader.onload = (ev) => setScreenshotPreview(ev.target.result)
+    reader.readAsDataURL(file)
+  }
+
+  const handleScreenshotUpload = async () => {
+    const regNumber = regNumbers[activeTab]
+    if (!screenshotFile || !regNumber) return
+    setUploading(true)
+    try {
+      const fd = new FormData()
+      fd.append('file', screenshotFile)
+      fd.append('amount', donationAmount || '0')
+      const res = await fetch(`${API_BASE}/registrations/${encodeURIComponent(regNumber)}/screenshot`, {
+        method: 'POST',
+        body: fd,
+      })
+      const json = await res.json()
+      if (json.success) {
+        setStep(3) // Success step
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        alert(json.message || 'स्क्रीनशॉट अपलोड में त्रुटि हुई।')
+      }
+    } catch (err) {
+      console.error(err)
+      alert('सर्वर से कनेक्ट नहीं हो पाया।')
+    } finally {
+      setUploading(false)
+    }
+  }
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(upiId)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   const handlePhotoUpload = (e) => {
@@ -131,7 +198,7 @@ const RegistrationPage = () => {
         {/* ── Org Tabs ── */}
         <div className="org-tabs-container" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '32px', justifyContent: 'center' }}>
           {orgs.map(o => (
-            <button key={o.id} onClick={() => { setActiveTab(o.id); setFocused('') }}
+            <button key={o.id} onClick={() => { setActiveTab(o.id); setFocused(''); setStep(1); setScreenshotFile(null); setScreenshotPreview(null); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: '7px',
                 padding: '9px 16px', borderRadius: '999px',
@@ -173,7 +240,7 @@ const RegistrationPage = () => {
           {/* Form body */}
           <div className="form-card-body" style={{ background: '#fff', borderRadius: '0 0 20px 20px', padding: '36px 32px', boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
 
-            {submitted[activeTab] ? (
+            {step === 3 ? (
               /* Success state */
               <div style={{ textAlign: 'center', padding: '24px 12px' }}>
                 <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: `${org.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
@@ -217,7 +284,7 @@ const RegistrationPage = () => {
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
-                  <button onClick={() => setSubmitted(prev => ({ ...prev, [activeTab]: false }))}
+                  <button onClick={() => { setStep(1); setScreenshotFile(null); setScreenshotPreview(null); setDonationAmount(''); }}
                     style={{ padding: '11px 32px', borderRadius: '999px', border: `1.5px solid #d1d5db`, background: '#fff', color: '#374151', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', cursor: 'pointer', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
                     नया पंजीकरण करें
                   </button>
@@ -225,6 +292,81 @@ const RegistrationPage = () => {
                     style={{ padding: '11px 32px', borderRadius: '999px', border: `none`, background: org.color, color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '14px', cursor: 'pointer', boxShadow: '0 4px 14px rgba(0,0,0,0.1)', marginLeft: '12px', textDecoration: 'none' }}>
                     डाउनलोड पेज पर जाएं
                   </a>
+                </div>
+              </div>
+            ) : step === 2 ? (
+              /* Payment and Screenshot Upload Step */
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `${org.color}10`, border: `1px solid ${org.color}20`, borderRadius: '999px', padding: '6px 16px', marginBottom: '16px' }}>
+                  <CheckCircle2 size={14} style={{ color: org.color }} />
+                  <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: org.color, fontFamily: 'Hind,sans-serif' }}>पेमेंट और वेरिफिकेशन</span>
+                </div>
+
+                <h3 style={{ fontFamily: 'Poppins,sans-serif', fontWeight: 800, fontSize: '20px', color: '#111827', margin: '0 0 8px' }}>
+                  रजिस्ट्रेशन फीस का भुगतान करें
+                </h3>
+                <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '14px', color: '#6b7280', margin: '0 0 20px' }}>
+                  कृपया अपनी इच्छानुसार सहयोग राशि का भुगतान करें।
+                </p>
+
+                {upiId ? (
+                  <>
+                    <div style={{ display: 'inline-block', padding: '16px', background: '#fff', border: '2px solid #f0f0f0', borderRadius: '20px', marginBottom: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.08)' }}>
+                      <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(`upi://pay?pa=${upiId}&pn=Registration&cu=INR`)}`} alt="UPI QR Code" style={{ width: '200px', height: '200px', display: 'block' }} />
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#f8f9fa', border: '1.5px solid #e5e7eb', borderRadius: '12px', padding: '12px 16px', marginBottom: '24px', flexWrap: 'wrap' }}>
+                      <span style={{ fontFamily: 'Poppins,sans-serif', fontWeight: 700, fontSize: '15px', color: org.color }}>{upiId}</span>
+                      <button type="button" onClick={handleCopy} style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 12px', borderRadius: '8px', border: 'none', background: copied ? org.color : '#e5e7eb', color: copied ? '#fff' : '#374151', fontFamily: 'Hind,sans-serif', fontWeight: 600, fontSize: '12px', cursor: 'pointer' }}>
+                        {copied ? <><Check size={13} /> कॉपी हो गया</> : <><Copy size={13} /> कॉपी करें</>}
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                   <p>UPI ID लोड हो रही है...</p>
+                )}
+
+                {/* Amount Input */}
+                <div style={{ marginBottom: '24px', textAlign: 'left' }}>
+                  <label style={{ display: 'block', fontFamily: 'Hind,sans-serif', fontSize: '13px', fontWeight: 700, color: '#374151', marginBottom: '8px' }}>भुगतान की गई राशि (₹) *</label>
+                  <input type="number" required placeholder="जैसे: 500" value={donationAmount} onChange={(e) => setDonationAmount(e.target.value)} style={inputBase('amount')} />
+                </div>
+
+                {/* Screenshot Upload */}
+                <div style={{ background: '#f0fdf4', border: '1.5px solid #bbf7d0', borderRadius: '16px', padding: '20px', textAlign: 'left' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                    <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(22,163,74,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <Upload size={18} style={{ color: '#16a34a' }} />
+                    </div>
+                    <div>
+                      <p style={{ fontFamily: 'Poppins,sans-serif', fontWeight: 700, fontSize: '14px', color: '#111827', margin: 0 }}>
+                        पेमेंट स्क्रीनशॉट अपलोड करें
+                      </p>
+                      <p style={{ fontFamily: 'Hind,sans-serif', fontSize: '12px', color: '#6b7280', margin: '2px 0 0' }}>
+                        सफलतापूर्वक भुगतान के बाद स्क्रीनशॉट यहाँ अपलोड करें
+                      </p>
+                    </div>
+                  </div>
+
+                  <input ref={fileInputRef} type="file" accept="image/*" onChange={handleScreenshotSelect} style={{ display: 'none' }} />
+
+                  {screenshotPreview ? (
+                    <div>
+                      <div style={{ position: 'relative', display: 'inline-block', borderRadius: '12px', overflow: 'hidden', border: '2px solid #d1fae5', marginBottom: '16px' }}>
+                        <img src={screenshotPreview} alt="Screenshot" style={{ maxWidth: '100%', maxHeight: '200px', display: 'block' }} />
+                        <button type="button" onClick={() => { setScreenshotFile(null); setScreenshotPreview(null); if(fileInputRef.current) fileInputRef.current.value = ''; }} style={{ position: 'absolute', top: '8px', right: '8px', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(0,0,0,0.6)', color: '#fff', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+                      </div>
+                      <button type="button" onClick={handleScreenshotUpload} disabled={uploading || !donationAmount} style={{ width: '100%', padding: '14px', borderRadius: '12px', border: 'none', background: uploading || !donationAmount ? '#9ca3af' : 'linear-gradient(135deg, #16a34a, #15803d)', color: '#fff', fontFamily: 'Hind,sans-serif', fontWeight: 700, fontSize: '15px', cursor: uploading || !donationAmount ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', boxShadow: uploading || !donationAmount ? 'none' : '0 4px 14px rgba(22,163,74,0.3)' }}>
+                        <Upload size={16} />
+                        {uploading ? 'अपलोड हो रहा है...' : 'कन्फर्म करें और पूरा करें'}
+                      </button>
+                    </div>
+                  ) : (
+                    <button type="button" onClick={() => fileInputRef.current?.click()} style={{ width: '100%', padding: '24px 16px', borderRadius: '12px', border: '2px dashed #86efac', background: '#f0fdf4', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+                      <ImageIcon size={24} style={{ color: '#16a34a' }} />
+                      <span style={{ fontFamily: 'Hind,sans-serif', fontWeight: 600, fontSize: '14px', color: '#16a34a' }}>स्क्रीनशॉट चुनें</span>
+                    </button>
+                  )}
                 </div>
               </div>
             ) : (

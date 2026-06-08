@@ -12,6 +12,7 @@ const bannerImages = [
   '/banner/banner7.png',
   '/banner/banner8.png',
   '/banner/banner9.png',
+  '/banner/banner10.png',
 ];
 
 const slides = [
@@ -131,6 +132,19 @@ const slides = [
     sub: 'एक मजबूत, सुरक्षित और विकसित भारत के निर्माण में हम सब की भागीदारी सुनिश्चित करें।',
     btn1: { label: 'उपलब्धियां', href: '#achievements' },
     btn2: { label: 'सदस्यता लें', href: 'contact-page' },
+  },
+  {
+    image: bannerImages[9],
+    badge: 'पर्यावरण संरक्षण',
+    BadgeIcon: HandHeart,
+    line1: 'प्रकृति की रक्षा ही',
+    line2: 'जीवन की',
+    highlight: 'सुरक्षा',
+    line2end: 'है',
+    tagline: 'आने वाली पीढ़ियों के लिए पर्यावरण बचाएं।',
+    sub: 'स्वच्छ और हरित भारत के निर्माण के लिए हमारे वृक्षारोपण और स्वच्छता अभियानों से जुड़ें।',
+    btn1: { label: 'पर्यावरण पहल', href: '#projects' },
+    btn2: { label: 'सहयोग करें', href: 'donate-page' },
   },
 ];
 

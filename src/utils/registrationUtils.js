@@ -6,6 +6,7 @@ const API_BASE = import.meta.env.DEV ? '/api' : import.meta.env.VITE_API_BASE;
 
 
 export const orgs = [
+  { id: 'main_trust',   short: 'साधू लक्ष्मी जनकल्याण ट्रस्ट',           full: 'साधू लक्ष्मी जनकल्याण ट्रस्ट (मुख्य संस्था)',                 color: '#d97706', icon: '🏛️', logo: '/company/main/9.png', prefix: 'SLJT' },
   { id: 'patrakar',     short: 'राष्ट्रीय पत्रकार समर्पित संघ ',           full: 'राष्ट्रीय पत्रकार समर्पित संघ (मीडिया सेल)',              color: '#821905', icon: '📰', logo: '/company/main/7.png', prefix: 'RPS' },
   { id: 'crime',        short: 'राष्ट्रीय क्राइम इन्वेस्टिगेशन ब्यूरो',        full: 'राष्ट्रीय क्राइम इन्वेस्टिगेशन ब्यूरो (क्राइम कंट्रोल सेल)',        color: '#a8170c', icon: '🔍', logo: '/company/main/3.png', prefix: 'RCIB' },
   { id: 'chikitsa',     short: 'आखिल भारतीय चिकित्सा संघ',     full: 'आखिल भारतीय चिकित्सा संघ (अखिल भारतीय महिला सेल)',  color: '#d81b60', icon: '👩', logo: '/company/main/8.png', prefix: 'ABCS' },
@@ -50,7 +51,8 @@ export const extraFields = {
   muslim: [
     { id: 'welfare_interest', label: 'कल्याणकारी प्रशिक्षण रुचि', type: 'select', options: ['मुफ़्त शिक्षा', 'रोजगार प्रशिक्षण', 'सामाजिक कल्याण', 'अन्य'], required: true },
     { id: 'local_masjid', label: 'स्थानीय संस्था / मस्जिद का नाम', type: 'text', placeholder: 'संस्था या मस्जिद का नाम लिखें', required: true }
-  ]
+  ],
+  main_trust: []
 }
 
 export const getIDCardTemplate = (orgId) => {

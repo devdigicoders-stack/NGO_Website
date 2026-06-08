@@ -377,13 +377,13 @@ const IDCardDownloadPage = () => {
                 <>
                   <IDCardGenerator
                     orgId={registration.orgId}
-                    formData={{ ...registration.formData, role: registration.role }}
+                    formData={{ ...registration.formData, role: registration.role, validFrom: registration.validFrom, validUntil: registration.validUntil }}
                     regNumber={registration.regNumber}
                     onGenerated={handleGenerated}
                   />
                   <JoiningLetterGenerator
                     orgId={registration.orgId}
-                    formData={{ ...registration.formData, role: registration.role }}
+                    formData={{ ...registration.formData, role: registration.role, validFrom: registration.validFrom, validUntil: registration.validUntil }}
                     regNumber={registration.regNumber}
                     onGenerated={setJoiningLetterData}
                   />
