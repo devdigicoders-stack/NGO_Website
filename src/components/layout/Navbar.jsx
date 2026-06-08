@@ -113,7 +113,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         transition: 'all 0.3s ease',
       }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <div className="max-w-[1280px] mx-auto px-3 sm:px-6">
         <div className="h-20 sm:h-[92px]" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
           {/* ── Logo ── */}

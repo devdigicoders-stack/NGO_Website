@@ -2,34 +2,137 @@ import { useState, useEffect } from 'react'
 import { handlePageLink } from '../utils/navigation'
 import { ArrowUpRight, ChevronLeft, ChevronRight, Heart, HandHeart, Sparkles } from 'lucide-react'
 
+const bannerImages = [
+  '/banner/banner1.png',
+  '/banner/banner2.png',
+  '/banner/banner3.png',
+  '/banner/banner4.png',
+  '/banner/banner5.png',
+  '/banner/banner6.png',
+  '/banner/banner7.png',
+  '/banner/banner8.png',
+  '/banner/banner9.png',
+];
+
 const slides = [
   {
-    image: '/images/hero.png',
-    badge: 'जरूरतमंद लोगों की मदद करें',
-    BadgeIcon: Heart,
-    line1: 'उनकी मदद करना',
-    line2: 'जो हैं',
-    highlight: 'जरूरतमंद',
+    image: bannerImages[0],
+    badge: 'भ्रष्टाचार मुक्त भारत',
+    BadgeIcon: Sparkles,
+    line1: 'आओ मिलकर बनाएं',
+    line2: 'एक',
+    highlight: 'भ्रष्टाचार मुक्त',
+    line2end: 'समाज',
+    tagline: 'सत्य, निष्ठा और सेवा हमारा संकल्प है।',
+    sub: 'भ्रष्टाचार उन्मूलन अपराध अनुसंधान केन्द्र के साथ जुड़ें और देश से भ्रष्टाचार मिटाने में अपना योगदान दें।',
+    btn1: { label: 'हमारे बारे में', href: '#about' },
+    btn2: { label: 'सदस्य बनें', href: 'contact-page' },
+  },
+  {
+    image: bannerImages[1],
+    badge: 'सामाजिक न्याय',
+    BadgeIcon: HandHeart,
+    line1: 'हर नागरिक को मिले',
+    line2: 'उसका',
+    highlight: 'अधिकार',
     line2end: '',
-    tagline: 'हर जिंदगी है कीमती।',
-    sub: 'सहायता फाउंडेशन के साथ जुड़ें और उन लोगों के जीवन में बदलाव लाएं जिन्हें आपकी मदद की सबसे ज़्यादा जरूरत है।',
-    btn1: { label: 'हमारे बारे में जानें', href: '#about' },
+    tagline: 'न्याय के लिए हमारी लड़ाई जारी है।',
+    sub: 'हमारा उद्देश्य हर शोषित और पीड़ित वर्ग को न्याय दिलाना और उनके अधिकारों की रक्षा करना है।',
+    btn1: { label: 'कानूनी सहायता', href: '#services' },
+    btn2: { label: 'शिकायत करें', href: 'contact-page' },
+  },
+  {
+    image: bannerImages[2],
+    badge: 'समाज कल्याण',
+    BadgeIcon: Heart,
+    line1: 'जरूरतमंदों की',
+    line2: 'सेवा ही सच्चा',
+    highlight: 'धर्म',
+    line2end: 'है',
+    tagline: 'साधू लक्ष्मी जनकल्याण ट्रस्ट का संकल्प।',
+    sub: 'समाज के सबसे कमजोर वर्ग के उत्थान के लिए हम निरंतर कार्य कर रहे हैं। इस पुनीत कार्य में हमारा साथ दें।',
+    btn1: { label: 'प्रोजेक्ट्स', href: '#projects' },
     btn2: { label: 'दान करें', href: 'donate-page' },
   },
   {
-    image: '/images/hero1.png',
-    badge: 'एक बेहतर कल की ओर',
-    BadgeIcon: HandHeart,
-    line1: 'शिक्षा से बदलेगा',
-    line2: 'हर',
-    highlight: 'बच्चे',
-    line2end: 'का कल।',
-    tagline: 'ज्ञान ही सबसे बड़ी शक्ति है।',
-    sub: 'हम प्रतिबद्ध हैं कि भारत का हर बच्चा गुणवत्तापूर्ण शिक्षा पाए। स्कूल छोड़ने वाले बच्चों को वापस लाना हमारा संकल्प है।',
-    btn1: { label: 'हमारे कार्यक्रम', href: '#causes' },
-    btn2: { label: 'स्वयंसेवक बनें', href: 'contact-page' },
+    image: bannerImages[3],
+    badge: 'महिला सशक्तिकरण',
+    BadgeIcon: Sparkles,
+    line1: 'नारी शक्ति का',
+    line2: 'हो',
+    highlight: 'सम्मान',
+    line2end: '',
+    tagline: 'महिलाएं देश का भविष्य हैं।',
+    sub: 'हम महिलाओं को आत्मनिर्भर बनाने और उनके खिलाफ हो रहे अपराधों को रोकने के लिए प्रतिबद्ध हैं।',
+    btn1: { label: 'महिला सुरक्षा', href: '#causes' },
+    btn2: { label: 'जुड़ें', href: 'contact-page' },
   },
-]
+  {
+    image: bannerImages[4],
+    badge: 'बाल कल्याण',
+    BadgeIcon: HandHeart,
+    line1: 'हर बच्चे को मिले',
+    line2: 'बेहतर',
+    highlight: 'कल',
+    line2end: '',
+    tagline: 'शिक्षा और सुरक्षा बच्चों का अधिकार है।',
+    sub: 'बच्चों के शोषण के खिलाफ आवाज उठाएं और उन्हें सुरक्षित भविष्य प्रदान करने में मदद करें।',
+    btn1: { label: 'बाल अधिकार', href: '#causes' },
+    btn2: { label: 'स्वयंसेवक', href: 'contact-page' },
+  },
+  {
+    image: bannerImages[5],
+    badge: 'अपराध अनुसंधान',
+    BadgeIcon: Sparkles,
+    line1: 'अपराध मुक्त हो',
+    line2: 'हमारा',
+    highlight: 'राष्ट्र',
+    line2end: '',
+    tagline: 'सतर्कता ही सुरक्षा की पहली सीढ़ी है।',
+    sub: 'अपराधों को रोकने और अपराधियों को बेनकाब करने में हमारी संस्था प्रशासन के साथ मिलकर काम कर रही है।',
+    btn1: { label: 'जागरूकता', href: '#campaigns' },
+    btn2: { label: 'सूचना दें', href: 'contact-page' },
+  },
+  {
+    image: bannerImages[6],
+    badge: 'जन-जागरूकता',
+    BadgeIcon: Heart,
+    line1: 'अपने अधिकारों के प्रति',
+    line2: 'बनें',
+    highlight: 'जागरूक',
+    line2end: '',
+    tagline: 'जागरूक नागरिक ही बदलाव ला सकता है।',
+    sub: 'कानून और अधिकारों की सही जानकारी होना सबसे बड़ा हथियार है। जागरूकता अभियानों का हिस्सा बनें।',
+    btn1: { label: 'कार्यक्रम', href: '#events' },
+    btn2: { label: 'संपर्क करें', href: 'contact-page' },
+  },
+  {
+    image: bannerImages[7],
+    badge: 'पर्यावरण संरक्षण',
+    BadgeIcon: HandHeart,
+    line1: 'प्रकृति की रक्षा ही',
+    line2: 'जीवन की',
+    highlight: 'सुरक्षा',
+    line2end: 'है',
+    tagline: 'आने वाली पीढ़ियों के लिए पर्यावरण बचाएं।',
+    sub: 'स्वच्छ और हरित भारत के निर्माण के लिए हमारे वृक्षारोपण और स्वच्छता अभियानों से जुड़ें।',
+    btn1: { label: 'पर्यावरण पहल', href: '#projects' },
+    btn2: { label: 'सहयोग करें', href: 'donate-page' },
+  },
+  {
+    image: bannerImages[8],
+    badge: 'राष्ट्र निर्माण',
+    BadgeIcon: Sparkles,
+    line1: 'देश की सेवा में',
+    line2: 'हमारा',
+    highlight: 'योगदान',
+    line2end: '',
+    tagline: 'राष्ट्र सर्वोपरि।',
+    sub: 'एक मजबूत, सुरक्षित और विकसित भारत के निर्माण में हम सब की भागीदारी सुनिश्चित करें।',
+    btn1: { label: 'उपलब्धियां', href: '#achievements' },
+    btn2: { label: 'सदस्यता लें', href: 'contact-page' },
+  },
+];
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0)
@@ -95,31 +198,36 @@ const HeroSection = () => {
         .h-btns   { opacity: 0; animation: heroFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.7s forwards; }
         .h-dots   { opacity: 0; animation: heroFadeIn 0.5s ease 0.95s forwards; }
 
-        /* ─── Background image ─── */
+        /* ─── Background image & Layout Base ─── */
+        .hero-section {
+          position: relative;
+          width: 100%;
+          min-height: calc(100vh - 80px);
+          display: flex;
+          align-items: flex-end;
+          overflow: hidden;
+        }
+        .hero-img-wrapper {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
         .hero-bg-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
           animation: imgKen 10s ease-out both;
         }
 
         /* ─── Desktop overlay ─── */
         .hero-overlay-desktop {
-          background: linear-gradient(
-            105deg,
-            rgba(25,5,2,0.97) 0%,
-            rgba(40,8,3,0.88) 38%,
-            rgba(40,8,3,0.55) 60%,
-            rgba(40,8,3,0.12) 80%,
-            transparent 100%
-          );
+          display: none;
         }
 
         /* ─── Desktop accent bar ─── */
         .hero-accent-bar {
-          position: absolute;
-          left: 0; bottom: 70px;
-          width: 5px; height: 200px;
-          background: linear-gradient(to bottom, #FDED95, #f5a623);
-          border-radius: 0 6px 6px 0;
-          box-shadow: 0 0 18px rgba(253,237,149,0.5);
+          display: none;
         }
 
         /* ─── Desktop hero stats bar ─── */
@@ -144,11 +252,57 @@ const HeroSection = () => {
         }
         .hero-stat-item:last-child { border-right: none; }
 
-        /* ─── Desktop: hide mobile elements ─── */
+        /* ─── Desktop: hide mobile elements & Setup Split Layout ─── */
         @media (min-width: 769px) {
           .mobile-only { display: none !important; }
           .hero-stats-bar { display: flex; }
-          .hero-content-wrapper { padding: 80px 48px 140px; }
+          
+          .hero-section {
+            display: flex !important;
+            flex-direction: row-reverse !important; /* Put image on right, text on left */
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 40px !important;
+            padding: 80px 40px 140px 40px !important;
+            background: #050100 !important;
+            min-height: calc(100vh - 80px) !important;
+            position: relative;
+            overflow: hidden;
+          }
+          
+          .hero-img-wrapper {
+            position: relative !important;
+            inset: auto !important;
+            width: 55% !important;
+            max-width: 850px !important;
+            flex: none !important;
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            z-index: 10 !important;
+          }
+          
+          .hero-bg-img {
+            width: 100% !important;
+            height: auto !important;
+            max-height: 78vh !important;
+            object-fit: contain !important;
+            border-radius: 16px !important;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1) !important;
+            animation: none !important;
+          }
+          
+          .hero-content-wrapper { 
+            position: relative !important;
+            width: 42% !important; 
+            max-width: 540px !important;
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            margin: 0 !important;
+            z-index: 10 !important;
+          }
         }
 
         /* ─── Mobile ─── */
@@ -156,60 +310,93 @@ const HeroSection = () => {
           .desktop-only { display: none !important; }
           .hero-stats-bar { display: none; }
           
-          /* Fullscreen section */
           .hero-section {
-            min-height: calc(100svh - 70px) !important;
-            align-items: flex-end !important;
+            min-height: auto !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            background-color: #050100 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          .hero-img-wrapper {
+            position: relative !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: flex;
+            justify-content: center;
+          }
+          .hero-bg-img {
+            height: auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            object-fit: contain !important;
+            object-position: center top !important;
+            display: block;
+            animation: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
           }
           .hero-content-wrapper {
             padding: 0 !important;
             max-width: 100% !important;
           }
 
-          /* Bottom card panel */
+          /* Bottom content area */
           .hero-mobile-panel {
-            background: linear-gradient(175deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,1) 100%);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border-radius: 28px 28px 0 0;
-            border-top: 2.5px solid rgba(253,237,149,0.6);
-            box-shadow: 0 -20px 60px rgba(0,0,0,0.25), 0 -4px 20px rgba(130,25,5,0.1);
-            padding: 0 16px 20px;
+            background: linear-gradient(to top, rgba(5,1,0,0.95) 0%, rgba(5,1,0,0.4) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 24px 24px 44px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            z-index: 10;
+            position: relative;
+            margin-top: -20px;
           }
 
           /* Mobile buttons */
           .mobile-btn-primary {
             display: flex; align-items: center; justify-content: center; gap: 6px;
             width: 100%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #821905 0%, #5a1002 100%);
-            color: #fff;
+            padding: 14px 16px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #FDED95 0%, #f5d76e 100%);
+            color: #111827;
             font-family: 'Hind', sans-serif;
             font-weight: 800;
-            font-size: 14px;
+            font-size: 14.5px;
             text-decoration: none;
             border: none;
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(130,25,5,0.35);
+            box-shadow: 0 8px 24px rgba(253,237,149,0.3);
             transition: all 0.25s ease;
             letter-spacing: 0.02em;
           }
           .mobile-btn-secondary {
             display: flex; align-items: center; justify-content: center; gap: 6px;
             width: 100%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #FDED95 0%, #f5d76e 100%);
-            color: #111827;
+            padding: 14px 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
             font-family: 'Hind', sans-serif;
-            font-weight: 800;
-            font-size: 14px;
+            font-weight: 700;
+            font-size: 14.5px;
             text-decoration: none;
-            border: none;
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(253,237,149,0.35);
             transition: all 0.25s ease;
             letter-spacing: 0.02em;
           }
@@ -225,43 +412,44 @@ const HeroSection = () => {
       <section
         id="home"
         className="hero-section"
-        style={{
-          position: 'relative',
-          width: '100%',
-          minHeight: 'calc(100vh - 80px)',
-          display: 'flex',
-          alignItems: 'flex-end',
-          overflow: 'hidden',
-        }}
       >
 
-        {/* ── Background Image ── */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          opacity: animating ? 0 : 1,
-          transition: 'opacity 0.55s ease',
-          overflow: 'hidden',
-        }}>
+        {/* ── Dynamic Immersive Blurred Background ── */}
+        <div 
+          className="hero-dynamic-bg"
+          style={{
+            position: 'absolute',
+            inset: -20, /* expand slightly to avoid blurred edges showing */
+            zIndex: 0,
+            overflow: 'hidden',
+          }}
+        >
+          <img
+            src={slide.image}
+            alt="bg"
+            style={{
+              width: '100%', height: '100%', objectFit: 'cover',
+              filter: 'blur(40px) brightness(0.45)',
+              transform: 'scale(1.1)',
+              opacity: animating ? 0 : 1,
+              transition: 'opacity 0.55s ease',
+            }}
+          />
+        </div>
+
+        {/* ── Main Hero Image (Foreground) ── */}
+        <div 
+          className="hero-img-wrapper"
+          style={{
+            opacity: animating ? 0 : 1,
+            transition: 'opacity 0.55s ease',
+            zIndex: 10,
+          }}
+        >
           <img
             src={slide.image}
             alt="हीरो बैनर"
             className="hero-bg-img"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
-          />
-
-          {/* Desktop gradient overlay */}
-          <div
-            className="hero-overlay-desktop desktop-only"
-            style={{ position: 'absolute', inset: 0 }}
-          />
-
-          {/* Mobile: top fade (soft vignette on top so image is slightly visible) */}
-          <div
-            className="mobile-only"
-            style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.78) 80%)',
-            }}
           />
         </div>
 
@@ -293,8 +481,15 @@ const HeroSection = () => {
           <div
             className="desktop-only"
             style={{
-              paddingLeft: '60px',
-              maxWidth: '640px',
+              padding: '36px 40px',
+              marginLeft: '60px',
+              maxWidth: '680px',
+              background: 'rgba(0, 0, 0, 0.4)',
+              backdropFilter: 'blur(32px)',
+              WebkitBackdropFilter: 'blur(32px)',
+              borderRadius: '24px',
+              border: '1px solid rgba(255,255,255,0.1)',
+              boxShadow: '0 30px 60px -15px rgba(0,0,0,0.7)',
               opacity: animating ? 0 : 1,
               transform: animating ? 'translateY(18px)' : 'translateY(0)',
               transition: 'opacity 0.45s ease, transform 0.45s ease',
@@ -306,12 +501,12 @@ const HeroSection = () => {
               background: 'rgba(253,237,149,0.12)',
               border: '1px solid rgba(253,237,149,0.3)',
               backdropFilter: 'blur(10px)',
-              borderRadius: '999px', padding: '8px 20px',
-              marginBottom: '28px',
+              borderRadius: '999px', padding: '6px 16px',
+              marginBottom: '20px',
             }}>
               <BadgeIcon size={14} style={{ color: '#FDED95', fill: '#FDED95', flexShrink: 0 }} />
               <span style={{
-                color: '#FDED95', fontWeight: 700, fontSize: '11px',
+                color: '#FDED95', fontWeight: 600, fontSize: '11px',
                 letterSpacing: '0.14em', fontFamily: 'Hind, sans-serif', textTransform: 'uppercase',
               }}>
                 {slide.badge}
@@ -320,16 +515,16 @@ const HeroSection = () => {
 
             {/* Heading */}
             <h1 className="h-title" style={{
-              fontFamily: 'Poppins, sans-serif', fontWeight: 800, color: '#fff',
-              lineHeight: 1.15, margin: 0, marginBottom: '18px',
-              fontSize: 'clamp(32px, 3.8vw, 54px)',
+              fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#fff',
+              lineHeight: 1.15, margin: 0, marginBottom: '14px',
+              fontSize: 'clamp(28px, 3.2vw, 46px)',
             }}>
               <span style={{ display: 'block', marginBottom: '4px' }}>{slide.line1}</span>
               <span style={{ display: 'block' }}>
                 {slide.line2}{' '}
                 <span style={{
                   color: '#FDED95',
-                  textShadow: '0 0 40px rgba(253,237,149,0.4)',
+                  textShadow: '0 0 30px rgba(253,237,149,0.4)',
                   position: 'relative',
                 }}>
                   {slide.highlight}
@@ -340,24 +535,24 @@ const HeroSection = () => {
 
             {/* Tagline */}
             <p className="h-tag" style={{
-              fontFamily: 'Poppins, sans-serif', fontWeight: 600,
-              fontSize: 'clamp(15px, 1.5vw, 20px)',
-              color: 'rgba(255,255,255,0.88)', lineHeight: 1.4, marginBottom: '16px',
+              fontFamily: 'Poppins, sans-serif', fontWeight: 500,
+              fontSize: 'clamp(14px, 1.3vw, 18px)',
+              color: 'rgba(255,255,255,0.88)', lineHeight: 1.4, marginBottom: '12px',
             }}>
               {slide.tagline}
             </p>
 
             {/* Sub */}
             <p className="h-sub" style={{
-              fontFamily: 'Hind, sans-serif', fontSize: '15px',
-              color: 'rgba(255,255,255,0.68)', lineHeight: 1.8,
-              marginBottom: '38px', maxWidth: '520px', fontWeight: 400,
+              fontFamily: 'Hind, sans-serif', fontSize: '14px',
+              color: 'rgba(255,255,255,0.7)', lineHeight: 1.7,
+              marginBottom: '28px', maxWidth: '520px', fontWeight: 400,
             }}>
               {slide.sub}
             </p>
 
             {/* CTA Buttons */}
-            <div className="h-btns" style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', marginBottom: '44px' }}>
+            <div className="h-btns" style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', marginBottom: '36px' }}>
               <a
                 href={slide.btn2.href}
                 onClick={(e) => handlePageLink(slide.btn2.href, e)}
@@ -451,16 +646,16 @@ const HeroSection = () => {
 
             {/* Badge */}
             <div className="h-badge" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '6px',
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
               background: 'linear-gradient(135deg, #FDED95 0%, #f5d76e 100%)',
-              padding: '6px 12px', borderRadius: '999px',
-              marginBottom: '10px',
+              padding: '8px 16px', borderRadius: '999px',
+              marginBottom: '16px',
               boxShadow: '0 4px 14px rgba(253,237,149,0.4)',
             }}>
-              <Sparkles size={11} style={{ color: '#821905', flexShrink: 0 }} />
+              <Sparkles size={12} style={{ color: '#821905', flexShrink: 0 }} />
               <span style={{
-                color: '#111827', fontWeight: 800, fontSize: '9px',
-                letterSpacing: '0.1em', fontFamily: 'Hind, sans-serif', textTransform: 'uppercase',
+                color: '#111827', fontWeight: 800, fontSize: '10.5px',
+                letterSpacing: '0.12em', fontFamily: 'Hind, sans-serif', textTransform: 'uppercase',
               }}>
                 {slide.badge}
               </span>
@@ -469,19 +664,19 @@ const HeroSection = () => {
             {/* Heading */}
             <h1 className="h-title" style={{
               fontFamily: 'Poppins, sans-serif', fontWeight: 900,
-              color: '#111827', lineHeight: 1.2,
-              margin: 0, marginBottom: '8px',
-              fontSize: '22px',
+              color: '#ffffff', lineHeight: 1.35,
+              margin: 0, marginBottom: '14px',
+              fontSize: '25px',
             }}>
-              <span style={{ display: 'block', marginBottom: '2px' }}>{slide.line1}</span>
+              <span style={{ display: 'block', marginBottom: '4px' }}>{slide.line1}</span>
               <span style={{ display: 'block' }}>
                 {slide.line2}{' '}
                 <span style={{
                   color: '#111827',
                   background: 'linear-gradient(135deg, #FDED95, #f5d76e)',
-                  padding: '2px 8px', borderRadius: '6px',
+                  padding: '2px 10px', borderRadius: '6px',
                   display: 'inline-block',
-                  boxShadow: '0 3px 8px rgba(253,237,149,0.4)',
+                  boxShadow: '0 3px 8px rgba(253,237,149,0.2)',
                 }}>
                   {slide.highlight}
                 </span>
@@ -491,24 +686,24 @@ const HeroSection = () => {
 
             {/* Tagline */}
             <p className="h-tag" style={{
-              fontFamily: 'Poppins, sans-serif', fontWeight: 700,
-              fontSize: '12.5px', color: '#821905',
-              lineHeight: 1.4, marginBottom: '6px',
+              fontFamily: 'Poppins, sans-serif', fontWeight: 600,
+              fontSize: '14.5px', color: 'rgba(255,255,255,0.95)',
+              lineHeight: 1.5, marginBottom: '10px',
             }}>
               {slide.tagline}
             </p>
 
             {/* Sub */}
             <p className="h-sub" style={{
-              fontFamily: 'Hind, sans-serif', fontSize: '12px',
-              color: '#4b5563', lineHeight: 1.5,
-              marginBottom: '14px', fontWeight: 500,
+              fontFamily: 'Hind, sans-serif', fontSize: '13.5px',
+              color: 'rgba(255,255,255,0.75)', lineHeight: 1.6,
+              marginBottom: '24px', fontWeight: 400,
             }}>
               {slide.sub}
             </p>
 
             {/* CTA Buttons */}
-            <div className="h-btns" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '14px' }}>
+            <div className="h-btns" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', width: '100%', marginBottom: '16px' }}>
               <a
                 href={slide.btn2.href}
                 className="mobile-btn-primary"
