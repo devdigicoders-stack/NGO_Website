@@ -47,12 +47,13 @@ const IDCardDownloadPage = () => {
   const downloadPart = (part) => {
     let url, filename;
     const reg = registration?.regNumber || regNumber
+    const userName = registration?.formData?.name || reg.replace(/\//g, '_');
     if (part === 'joining_letter') {
       url = joiningLetterData
-      filename = `Joining_Letter_${reg.replace(/\//g, '_')}.png`
+      filename = `${userName}_Joining_Letter.png`
     } else {
       url = idCardData?.[part]
-      filename = `ID_Card_${part === 'front' ? 'Front' : 'Back'}_${reg.replace(/\//g, '_')}.png`
+      filename = `${userName}_ID_Card_${part === 'front' ? 'Front' : 'Back'}.png`
     }
     
     if (!url) return
@@ -60,7 +61,42 @@ const IDCardDownloadPage = () => {
     link.download = filename
     link.href = url; link.click()
   }
-  const downloadBoth = () => { downloadPart('front'); setTimeout(() => downloadPart('back'), 400); setTimeout(() => downloadPart('joining_letter'), 800) }
+  const downloadIdCardPDF = () => {
+    if (!idCardData?.front || !idCardData?.back) return;
+    const reg = registration?.regNumber || regNumber;
+    
+    // Dynamically import jspdf so it doesn't bloat the main bundle
+    import('jspdf').then(({ jsPDF }) => {
+      const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+      
+      // Standard CR80 ID Card dimensions (85.6mm x 54mm)
+      const cardW = 85.6;
+      const cardH = 54.0;
+      
+      // Center on A4 width (210mm)
+      const x = (210 - cardW) / 2;
+      
+      // Vertical positions with gap
+      const yFront = 20;
+      const yBack = yFront + cardH + 15;
+      
+      // Add text identifier at the top
+      doc.setFontSize(12);
+      doc.setTextColor(130, 25, 5); // Brand primary color
+      doc.text(`ID Card - ${reg}`, 105, 12, { align: 'center' });
+      
+      // Add images
+      doc.addImage(idCardData.front, 'PNG', x, yFront, cardW, cardH);
+      doc.addImage(idCardData.back, 'PNG', x, yBack, cardW, cardH);
+      
+      const userName = registration?.formData?.name || reg.replace(/\//g, '_');
+      doc.save(`${userName}_ID_Card.pdf`);
+    }).catch(err => {
+      console.error('Failed to generate PDF:', err);
+      alert('PDF डाउनलोड करने में त्रुटि हुई।');
+    });
+  };
+
   const reset = () => {
     setRegNumber(''); setRegistration(null); setIdCardData(null); setJoiningLetterData(null); setError(''); setGenerating(false)
     setTimeout(() => inputRef.current?.focus(), 100)
@@ -263,22 +299,6 @@ const IDCardDownloadPage = () => {
                         border: `1px solid ${borderClr}`, display: 'block'
                       }}
                     />
-                    <button
-                      onClick={() => downloadPart('front')}
-                      style={{
-                        width: '100%', marginTop: '14px', padding: '13px',
-                        background: `linear-gradient(135deg,${primary},${primaryLt})`,
-                        color: '#fff', border: 'none', borderRadius: '12px',
-                        fontFamily: 'Hind,sans-serif', fontSize: '14px', fontWeight: 700,
-                        cursor: 'pointer', display: 'flex', alignItems: 'center',
-                        justifyContent: 'center', gap: '8px',
-                        boxShadow: `0 4px 14px rgba(130,25,5,0.32)`, transition: 'opacity 0.2s'
-                      }}
-                      onMouseOver={e => e.currentTarget.style.opacity = '0.88'}
-                      onMouseOut={e  => e.currentTarget.style.opacity = '1'}
-                    >
-                      <Download size={16} /> सामने का भाग डाउनलोड करें
-                    </button>
                   </div>
 
                   {/* Back */}
@@ -295,22 +315,27 @@ const IDCardDownloadPage = () => {
                         border: `1px solid ${borderClr}`, display: 'block'
                       }}
                     />
-                    <button
-                      onClick={() => downloadPart('back')}
-                      style={{
-                        width: '100%', marginTop: '14px', padding: '13px',
-                        background: 'transparent', color: primary,
-                        border: `2px solid ${primary}`, borderRadius: '12px',
-                        fontFamily: 'Hind,sans-serif', fontSize: '14px', fontWeight: 700,
-                        cursor: 'pointer', display: 'flex', alignItems: 'center',
-                        justifyContent: 'center', gap: '8px', transition: 'all 0.2s'
-                      }}
-                      onMouseOver={e => { e.currentTarget.style.background = primary; e.currentTarget.style.color = '#fff' }}
-                      onMouseOut={e  => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = primary }}
-                    >
-                      <Download size={16} /> पीछे का भाग डाउनलोड करें
-                    </button>
                   </div>
+                </div>
+
+                {/* ID Card PDF Download */}
+                <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+                  <button
+                    onClick={downloadIdCardPDF}
+                    style={{
+                      padding: '14px 36px',
+                      background: `linear-gradient(135deg,#059669,#10b981)`,
+                      color: '#fff', border: 'none', borderRadius: '14px',
+                      fontFamily: 'Hind,sans-serif', fontSize: '15px', fontWeight: 800,
+                      cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '10px',
+                      boxShadow: `0 6px 20px rgba(5,150,105,0.35)`,
+                      letterSpacing: '0.3px', transition: 'opacity 0.2s'
+                    }}
+                    onMouseOver={e => e.currentTarget.style.opacity = '0.88'}
+                    onMouseOut={e  => e.currentTarget.style.opacity = '1'}
+                  >
+                    <Download size={18} /> ID Card PDF (दोनों साइड) डाउनलोड
+                  </button>
                 </div>
 
                 {/* Joining Letter Preview */}
@@ -349,25 +374,6 @@ const IDCardDownloadPage = () => {
                   </div>
                 )}
 
-                {/* Download both */}
-                <div style={{ textAlign: 'center', paddingTop: '8px', borderTop: `1px solid ${borderClr}` }}>
-                  <button
-                    onClick={downloadBoth}
-                    style={{
-                      padding: '14px 36px',
-                      background: `linear-gradient(135deg,${primaryDk},${primary})`,
-                      color: '#fff', border: 'none', borderRadius: '14px',
-                      fontFamily: 'Hind,sans-serif', fontSize: '15px', fontWeight: 800,
-                      cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '10px',
-                      boxShadow: `0 6px 20px rgba(130,25,5,0.35)`,
-                      letterSpacing: '0.3px', transition: 'opacity 0.2s', marginTop: '20px'
-                    }}
-                    onMouseOver={e => e.currentTarget.style.opacity = '0.88'}
-                    onMouseOut={e  => e.currentTarget.style.opacity = '1'}
-                  >
-                    <Download size={18} /> दोनों एक साथ डाउनलोड करें
-                  </button>
-                </div>
               </>
             )}
 
