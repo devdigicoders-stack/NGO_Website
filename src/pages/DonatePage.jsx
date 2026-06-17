@@ -11,7 +11,7 @@ const TRUST_ICONS = {
 }
 
 const DEFAULT_SETTINGS = {
-  heroSubtitle: '✍️ आपका दान किसी की जिंदगी बदल सकता है',
+  heroSubtitle: ' आपका दान किसी की जिंदगी बदल सकता है',
   heroTitle: 'दान करें',
   upiId: '',
   upiPayeeName: '',
@@ -39,7 +39,7 @@ const DEFAULT_SETTINGS = {
 }
 
 const DonatePage = () => {
-  const [settings, setSettings] = useState(DEFAULT_SETTINGS)
+  const [settings,setSettings] = useState(DEFAULT_SETTINGS)
   const [settingsLoading, setSettingsLoading] = useState(true)
   const [amount, setAmount] = useState('')
   const [custom, setCustom] = useState(false)
@@ -170,7 +170,7 @@ const DonatePage = () => {
         setSettingsLoading(false)
       }
     }
-    fetchSettings()
+   fetchSettings()
   }, [])
 
   const finalAmount = parseInt(amount, 10) || 0
