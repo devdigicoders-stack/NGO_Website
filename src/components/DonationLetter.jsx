@@ -207,7 +207,7 @@ const DonationLetter = ({ donation, onBack }) => {
             <div style={{ textAlign: 'right', fontSize: '10.5px', color: '#475569', lineHeight: 1.55, fontWeight: 500 }}>
               <div>📞 +91 9569036324</div>
               <div>✉️Shakti.singh20017@gmail.com</div>
-              {/* <div>🌐 www.sadhulaxmitrust.org</div> */}
+              <div>🌐 https://www.sadhulaxmi.com/</div>
             </div>
           </div>
 
