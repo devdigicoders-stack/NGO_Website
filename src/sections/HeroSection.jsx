@@ -3,7 +3,7 @@ import { handlePageLink } from '../utils/navigation'
 import { ArrowUpRight, ChevronLeft, ChevronRight, Heart, HandHeart, Sparkles } from 'lucide-react'
 
 const bannerImages = [
-  '/banner/banner1.png',
+  '/banner/banner10.png',
   '/banner/banner2.png',
   '/banner/banner3.png',
   '/banner/banner4.png',
@@ -12,7 +12,7 @@ const bannerImages = [
   '/banner/banner7.png',
   '/banner/banner8.png',
   '/banner/banner9.png',
-  '/banner/banner10.png',
+  '/banner/banner1.png',
 ];
 
 const slides = [
