@@ -446,8 +446,8 @@ const IDCardGenerator = ({ orgId, formData = {}, regNumber, onGenerated }) => {
       }
 
       // Registration Number badge below photo
-      const regBadgeY = layout.regBadgeY !== undefined ? layout.regBadgeY : (photoY + photoH + 6)
-      const regBadgeH = layout.regBadgeH !== undefined ? layout.regBadgeH : 32
+      const regBadgeY = layout.regBadgeY !== undefined ? layout.regBadgeY : (photoY + photoH + 8)
+      const regBadgeH = layout.regBadgeH !== undefined ? layout.regBadgeH : 50
       ctx.fillStyle = layout.regBadgeColor || hColors.to
       roundRect(ctx, photoX, regBadgeY, photoW, regBadgeH, 6)
       ctx.fill()
@@ -456,21 +456,21 @@ const IDCardGenerator = ({ orgId, formData = {}, regNumber, onGenerated }) => {
       ctx.textAlign    = 'center'
       ctx.textBaseline = 'top'
 
-      let labelY = regBadgeY + 4
-      let valY = regBadgeY + 18
-      let labelFontSize = "bold 11px"
-      let valFontSize = "bold 11px"
-      if (regBadgeH > 40) {
-        labelY = regBadgeY + 10
-        valY = regBadgeY + 30
-        labelFontSize = "bold 14px"
-        valFontSize = "bold 15px"
+      let labelY = regBadgeY + 6
+      let valY = regBadgeY + 26
+      let labelFontSize = "bold 14px"
+      let valFontSize = "bold 15px"
+      if (regBadgeH <= 40) {
+        labelY = regBadgeY + 4
+        valY = regBadgeY + 18
+        labelFontSize = "bold 11px"
+        valFontSize = "bold 11px"
       }
 
       ctx.font = `${labelFontSize} 'Hind', sans-serif`
-      ctx.fillText('रजिस्ट्रेशन नंबर', photoX + photoW / 2, labelY)
+      ctx.fillText('रजिस्ट्रेशन नंबर', photoX + photoW / 2, labelY, photoW - 10)
       ctx.font = `${valFontSize} 'Poppins', sans-serif`
-      ctx.fillText(regNumber || 'NGO/2026/000000', photoX + photoW / 2, valY)
+      ctx.fillText(regNumber || 'NGO/2026/000000', photoX + photoW / 2, valY, photoW - 10)
 
       // ── 3. Member details (center) ──
       {
